@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kosa spalinowa do 1000 zl - Research zakupowy</title>
+<style>
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #f7f5f0;
+    color: #2c2c2c;
+    margin: 0;
+    padding: 0;
+  }
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 28px 60px;
+  }
+  h1 {
+    font-size: 1.7rem;
+    color: #1a1a1a;
+    border-bottom: 3px solid #5a7a3a;
+    padding-bottom: 12px;
+    margin-bottom: 6px;
+  }
+  .meta {
+    font-size: 0.82rem;
+    color: #777;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 1.2rem;
+    color: #2e5016;
+    margin-top: 42px;
+    margin-bottom: 14px;
+    border-left: 4px solid #5a7a3a;
+    padding-left: 12px;
+  }
+  h3 {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  .verdict-box {
+    background: #eef4e5;
+    border: 2px solid #5a7a3a;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .verdict-box .v-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #2e5016;
+    margin-bottom: 10px;
+  }
+  .verdict-box ul {
+    margin: 8px 0 0 0;
+    padding-left: 20px;
+  }
+  .verdict-box li {
+    margin-bottom: 6px;
+    line-height: 1.55;
+  }
+  .warn-box {
+    background: #fff8e8;
+    border: 1px solid #c8a83a;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 0.92rem;
+    margin: 16px 0;
+    line-height: 1.55;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 24px;
+    font-size: 0.88rem;
+  }
+  th {
+    background: #5a7a3a;
+    color: #fff;
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: normal;
+    font-size: 0.84rem;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  tr:nth-child(even) td {
+    background: #f0ede6;
+  }
+  tr:hover td {
+    background: #e8efe0;
+  }
+  .best {
+    background: #d5e8b8 !important;
+    font-weight: bold;
+  }
+  .best td {
+    background: #d5e8b8 !important;
+  }
+  a {
+    color: #2e6b00;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .badge-green {
+    display: inline-block;
+    background: #5a7a3a;
+    color: #fff;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-size: 0.78rem;
+    margin-left: 4px;
+  }
+  .badge-orange {
+    display: inline-block;
+    background: #b8722a;
+    color: #fff;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-size: 0.78rem;
+    margin-left: 4px;
+  }
+  .badge-gray {
+    display: inline-block;
+    background: #888;
+    color: #fff;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-size: 0.78rem;
+    margin-left: 4px;
+  }
+  .section-intro {
+    font-size: 0.93rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .detail-block {
+    background: #fafaf7;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .detail-block h3 {
+    margin-top: 0;
+    color: #2e5016;
+  }
+  .pro { color: #2e6b00; }
+  .con { color: #9a2a00; }
+  ul.tight { margin: 6px 0; padding-left: 20px; }
+  ul.tight li { margin-bottom: 4px; font-size: 0.92rem; }
+  .price-big { font-size: 1.4rem; font-weight: bold; color: #2e5016; }
+  .price-note { font-size: 0.82rem; color: #666; }
+  .divider { border: none; border-top: 1px solid #d0ccbf; margin: 36px 0; }
+  .footer-note {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    padding-top: 14px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Kosa spalinowa do 1000 zl - Research zakupowy</h1>
+  <div class="meta">Zastosowanie: zaroslnieta dzialka w Rogalinie (chwasty, krzaki, samosiejki), uzycie okazjonalne. Budzet: ok. 600-1000 zl. Data researchu: czerwiec 2025.</div>
+
+  <!-- === SEKCJA 1: WERDYKT === -->
+  <h2>1. Rekomendacja w skrocie</h2>
+
+  <div class="verdict-box">
+    <div class="v-title">Werdykt: NAC BP427-16MU-T to przyzwoity wybor w tej cenie, ale sa lepsze alternatywy do ciezkich krzakow.</div>
+    <ul>
+      <li><strong>Jesli priorytetem jest waga i manewrowosc:</strong> wybierz <strong>Daewoo DABC 520</strong> (ok. 699 zl, 8,7 kg, 1,9 KM/1,4 kW). Mocniejszy silnik, lzejszy, tarcza w zestawie i szelki. Do zaroslnietej dzialki z krzakami i samosiejkami to lepsze narzedzie niz NAC.</li>
+      <li><strong>Jesli chcesz wielofunkcyjnosc (kosa + pilarka + nozyce) i budzet az do 1000 zl:</strong> rozpatrz <strong>Hecht 1331</strong> (ok. 800 zl, 4w1, tarcza + pilarka 30cm + nozyce do zywoplotow 40cm). Lzejszy niz NAC (3,8 kg sama glowica), ale dostepnosc bywa ograniczona.</li>
+      <li><strong>Jesli chcesz minimalizowac ryzyko i masz dostep do serwisu:</strong> dopasuj budzet do <strong>Husqvarna 129R</strong> (ok. 1350-1500 zl, poza budzet), lub <strong>Oleo-Mac Sparta 250</strong> (ok. 900 zl) - znane z niezawodnosci i sieci serwisowej, ale drogie.</li>
+      <li><strong>NAC BP427 nadaje sie</strong> do okazjonalnej pracy i daje 4w1 (pilarka, nozyce), ale wazne ostrzezenia: waga 12,8 kg to duzo, opinie serwisowe sa mieszane, a NAC ogolnie czesto trafia do napraw. Do jednorazowego uprzątnięcia dzialki - da rade. Do regularnej pracy - ryzyko.</li>
+    </ul>
+  </div>
+
+  <div class="warn-box">
+    <strong>Kluczowe dla Rogalina:</strong> krzaki i samosiejki wymagaja tarczy tnącej (metalowej), nie samej zyłki. Upewnij sie, ze wybrany model ma TARCZE w zestawie (nie tylko gliwice zylkowa). Daewoo DABC 520 i NAC BP427 maja tarcze w zestawie. Hecht 133R tez (trojramienny noz). Moc: do krzaków minimum 1,5 KM, lepiej 1,9 KM lub wyzej.
+  </div>
+
+  <hr class="divider">
+
+  <!-- === SEKCJA 2: NAC BP427 GDZIE NAJTANIEJ === -->
+  <h2>2. NAC BP427-16MU-T - gdzie najtaniej online</h2>
+
+  <p class="section-intro">
+    Model: NAC BP427-16MU-T (kod 892091). Silnik 2-suwowy, 42,7 cm3, 1,2 kW / 1,6 KM, waga 12,8 kg. W zestawie: glowica zyłkowa (szer. koszenia 44 cm), tarcza tnaca (25,5 cm), pilarka 30 cm, nozyce do zywoplotem 40 cm. Gwarancja producenta: 7 lat (serwis: serwis.nac.com.pl, infolinia 801 044 450).
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Sklep</th>
+        <th>Cena produktu</th>
+        <th>Dostawa</th>
+        <th>Laczna cena</th>
+        <th>Uwagi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="best">
+        <td><a href="https://www.morele.net/nac-kosa-spalinowa-combo-1-6km-44-25-5cm-akcesoria-bp427-16mu-t-3238423/" target="_blank">Morele.net</a></td>
+        <td>720,62 zl</td>
+        <td>Bezpłatna (z Morele Max); bez subskr. - sprawdz</td>
+        <td>~720-740 zl</td>
+        <td>Wysyłka 1 dzien. NAJTANIEJ. <span class="badge-green">POLECAM</span></td>
+      </tr>
+      <tr>
+        <td><a href="https://allegro.pl/oferta/kosa-spalinowa-wielofunkcyjna-nac-1100w-bp427-16mu-t-15058132865" target="_blank">Allegro.pl</a></td>
+        <td>720,71 zl</td>
+        <td>od 14,99 zl (Smart: darmowa)</td>
+        <td>~721-736 zl</td>
+        <td>Prawie ta sama cena; Smart = darmowa dostawa</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.mediaexpert.pl/dom-i-ogrod/kosiarki-i-podkaszarki/kosy-i-podkaszarki-spalinowe/kosa-spalinowa-nac-bp427-16mu-t" target="_blank">Media Expert</a></td>
+        <td>ok. 870 zl</td>
+        <td>od 7,99 zl</td>
+        <td>ok. 878 zl</td>
+        <td>Znacznie drozej; ulatwa zwrot stacjonarnie <span class="badge-gray">do potwierdzenia</span></td>
+      </tr>
+      <tr>
+        <td><a href="https://nac.com.pl/en/nac-bp427-16mu-t-42-7cc-multi-functional-petrol-brush-cutter-1099-pln/" target="_blank">NAC (producent)</a></td>
+        <td>1099 zl</td>
+        <td>do sprawdzenia</td>
+        <td>ok. 1100+ zl</td>
+        <td>Najdrozej; nie warto przy tej rozpietosci cen</td>
+      </tr>
+      <tr>
+        <td><a href="https://electromag.pl/NAC-BP427-16MU-T-Kosa-spalinowa-wielofunkcyjna" target="_blank">Electromag.pl</a></td>
+        <td>ok. 780-850 zl</td>
+        <td>do sprawdzenia</td>
+        <td>do sprawdzenia</td>
+        <td><span class="badge-gray">do potwierdzenia</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="section-intro"><strong>Wniosek:</strong> najtaniej na <a href="https://www.morele.net/nac-kosa-spalinowa-combo-1-6km-44-25-5cm-akcesoria-bp427-16mu-t-3238423/" target="_blank">Morele.net za 720,62 zl</a>. Roznica vs producent to ponad 378 zl. Jesli masz Allegro Smart, Allegro jest rownowazne.</p>
+
+  <h3>Szelki i olej - co z reszta koszyka?</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Akcesorium</th>
+        <th>Najtaniej</th>
+        <th>Cena</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Szelki NAC Pro TT-BC520-2</td>
+        <td>Allegro</td>
+        <td>28,17 zl + dostawa od 10,49 zl</td>
+        <td><a href="https://allegro.pl/listing?string=nac+tt-bc520-2" target="_blank">Allegro - szelki NAC</a></td>
+      </tr>
+      <tr>
+        <td>Szelki NAC Pro TT-BC520-2</td>
+        <td>Leroy Merlin / Media Expert</td>
+        <td>29,99 zl + dostawa od 7,99 zl</td>
+        <td><a href="https://www.leroymerlin.pl/maszyny-ogrodnicze/kosy-podkaszarki/pasy-i-szelki/uprzaz-do-kos-spalinowych-blister-tt-bc520-2-nac,p447739,l3204.html" target="_blank">Leroy Merlin</a></td>
+      </tr>
+      <tr>
+        <td>Olej 2T 1L (NAC lub odpowiednik)</td>
+        <td>OBI / Allegro</td>
+        <td>ok. 30-42 zl</td>
+        <td><a href="https://allegro.pl/listing?string=olej+2t+do+kosy" target="_blank">Allegro - olej 2T</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">Uwaga: zamiast NAC 2T, mozna kupic tańszy olej Orlen 2T lub Husqvarna HP na Allegro (ok. 20-30 zl/1L), ktory rowniez pasuje do kosiarek 2-suwowych. Sprawdz tylko proporcje mieszanki - zazwyczaj 1:50 (20 ml oleju na 1L benzyny). Sprawdz w instrukcji NAC BP427.</div>
+
+  <p><strong>Kosztorys wg pierwotnego koszyka Pawla:</strong> NAC 720 + szelki 28-30 + olej 30 = ok. <strong>778-780 zl lacznie</strong> (przy Allegro Smart). Taniej niz 827 zl pierwotnie planowane.</p>
+
+  <hr class="divider">
+
+  <!-- === SEKCJA 3: ALTERNATYWY === -->
+  <h2>3. Alternatywy w budzecie 600-1000 zl</h2>
+
+  <p class="section-intro">Modele porownywalne cenowo, ktore daja cos innego (wiecej mocy, mniejsza wage, lepszy silnik lub inny zestaw).</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Moc</th>
+        <th>Pojemnosc</th>
+        <th>Waga</th>
+        <th>Wyposazenie w zestawie</th>
+        <th>Cena orient.</th>
+        <th>Gdzie kupic</th>
+        <th>+/- vs NAC BP427</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="best">
+        <td><strong>Daewoo DABC 520</strong> <span class="badge-green">REKOMEND.</span></td>
+        <td>1,9 KM / 1,4 kW</td>
+        <td>51,7 cm3</td>
+        <td>8,7 kg</td>
+        <td>Tarcza Fast Cut 40 zeby, gliwica zylkowa, szelki 2-ramionne, oslona</td>
+        <td>699-800 zl</td>
+        <td><a href="https://dpp-sklep.pl/pl/p/Kosa-spalinowa-DAEWOO-DABC-520/147" target="_blank">Sklep DPP (699 zl)</a> / <a href="https://www.ceneo.pl/97372969" target="_blank">Ceneo od 681 zl</a></td>
+        <td><span class="pro">+ mocniejszy o 0,2 kW (+35%)</span><br><span class="pro">+ lzejszy o 4 kg (!!!)</span><br><span class="pro">+ szelki w cenie</span><br><span class="pro">+ tarcza 40-zebow</span><br><span class="pro">+ Easy Start</span><br><span class="con">- brak pilarki i nozyce do zywoplotow</span><br><span class="con">- marka mniej znana w serwisach</span></td>
+      </tr>
+      <tr>
+        <td><strong>NAC BP427-16MU-T</strong> (model oceniany)</td>
+        <td>1,6 KM / 1,2 kW</td>
+        <td>42,7 cm3</td>
+        <td>12,8 kg</td>
+        <td>Gliwica zylkowa, tarcza tnaca, pilarka 30 cm, nozyce zywoplot 40 cm</td>
+        <td>720-1099 zl</td>
+        <td><a href="https://www.morele.net/nac-kosa-spalinowa-combo-1-6km-44-25-5cm-akcesoria-bp427-16mu-t-3238423/" target="_blank">Morele 720 zl</a></td>
+        <td>Punkt odniesienia. Wielofunkcyjny 4w1, ale ciezki i serwisowo ryzykowny.</td>
+      </tr>
+      <tr>
+        <td><strong>Hecht 133R</strong> <span class="badge-orange">4-SUW</span></td>
+        <td>1,1 KM / 0,8 kW</td>
+        <td>33,5 cm3</td>
+        <td>7,5 kg</td>
+        <td>Trojramienny noz metalowy + gliwica zylkowa</td>
+        <td>799-900 zl</td>
+        <td><a href="https://allegro.pl/oferta/kosa-spalinowa-hecht-133-r-1-1-km-4-suw-7193694136" target="_blank">Allegro ok. 799 zl</a></td>
+        <td><span class="pro">+ 4-suwowy: brak mieszania paliwa, cichszy, bardziej ekologiczny</span><br><span class="pro">+ lzejszy (7,5 kg)</span><br><span class="pro">+ solidna marka czeska</span><br><span class="con">- slabszy (0,8 kW vs 1,2 kW) - krzaki beda go haczyc</span><br><span class="con">- brak pilarki i nozyce</span><br><span class="con">- aktualnie trudno dostepny (Ceneo: brak ofert)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Hecht 1331</strong> 4w1</td>
+        <td>1,5 KM / 1,1 kW</td>
+        <td>32,7 cm3</td>
+        <td>3,8 kg (glowica)</td>
+        <td>Gliwica zylkowa, tarcza, nozyce 40 cm, pilarka 30 cm, szelki 2-ramionne, przedluzacz</td>
+        <td>799-999 zl</td>
+        <td><a href="https://www.hechtpolska.pl/pl/p/KOSA-SPALINOWA-WIELOFUNKCYJNA-HECHT-1331/10602" target="_blank">Hecht sklep ok. 800 zl</a></td>
+        <td><span class="pro">+ znacznie lzejsza glowica (3,8 kg vs 12,8 kg!)</span><br><span class="pro">+ szelki i pilarka w zestawie jak NAC</span><br><span class="pro">+ Hecht - lepsza marka niz NAC</span><br><span class="con">- rowniez 2-suw, mniej mocy niz Daewoo</span><br><span class="con">- AKTUALNIE NIEDOSTEPNA w hechtpolska.pl</span></td>
+      </tr>
+      <tr>
+        <td><strong>Fuxtec FX-MS152</strong></td>
+        <td>3,0 KM / ok. 2,2 kW</td>
+        <td>52 cm3</td>
+        <td>ok. 8-9 kg</td>
+        <td>Gliwica zylkowa + tarcza 3-zeb (brak szelek)</td>
+        <td>ok. 784-799 zl</td>
+        <td><a href="https://fuxtec.pl/collections/kosy" target="_blank">fuxtec.pl</a></td>
+        <td><span class="pro">+ najmoniejszy w zestawieniu (3 KM!)</span><br><span class="pro">+ bardzo dobry do krzakow i geste zarosla</span><br><span class="con">- brak szelek w zestawie</span><br><span class="con">- brak pilarki / nozyce</span><br><span class="con">- mniej znana marka, serwis online</span><br><span class="con">- cena do potwierdzenia w sklepie</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="divider">
+
+  <!-- === SEKCJA 4: SZCZEGOLY === -->
+  <h2>4. Szczegoly kluczowych opcji</h2>
+
+  <div class="detail-block">
+    <h3>Daewoo DABC 520 - dlaczego to faworyt do Rogalina</h3>
+    <p>Silnik 51,7 cm3 / 1,9 KM / 1,4 kW to znaczna przewaga nad NAC (42,7 cm3 / 1,6 KM). W praktyce: lepiej radzi sobie z grubszymi pedami krzakow i samosiejkami do 3-4 cm. Tarcza "Fast Cut Technology" z 40 zebami ze spieku twardego tnie czysto i wytrzymuje dluzej niz typowe 3-zeb. Waga 8,7 kg (vs 12,8 kg NAC) to roznica odczuwalna przy kilku godzinach pracy. Szelki sa w zestawie - koszyk od razu kompletny.</p>
+    <p><strong>Co traci vs NAC:</strong> brak pilarki lancuchowej i nozyce do zywoplotow. Jesli Rogalin to jednorazowe uporzadkowanie (nie coroczna pielegnacja zywoplotow), pilarka i nozyce nie sa potrzebne.</p>
+    <ul class="tight">
+      <li>Cena: 699 zl w <a href="https://dpp-sklep.pl/pl/p/Kosa-spalinowa-DAEWOO-DABC-520/147" target="_blank">oficjalnym sklepie DPP</a> (darmowa dostawa od 400 zl), od 681 zl na <a href="https://www.ceneo.pl/97372969" target="_blank">Ceneo</a></li>
+      <li>Gwarancja 2 lata (3 lata po rejestracji), serwis: service@dw-pp.com</li>
+      <li>Norma Euro 5, Easy Start</li>
+    </ul>
+    <p class="warn-box" style="margin-top:10px;"><strong>Uwaga:</strong> ocena uzytkownikow DABC 520 to 3,75/5 (19 ocen) - nizsza niz NAC (4,25/5). Czesc opinii wskazuje na problemy z jakoscia wykonania. Warto sprawdzic opinie przed zakupem na Ceneo.</p>
+  </div>
+
+  <div class="detail-block">
+    <h3>NAC BP427-16MU-T - pełny obraz</h3>
+    <p>Model 4w1 to duza zaleta, jesli planujesz uzyc pilarki (galazki do 15 cm) i nozyce do zywoplotow. Jezeli Rogalin to zaroslnieta dzialka bez zywoplotem do strzyzynia - ten bonusowy sprzet bedzie lezal w szopie. Za te wielofunkcyjnosc placisz waga 12,8 kg i ryzykiem serwisowym.</p>
+    <p><strong>Opinia forumowiczow:</strong> jeden uzytkownik pochwali kose na poletku 2000 m2 z krzakami i jezynamii, ale serwisant pisze, ze NAC to 50-60% napraw w warsztacie. Dobre dla uzytku okazjonalnego (kilka razy w sezonie), gorsze przy regularnej codziennej pracy.</p>
+    <ul class="tight">
+      <li>Gwarancja producenta: 7 lat (wyjatkowo dlugo jak na te klase)</li>
+      <li>Serwis: serwis.nac.com.pl, tel. 801 044 450</li>
+      <li>Najtaniej: <a href="https://www.morele.net/nac-kosa-spalinowa-combo-1-6km-44-25-5cm-akcesoria-bp427-16mu-t-3238423/" target="_blank">Morele.net 720,62 zl</a></li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h3>Fuxtec FX-MS152 - opcja dla twardych zarosli</h3>
+    <p>Jesli Rogalin to naprawde geste krzewy i samosiejki powyzej 2 cm srednicy, Fuxtec 3 KM bedzie pracowal bez zadyszki tam, gdzie slabsze maszyny gasna lub mocno wibruja. Silnik 52 cm3 to klasa pol-profesjonalna. Cena ok. 784-799 zl jest bardzo atrakcyjna jak na te moc. Wada: brak szelek (do kupienia za ok. 30 zl) i brak pilarki/nozyce.</p>
+    <ul class="tight">
+      <li>Kupno: <a href="https://fuxtec.pl/collections/kosy" target="_blank">fuxtec.pl</a> (sklep producenta)</li>
+      <li>Cena do potwierdzenia bezposrednio w sklepie - podane 784-799 zl to dane historyczne</li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h3>Hecht 133R (4-suw) - luzniejsze krzaki, mniej zarosniete tereny</h3>
+    <p>Silnik 4-suwowy to komfort: nie trzeba mieszac paliwa z olejem, mniejsze wibracje, cichszy. Ale moc tylko 0,8 kW / 1,1 KM - przy grubszych pedach krzakow bedzie sie meczyc i gasn. Do regularnego koszenia trawy i lekkich zarosli - super. Do ostrych zaroslnietych dzialek z drzewkami samosiejkami - niekoniecznie.</p>
+    <p><strong>Dostepnosc: aktualnie produkty Hecht 133R sa trudno dostepne</strong> (Ceneo informuje o braku ofert, ostatnia cena ok. 640 zl). Mozliwe, ze wroci na rynek - warto sprawdzic na <a href="https://allegro.pl/listing?string=kosa+spalinowa+hecht+133r" target="_blank">Allegro</a>.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- === SEKCJA 5: PORADA === -->
+  <h2>5. Na co zwrocic uwage przy zakupie kosy spalinowej do krzakow</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Kryterium</th>
+        <th>Wyjasnienie</th>
+        <th>Minimum do krzakow</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Moc silnika</strong></td>
+        <td>Im wiekszy cm3 i KM, tym pewniej radzi sobie z grubymi pedami. Do trawnika starcza 1,2-1,5 KM. Do krzakow i samosiejek lepiej 1,7 KM lub wyzej.</td>
+        <td>Min. 1,5 KM do krzakow; zalecane 1,9+ KM</td>
+      </tr>
+      <tr>
+        <td><strong>Tarcza tnaca w zestawie</strong></td>
+        <td>Zylka nie przetnie krzakow grubszych niz 1-1,5 cm. Tarcza metalowa (3-zeb lub wiecej) jest konieczna do galezi i grubych lodygiek.</td>
+        <td>Tarcza metalowa MUSI byc w zestawie lub dostepna</td>
+      </tr>
+      <tr>
+        <td><strong>Waga</strong></td>
+        <td>Przy godzinie+ pracy roznicy 4-5 kg mozna nie docenic przed zakupem, a bardzo docenic po. Kosa z silnikiem wisi z prawej strony na pasku/szelkach.</td>
+        <td>Do 9 kg - komfortowo; 12+ kg - meczyace po dluzszej pracy</td>
+      </tr>
+      <tr>
+        <td><strong>Szelki</strong></td>
+        <td>Przy ciezszych modelach (9+ kg) szelki dwuramienne sa koniecznoscia, nie opcja. Dystrybuuja ciezar i chronia kregoslup.</td>
+        <td>Dla modeli 8+ kg: szelki obowiazkowe</td>
+      </tr>
+      <tr>
+        <td><strong>2-suw vs 4-suw</strong></td>
+        <td>2-suw: lzejszy, wieksza moc z mniejszej objetosci, wymaga mieszanki benzyna+olej (1:50). 4-suw: zwykla benzyna, cichszy, ekologiczniejszy, ale ciezszy i zazwyczaj slabszy w tej klasie cen.</td>
+        <td>Do krzakow czesto lepszy 2-suw (stosunek moc/waga)</td>
+      </tr>
+      <tr>
+        <td><strong>Dostepnosc serwisu</strong></td>
+        <td>Tanie kosy (NAC, Daewoo) czesto wymagaja napraw. Sprawdz, czy producent ma autoryzowany serwis w Twoim regionie PRZED zakupem.</td>
+        <td>Sprawdz mape serwisow producenta</td>
+      </tr>
+      <tr>
+        <td><strong>Wielofukcyjnosc</strong></td>
+        <td>Modele 4w1 kuszą, ale jezeli uzywasz tylko kosy - placisz za ciezar i sklada moduly. Przemysl, czy pilarka i nozyce beda uzywane w Rogalinie.</td>
+        <td>4w1 warte uwagi tylko gdy realnie uzywasz wiecej niz 1 modulu</td>
+      </tr>
+      <tr>
+        <td><strong>Dzwignia bezpieczenstwa</strong></td>
+        <td>Praca z tarcza metalowa wymaga pelnego ekwipunku ochronnego: kask z siatka na twarz, nauszniki, rekawice, buty robocze, spodnie ochronne. Tarcza obraca sie 9000 rpm - nic tu do oszczedzania.</td>
+        <td>Ekwipunek ochronny obowiazkowy przy tarczy metalowej</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>Przykladowy harmonogram uruchomienia:</strong><br>
+    1. Skosic wysokie chwasty i trawa - zylka (gliwica, szeroka glowica).<br>
+    2. Powrocic z tarcza metalowa do krzakow i samosiejek - tarcza 3-zeb lub wiecej.<br>
+    3. Galazki grubsze niz 3 cm: pilarka (jesli model 4w1) lub pilarka reczna.<br>
+    Dla jednorazowej akcji w Rogalinie Daewoo DABC 520 z tarcza 40-zeb powinien wystarczyc.
+  </div>
+
+  <hr class="divider">
+
+  <h2>Podsumowanie rekomendacji</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opcja</th>
+        <th>Cena orient.</th>
+        <th>Dla kogo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="best">
+        <td><a href="https://dpp-sklep.pl/pl/p/Kosa-spalinowa-DAEWOO-DABC-520/147" target="_blank">Daewoo DABC 520</a></td>
+        <td>699 zl</td>
+        <td>Priorytet: moc + waga. Ciezkie zarosla, szelki juz w zestawie, taniej niz NAC.</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.morele.net/nac-kosa-spalinowa-combo-1-6km-44-25-5cm-akcesoria-bp427-16mu-t-3238423/" target="_blank">NAC BP427-16MU-T</a></td>
+        <td>721 zl</td>
+        <td>Jesli zalezy Ci na 4w1 (pilarka, nozyce do zywoplotow). Polecany na uzytek okazjonalny, nie do ciezkich sezonow. Gwarancja 7 lat to plus.</td>
+      </tr>
+      <tr>
+        <td><a href="https://fuxtec.pl/collections/kosy" target="_blank">Fuxtec FX-MS152</a></td>
+        <td>ok. 784-799 zl</td>
+        <td>Priorytet: maksymalna moc (3 KM). Naprawde geste zarosla i grube pedy. Szelki dokup osobno (+30 zl).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer-note">
+    Zrodla i dane zebrane: Ceneo.pl, Morele.net, Allegro.pl, DPP-sklep.pl (Daewoo), Hechtpolska.pl, Fuxtec.pl, forum ogrodnicze (forumogrodnicze.info), nac.com.pl. Ceny orientacyjne z czerwca 2025 - przed zakupem zweryfikuj aktualna cene i dostepnosc w sklepie. Ceny oznaczone "do potwierdzenia" wymagaja bezposredniego sprawdzenia.
+  </div>
+
+</div>
+</body>
+</html>
