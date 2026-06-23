@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cityroom x BON Posesja - Przeglad sald lokali - czerwiec 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+    color: #1a1a2e;
+    background: #f4f6f9;
+    padding: 24px 16px;
+  }
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  /* NAGLOWEK */
+  .header {
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+  }
+  .header .sub {
+    font-size: 13px;
+    color: #a8b0c0;
+  }
+  /* SEKCJE */
+  .section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .section h2 {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #555;
+    border-bottom: 2px solid #e8eaf0;
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+  }
+  /* PODSUMOWANIE GORNE */
+  .summary-cards {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .card {
+    flex: 1;
+    min-width: 180px;
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .card.red { background: #fff1f1; border-left: 4px solid #d9534f; }
+  .card.green { background: #f0fff4; border-left: 4px solid #28a745; }
+  .card.blue { background: #f0f4ff; border-left: 4px solid #3c5bcc; }
+  .card.warn { background: #fffbf0; border-left: 4px solid #e6a817; }
+  .card .label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .card .value {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .card.red .value { color: #c0392b; }
+  .card.green .value { color: #1a7a3f; }
+  .card.blue .value { color: #2d4db0; }
+  .card.warn .value { color: #b07800; }
+  .card .note {
+    font-size: 11px;
+    color: #999;
+    margin-top: 4px;
+  }
+  /* TABELE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    background: #f0f2f6;
+    color: #444;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 2px solid #dde1ea;
+  }
+  thead th.right { text-align: right; }
+  tbody tr { border-bottom: 1px solid #eef0f4; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #fafbfd; }
+  td { padding: 10px 12px; vertical-align: middle; }
+  td.right { text-align: right; font-variant-numeric: tabular-nums; }
+  td.mono { font-family: 'Consolas', monospace; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .badge-red { background: #fde8e8; color: #b91c1c; }
+  .badge-green { background: #dcfce7; color: #15803d; }
+  .badge-warn { background: #fff3cd; color: #92600a; }
+  /* KWOTY */
+  .amt-neg { color: #c0392b; font-weight: 600; }
+  .amt-pos { color: #1a7a3f; font-weight: 600; }
+  /* SZCZEGOLY */
+  .detail-block {
+    margin-bottom: 20px;
+    border: 1px solid #e8eaf0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .detail-block:last-child { margin-bottom: 0; }
+  .detail-header {
+    background: #f7f8fb;
+    padding: 10px 16px;
+    border-bottom: 1px solid #e8eaf0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .detail-header .addr {
+    font-weight: 700;
+    font-size: 13px;
+    color: #1a1a2e;
+  }
+  .detail-header .period {
+    font-size: 11px;
+    color: #888;
+    margin-left: auto;
+  }
+  .detail-body { padding: 12px 16px; }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px 20px;
+    margin-bottom: 10px;
+  }
+  .dg-item .dg-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #999;
+    margin-bottom: 2px;
+  }
+  .dg-item .dg-val {
+    font-size: 14px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .detail-note {
+    font-size: 12px;
+    color: #666;
+    background: #fafbfc;
+    border: 1px solid #e8eaf0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  /* SPORNE */
+  .issue-item {
+    padding: 12px 14px;
+    border-left: 3px solid #e6a817;
+    background: #fffbf0;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .issue-item:last-child { margin-bottom: 0; }
+  .issue-item .issue-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #1a1a2e;
+  }
+  /* AKCJE */
+  .action-item {
+    padding: 10px 14px;
+    border-left: 3px solid #3c5bcc;
+    background: #f0f4ff;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .action-item:last-child { margin-bottom: 0; }
+  .action-num {
+    font-weight: 700;
+    color: #3c5bcc;
+    margin-right: 6px;
+  }
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #bbb;
+    padding: 12px 0 4px;
+  }
+  @media (max-width: 600px) {
+    .summary-cards { flex-direction: column; }
+    .detail-grid { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- NAGLOWEK -->
+  <div class="header">
+    <h1>BON Posesja x Cityroom - Przeglad sald lokali</h1>
+    <div class="sub">Zestawienie na dzien 11.06.2026 &nbsp;|&nbsp; Sporzadzone przez BON Posesja Sp. z o.o., Illakowiczowny 13/3, Poznan &nbsp;|&nbsp; Wygenerowano 22.06.2026</div>
+  </div>
+
+  <!-- 1. PODSUMOWANIE -->
+  <div class="section">
+    <h2>1. Podsumowanie ogolne</h2>
+    <div class="summary-cards">
+      <div class="card red">
+        <div class="label">Laczne zadluzenie Cityroom</div>
+        <div class="value">10 780,25 zl</div>
+        <div class="note">suma z 5 lokali z zadluzeniem</div>
+      </div>
+      <div class="card green">
+        <div class="label">Laczna nadplata Cityroom</div>
+        <div class="value">1 405,57 zl</div>
+        <div class="note">suma z 2 lokali z nadplata</div>
+      </div>
+      <div class="card red">
+        <div class="label">Saldo netto (Cityroom do zaplaty)</div>
+        <div class="value">9 374,68 zl</div>
+        <div class="note">zadluzenie minus nadplata</div>
+      </div>
+      <div class="card warn">
+        <div class="label">Do wyjasnienia</div>
+        <div class="value">2 lokale</div>
+        <div class="note">Kilinski 9 i 10 identyczne dane; Koscielna 10 - brak danych Cityroom</div>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Lokal</th>
+          <th>Plik PDF</th>
+          <th class="right">Saldo koncowe</th>
+          <th>Status</th>
+          <th>Data salda</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Mielzynskiego 19, lok. 7a</strong></td>
+          <td>posesja-M19-lok7a.pdf</td>
+          <td class="right"><span class="amt-pos">+1 250,32 zl</span></td>
+          <td><span class="badge badge-green">NADPLATA</span></td>
+          <td>11.06.2026</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Mielzynskiego 19, lok. 32</strong></td>
+          <td>posesja-M19-lok32.pdf</td>
+          <td class="right"><span class="amt-neg">-2 114,75 zl</span></td>
+          <td><span class="badge badge-red">ZADLUZENIE</span></td>
+          <td>11.06.2026</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>Koscielna 13, lok. 10</strong></td>
+          <td>posesja-Koscielna13-lok10.pdf</td>
+          <td class="right">brak danych Cityroom</td>
+          <td><span class="badge badge-warn">DO WYJASNIENIA</span></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Koscielna 13, lok. 6</strong></td>
+          <td>posesja-Koscielna13-lok6.pdf</td>
+          <td class="right"><span class="amt-pos">+155,25 zl</span></td>
+          <td><span class="badge badge-green">NADPLATA</span></td>
+          <td>11.06.2026</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>28 Czerwca 1956 nr 117, lok. 1</strong></td>
+          <td>posesja-28Czerwca117-lok1.pdf</td>
+          <td class="right"><span class="amt-neg">-2 103,58 zl</span></td>
+          <td><span class="badge badge-red">ZADLUZENIE</span></td>
+          <td>11.06.2026</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>Kilinskiego 6, lok. 9</strong></td>
+          <td>posesja-Kilinskiego6-lok9.pdf</td>
+          <td class="right"><span class="amt-neg">-3 380,46 zl</span></td>
+          <td><span class="badge badge-red">ZADLUZENIE</span></td>
+          <td>11.06.2026</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>Kilinskiego 6, lok. 10</strong></td>
+          <td>posesja-Kilinskiego6-lok10.pdf</td>
+          <td class="right"><span class="amt-neg">-3 380,46 zl</span></td>
+          <td><span class="badge badge-warn">ZADLUZENIE (do weryfikacji)</span></td>
+          <td>11.06.2026</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="detail-note" style="margin-top:14px;">
+      <strong>Uwaga do liczenia sumy:</strong> Koscielna 13 lok. 10 nie ma danych dla Cityroom (patrz pkt 4). Kilinski lok. 9 i lok. 10 maja identyczne liczby co do grosza - mozliwy blad Posesji (te same dane wyslane dla dwoch lokali). Saldo netto 9 374,68 zl wyliczono bez lok. 10 Kilinski (duplikat) i bez lok. 10 Koscielna (brak danych). Jesli lok. 9 i lok. 10 Kilinskiego to dwa odrebne zestawienia, laczne zadluzenie wynosi 12 760,71 zl, saldo netto 11 355,14 zl.
+    </div>
+  </div>
+
+  <!-- 2. SZCZEGOLY PER LOKAL -->
+  <div class="section">
+    <h2>2. Szczegoly per lokal</h2>
+
+    <!-- LOK 7A -->
+    <div class="detail-block">
+      <div class="detail-header">
+        <span class="addr">Mielzynskiego 19, lok. 7a</span>
+        <span class="badge badge-green" style="margin-left:8px;">NADPLATA</span>
+        <span class="period">Rok 2026, I-V (aktywne naliczenia)</span>
+      </div>
+      <div class="detail-body">
+        <div class="detail-grid">
+          <div class="dg-item">
+            <div class="dg-label">Laczne naliczenia (2026)</div>
+            <div class="dg-val">19 477,97 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Laczne wplaty (2026)</div>
+            <div class="dg-val">20 728,29 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Saldo / NADPLATA</div>
+            <div class="dg-val amt-pos">+1 250,32 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Data salda w PDF</div>
+            <div class="dg-val">11.06.2026</div>
+          </div>
+        </div>
+        <div class="detail-note">
+          <strong>Przebieg:</strong> I 2026 naliczenie 3 731,31 / wplata 3 731,31 = saldo 0. II: 3 857,26 / 3 857,26 = 0. III: 4 137,08 / 3 857,26 = -279,82 (pierwsze odchylenie, krotka zaleglosc). IV: 3 857,26 / 5 425,20 = nadplata 1 288,12 (wyplata z nawiazka). V: 3 895,06 / 3 857,26 = 1 250,32. Od VI do XII brak nowych naliczeń i wplat - saldo stoi na 1 250,32 (lokal prawdopodobnie zwolniony lub umowa zawieszona po maju 2026). Zestawienie obejmuje tylko rok 2026 - brak historii wczesniejszych lat w tym pliku.
+        </div>
+      </div>
+    </div>
+
+    <!-- LOK 32 -->
+    <div class="detail-block">
+      <div class="detail-header">
+        <span class="addr">Mielzynskiego 19, lok. 32</span>
+        <span class="badge badge-red" style="margin-left:8px;">ZADLUZENIE</span>
+        <span class="period">2023-2026 (do V 2026 aktywne naliczenia)</span>
+      </div>
+      <div class="detail-body">
+        <div class="detail-grid">
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2023</div>
+            <div class="dg-val">12 801,00 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2023</div>
+            <div class="dg-val">11 547,25 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Saldo koniec 2023</div>
+            <div class="dg-val amt-neg">-1 253,75 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2024</div>
+            <div class="dg-val">22 160,66 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2024</div>
+            <div class="dg-val">20 111,00 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Saldo koniec 2024</div>
+            <div class="dg-val amt-neg">-3 303,41 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2025</div>
+            <div class="dg-val">22 952,44 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2025</div>
+            <div class="dg-val">22 730,90 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Saldo koniec 2025</div>
+            <div class="dg-val amt-neg">-3 524,95 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2026 (I-V)</div>
+            <div class="dg-val">8 439,62 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2026 (I-V)</div>
+            <div class="dg-val">9 849,82 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">SALDO KONCOWE / ZADLUZENIE</div>
+            <div class="dg-val amt-neg">-2 114,75 zl</div>
+          </div>
+        </div>
+        <div class="detail-note">
+          <strong>Historia zadluzenia:</strong> Niedobory zaczely sie juz w 2023 (XI - wplata 539 zl zamiast 1 792,75 zl; XII - 0 zl wplaty). W 2024 I: wplata 931,75 zamiast 1 792,75 = dalszy wzrost zaleglosci do -3 223,41. W 2025 II: naliczenie 2 054,29 (wyzsze niz standardowe 1 832,75 - mozliwa korekta lub oplata jednorazowa). Saldo w 2025 ustabilizowalo sie na -3 524,95 pomimo regularnych wplat. W 2026 IV: wplata 2 031,00 zl (przy naliczeniu 570,76) - duza nadprogramowa wplata, ktora zmniejszyla zadluzenie o 1 410,20 zl. Po V 2026 brak naliczeń i wplat (lokal prawdopodobnie zwolniony).
+          <br><br>
+          <strong>Kontekst sporny - brak uwzglednienia obnizkek czynszu:</strong> Zestawienie NIE zawiera widocznych pozycji rekompensaty za zalanie ani obnizkek czynszu za XII 2024 i I-II 2025, o ktorych mowa w korespondencji (nieszczelny dach, obnizkek 50%). W grudniu 2024 naliczono standardowe 1 832,75 zl i Cityroom wplacilo 1 832,75 zl. W I 2025 naliczono 1 832,75 i wplacono 1 832,75. W II 2025 naliczono 2 054,29 zl (wyzsze - mozliwe zaleglosci z poprzednich miesiecy, nie obnizkek). Jesli rekompensata/obnizkek byla uzgodniona, nie widac jej odzwierciedlenia w tym zestawieniu - do bezposredniego wyjasnienia z Posesja.
+        </div>
+      </div>
+    </div>
+
+    <!-- KOSCIELNA 10 -->
+    <div class="detail-block">
+      <div class="detail-header">
+        <span class="addr">Koscielna 13, lok. 10</span>
+        <span class="badge badge-warn" style="margin-left:8px;">DO WYJASNIENIA</span>
+        <span class="period">Brak danych Cityroom w pliku</span>
+      </div>
+      <div class="detail-body">
+        <div class="detail-note" style="background:#fff8ed; border-color:#f0c060;">
+          <strong>Problem z plikiem:</strong> Plik posesja-Koscielna13-lok10.pdf zawiera wielostronicowe zestawienia naliczen i wplat dla INNYCH najemcow zarzadzanych przez Posesje (6 Nieruchomosci Jasniewicz, 13 Nieruchomosci Jasniewicz, Stefaniak Jacek/Paulina, Szulc Konrad, Chojnacki Jakub, Kozlowska Monika, Turkiewicz Ireneusz). Nie ma tam zestawienia dla Cityroom jako najemcy lokalu 10 przy Koscielnej 13. Mozliwe: Posesja wyslala bledny plik, albo lok. 10 figuruje pod inna nazwa. Wymagana weryfikacja z Posesja.
+        </div>
+      </div>
+    </div>
+
+    <!-- KOSCIELNA 6 -->
+    <div class="detail-block">
+      <div class="detail-header">
+        <span class="addr">Koscielna 13, lok. 6</span>
+        <span class="badge badge-green" style="margin-left:8px;">NADPLATA</span>
+        <span class="period">2024 (caly rok) + I 2025</span>
+      </div>
+      <div class="detail-body">
+        <div class="detail-grid">
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2024 (I-XII)</div>
+            <div class="dg-val">21 549,49 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2024 (I-XII)</div>
+            <div class="dg-val">21 840,48 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Saldo koniec 2024</div>
+            <div class="dg-val amt-pos">+290,99 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Naliczenie I 2025</div>
+            <div class="dg-val">1 955,78 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplata I 2025</div>
+            <div class="dg-val">1 820,04 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">SALDO KONCOWE / NADPLATA</div>
+            <div class="dg-val amt-pos">+155,25 zl</div>
+          </div>
+        </div>
+        <div class="detail-note">
+          <strong>Uwagi:</strong> Zestawienie zaczyna sie od I 2024 ze stanem 0. Caly rok 2024 rozliczony - wplaty nieznacznie wyzsze niz naliczenia (nadplata skumulowala sie do 290,99 zl). W lutym 2024 naliczenie 1 529,16 zl (nizsze niz standardowe 1 820,03 zl - mozliwa korektowa pozycja lub obnizkek, np. wjazd/wyjazd). Zestawienie konczy sie na I 2025 (ostatnia data aktywnosci). Brak historii 2025 po I - lokal prawdopodobnie zdany lub umowa nie odnowiona. Nadplata 155,25 zl nalezy sie Cityroom od Posesji.
+        </div>
+      </div>
+    </div>
+
+    <!-- 28 CZERWCA LOK 1 -->
+    <div class="detail-block">
+      <div class="detail-header">
+        <span class="addr">28 Czerwca 1956 nr 117, lok. 1</span>
+        <span class="badge badge-red" style="margin-left:8px;">ZADLUZENIE</span>
+        <span class="period">2025 (caly rok) + 2026 I-VI (aktywne)</span>
+      </div>
+      <div class="detail-body">
+        <div class="detail-grid">
+          <div class="dg-item">
+            <div class="dg-label">Saldo otwarcia (start PDF)</div>
+            <div class="dg-val">0,01 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2025 (I-XII)</div>
+            <div class="dg-val">20 881,08 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2025 (I-XII)</div>
+            <div class="dg-val">20 681,08 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Saldo koniec 2025</div>
+            <div class="dg-val amt-neg">-199,99 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2026 (I-VI)</div>
+            <div class="dg-val">10 931,04 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2026 (I-VI)</div>
+            <div class="dg-val">9 027,45 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">SALDO KONCOWE / ZADLUZENIE</div>
+            <div class="dg-val amt-neg">-2 103,58 zl</div>
+          </div>
+        </div>
+        <div class="detail-note">
+          <strong>Przebieg:</strong> W 2025 przez I i II wplaty 1 640,09 zl (naliczenie 1 740,09 zl = niedobor 100 zl miesiecznie). Od III do XII 2025 wplaty dokladnie rowne naliczeniom 1 740,09 zl, ale skumulowany niedobor (2 x 100 zl = 200 zl) pozostal. Saldo -199,99 zl to bledy zaokroglenia lub poczatkowe 0,01 zl salda otwarcia. W 2026: I-V wplaty na poziomie 1 740,09 zl (naliczenie 1 821,84 zl = niedobor 81,75 zl miesiecznie). W VI 2026 naliczono 1 821,84 zl bez wplaty (-1 821,84 zl skok) - to glowna przyczyna obecnego zadluzenia 2 103,58 zl. Brak wplat od VI 2026 dalej.
+          <br><br>
+          <strong>Saldo otwarcia 0,01 zl:</strong> PDF zaczyna sie od salda 0,01 zl na poczatku 2025 - skad ta grosza niedomkniecia nie wyjasnia zestawienie. Do weryfikacji.
+        </div>
+      </div>
+    </div>
+
+    <!-- KILINSKI LOK 9 -->
+    <div class="detail-block">
+      <div class="detail-header">
+        <span class="addr">Kilinskiego 6, lok. 9</span>
+        <span class="badge badge-red" style="margin-left:8px;">ZADLUZENIE</span>
+        <span class="period">2025 (caly rok) + 2026 I-VI (aktywne)</span>
+      </div>
+      <div class="detail-body">
+        <div class="detail-grid">
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2025 (I-XII)</div>
+            <div class="dg-val">37 975,36 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2025 (I-XII)</div>
+            <div class="dg-val">37 873,52 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Saldo koniec 2025</div>
+            <div class="dg-val amt-neg">-101,84 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2026 (I-VI)</div>
+            <div class="dg-val">19 566,20 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2026 (I-VI)</div>
+            <div class="dg-val">16 287,58 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">SALDO KONCOWE / ZADLUZENIE</div>
+            <div class="dg-val amt-neg">-3 380,46 zl</div>
+          </div>
+        </div>
+        <div class="detail-note">
+          <strong>Przebieg:</strong> Start 2025 od salda 0. W I 2025 naliczono 3 071,26 zl, wplacono 3 071,26 zl. Od II 2025 naliczenie wzroslo do 3 173,10 zl, wplaty zostaly na 3 071,26 zl - niedobor 101,84 zl za miesiac II, ktory sie skumulowal. Od III do XII 2025 wplaty dokladnie 3 173,10 = 3 173,10, ale zaleglosc -101,84 zl pozostala. Od I 2026 naliczenie 3 173,10 wplacone dokladnie, od II do V naliczenie 3 278,62 / wplata 3 278,62 - rowno. W VI 2026 naliczono 3 278,62 zl bez wplaty = skok zadluzenia do -3 380,46 zl (brak wplaty za VI). Zadluzenie = -101,84 z 2025 + brak wplaty VI 2026 (3 278,62) = 3 380,46 zl.
+          <br><br>
+          <strong>Uwaga: dane identyczne z lok. 10</strong> - patrz sekcja 4.
+        </div>
+      </div>
+    </div>
+
+    <!-- KILINSKI LOK 10 -->
+    <div class="detail-block">
+      <div class="detail-header">
+        <span class="addr">Kilinskiego 6, lok. 10</span>
+        <span class="badge badge-warn" style="margin-left:8px;">ZADLUZENIE - do weryfikacji</span>
+        <span class="period">2025 (caly rok) + 2026 I-VI (aktywne)</span>
+      </div>
+      <div class="detail-body">
+        <div class="detail-grid">
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2025 (I-XII)</div>
+            <div class="dg-val">37 975,36 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2025 (I-XII)</div>
+            <div class="dg-val">37 873,52 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Saldo koniec 2025</div>
+            <div class="dg-val amt-neg">-101,84 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Naliczenia 2026 (I-VI)</div>
+            <div class="dg-val">19 566,20 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">Wplaty 2026 (I-VI)</div>
+            <div class="dg-val">16 287,58 zl</div>
+          </div>
+          <div class="dg-item">
+            <div class="dg-label">SALDO KONCOWE / ZADLUZENIE</div>
+            <div class="dg-val amt-neg">-3 380,46 zl</div>
+          </div>
+        </div>
+        <div class="detail-note" style="background:#fff8ed; border-color:#f0c060;">
+          <strong>Uwaga krytyczna - dane identyczne z lok. 9:</strong> Wszystkie kwoty w tym zestawieniu sa co do grosza identyczne z zestawieniem lok. 9 - te same naliczenia, te same wplaty, te samo saldo. Niezwykle nieprawdopodobne, zeby dwa odrebne lokale mialy absolutnie identyczna historie finansowa przez 2 lata. Najbardziej prawdopodobne wyjasnienie: Posesja pomylila sie i wyslala ten sam plik dwa razy pod roznymi nazwami. Nie mozna potwierdzic, ze jest to prawidlowe zestawienie dla lok. 10. Wymaga wyjasnienia z Posesja przed jakimkolwiek platnoscia.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /szczegoly -->
+
+  <!-- 3. POZYCJE SPORNE -->
+  <div class="section">
+    <h2>3. Pozycje sporne i do wyjasnienia</h2>
+
+    <div class="issue-item">
+      <div class="issue-title">Koscielna 13 lok. 10 - bledny plik PDF</div>
+      Plik posesja-Koscielna13-lok10.pdf nie zawiera zestawienia dla Cityroom. Zamiast tego znajduja sie zestawienia innych najemcow (Jasniewicz, Stefaniak, Szulc i in.) z lat 2017-2025. Nie wiadomo, czy Cityroom jest najemca tego lokalu, czy plik zostal wyslany przez pomylke. Nalezy zaadac od Posesji prawidlowego zestawienia dla lok. 10 Koscielnej 13 lub potwierdzenia, ze ten lokal nie jest w portfelu Cityroom.
+    </div>
+
+    <div class="issue-item">
+      <div class="issue-title">Kilinskiego 6 lok. 9 i lok. 10 - identyczne dane</div>
+      Oba pliki zawieraja dokladnie te same kwoty co do grosza za 2025 i 2026. To silna przeslanka bledu Posesji (duplikat). Jesli to dwa odrebne lokale, Posesja powinna dostarczyc odrebne zestawienia. Nalezy poprosic o korektu/potwierdzenie przed platnoscia. Jesli duplikat, realna zaleglosc to tylko -3 380,46 zl (jeden lokal), a nie -6 760,92 zl (dwa).
+    </div>
+
+    <div class="issue-item">
+      <div class="issue-title">Mielzynskiego 19 lok. 32 - brak rekompensaty za zalanie w zestawieniu</div>
+      Z korespondencji wynika, ze uzgodniono: XII 2024 czynsz nieoplacony (rekompensata za nieszczelny dach), I i II 2025 obnizone o 50%. W zestawieniu Posesji: XII 2024 naliczono 1 832,75 i Cityroom wplacilo 1 832,75 (bez znizki). I 2025 naliczono 1 832,75, wplacono 1 832,75. II 2025 naliczono 2 054,29 (wyzsze od standardu). Zaden z tych miesiecy nie odzwierciedla uzgodnionych obnizkek ani rekompensaty. Jesli obnizkek byly obiecane, brakujaca kwota (przykladowo ok. 2-3 miesiecy x 50% z ~1 800 zl = ok. 2 700 zl) powinna pomniejszyc saldo zadluzenia tego lokalu.
+    </div>
+
+    <div class="issue-item">
+      <div class="issue-title">28 Czerwca 117 lok. 1 - saldo otwarcia 0,01 zl i brak wplaty VI 2026</div>
+      PDF zaczyna sie od salda 0,01 zl (nie 0,00) - skad ta roznicy 1 grosz? W VI 2026 naliczono 1 821,84 zl i brak wplaty, co dalo skok zadluzenia o 1 903,59 zl w jednym miesiacu. Nalezy upewnic sie, czy wplata za czerwiec rzeczywiscie nie dotarla, czy jest blad przypisania po stronie Posesji.
+    </div>
+
+    <div class="issue-item">
+      <div class="issue-title">Kilinskiego 6 lok. 9 - brak wplaty VI 2026</div>
+      Podobnie jak 28 Czerwca: w VI 2026 naliczono 3 278,62 zl bez wplaty, co wywolalo skok zadluzenia o 3 278,62 zl. Nalezy sprawdzic, czy wplata faktycznie nie dotarla.
+    </div>
+
+    <div class="issue-item">
+      <div class="issue-title">Lok. 7a i lok. 6 Koscielna - nadplata nie splacona</div>
+      M19 lok. 7a ma nadplate 1 250,32 zl, Koscielna lok. 6 ma nadplate 155,25 zl. Laczna nadplata 1 405,57 zl nalezy sie Cityroom. Sposob rozliczenia do uzgodnienia z Posesja (kompensata z zalegloscia lub zwrot).
+    </div>
+  </div>
+
+  <!-- 4. DO ZROBIENIA -->
+  <div class="section">
+    <h2>4. Co wymaga decyzji lub dzialania Pawla</h2>
+
+    <div class="action-item">
+      <span class="action-num">1.</span>
+      <strong>Zadac Posesji poprawionego pliku dla Koscielna 13 lok. 10.</strong> Wyslany plik nie zawiera danych Cityroom. Bez tego nie wiemy, czy ten lokal jest czysty, czy ma zaleglosc.
+    </div>
+
+    <div class="action-item">
+      <span class="action-num">2.</span>
+      <strong>Zapytac Posesje o Kilinski lok. 9 vs lok. 10.</strong> Czy oba lokale sa aktywne i maja odrebne zestawienia? Czy to pomylka? Roznica w decyzji platniczej: 3 380,46 zl (jeden lokal) kontra 6 760,92 zl (dwa lokale).
+    </div>
+
+    <div class="action-item">
+      <span class="action-num">3.</span>
+      <strong>Doprowadzic do uwzglednienia rekompensaty za zalanie w lok. 32 Mielzynskiego.</strong> Zestawienie jej nie pokazuje - albo Posesja jej nie uwzglednia (i trzeba docisac), albo zostala rozliczona poza tym zestawieniem. Sprawdzic korespondencje z Posesja z XII 2024 / I-II 2025 i ustalic, jak maja byc zaksiegowane obnizkeki/rekompensata. Kwota do ustalenia, szacunkowo ok. 2 500-3 000 zl.
+    </div>
+
+    <div class="action-item">
+      <span class="action-num">4.</span>
+      <strong>Weryfikacja wplat za VI 2026 dla lok. 1 (28 Czerwca) i lok. 9 (Kilinski).</strong> Oba lokale notuja brak wplaty za VI 2026. Sprawdzic wyciagi bankowe - czy przelewu nie bylo, czy trafil na zly rachunek. To razem ok. 5 100 zl wplat do ewentualnego potwierdzenia.
+    </div>
+
+    <div class="action-item">
+      <span class="action-num">5.</span>
+      <strong>Uzgodnic forme rozliczenia nadplat (1 405,57 zl) z zadluzeniami.</strong> Najprostrza opcja: kompensata nadplat z sumami zaleglosci - wowczas do faktycznej zaplaty przez Cityroom pozostaje 9 374,68 zl (lub mniej po wyjasnieniu spraw 2 i 3 powyzej).
+    </div>
+
+    <div class="action-item">
+      <span class="action-num">6.</span>
+      <strong>Po wyjasnieniu pktow 1-4: splata potwierdzonego salda netto jednym lub kilkoma przelewami.</strong> Obecne pewne saldo netto (bez duplikatow, bez Koscielna 10, bez rekompensaty za zalanie) to ok. 9 374,68 zl. Po rekompensacie za zalanie i ewentualnym wyeliminowaniu duplikatu Kilinski moze spasc do ok. 6 000-7 000 zl.
+    </div>
+  </div>
+
+  <div class="footer">
+    Wygenerowano na podstawie 7 plikow PDF przeslanych przez BON Posesja Sp. z o.o. w dniu 22.06.2026 &nbsp;|&nbsp; Data analizy: 23.06.2026 &nbsp;|&nbsp; Do uzytku wewnetrznego Cityroom Sp. z o.o.
+  </div>
+
+</div>
+</body>
+</html>
