@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verasity VRA i PLRL - Brief sytuacyjny (czerwiec 2026)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f7f8fa;
+    color: #1a1d23;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+  .header {
+    border-bottom: 3px solid #1a56db;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1d23;
+    margin-bottom: 4px;
+  }
+  .header .meta {
+    font-size: 12px;
+    color: #6b7280;
+    letter-spacing: 0.02em;
+  }
+  .section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e7eb;
+  }
+  .section h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1d23;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .section p { margin-bottom: 10px; }
+  .section p:last-child { margin-bottom: 0; }
+  .tl-dr {
+    background: #1a56db;
+    color: #fff;
+    border-radius: 10px;
+    padding: 22px 28px;
+    margin-bottom: 20px;
+  }
+  .tl-dr h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.75);
+  }
+  .tl-dr p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .tl-dr p:last-child { margin-bottom: 0; }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 5px;
+    line-height: 1.5;
+  }
+  .badge-fact {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+  }
+  .badge-plan {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+  }
+  .badge-unclear {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+  }
+  .action-box {
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-left: 4px solid #f97316;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+  .action-box strong { color: #7c2d12; }
+  .steps {
+    list-style: none;
+    counter-reset: steps;
+    padding: 0;
+    margin: 14px 0 0;
+  }
+  .steps li {
+    counter-increment: steps;
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .steps li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: #1a56db;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e5e7eb;
+  }
+  .tl-item {
+    position: relative;
+    padding-bottom: 18px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #1a56db;
+    border: 2px solid #fff;
+    outline: 2px solid #1a56db;
+  }
+  .tl-item.done::before { background: #10b981; outline-color: #10b981; }
+  .tl-item.urgent::before { background: #ef4444; outline-color: #ef4444; }
+  .tl-date {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .tl-item.urgent .tl-date { color: #ef4444; }
+  .tl-item.done .tl-date { color: #10b981; }
+  .tl-text { font-size: 14px; color: #374151; margin-top: 2px; }
+  .risk-item {
+    padding: 10px 14px;
+    border-radius: 7px;
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .risk-item strong { color: #374151; }
+  .sources a {
+    color: #1a56db;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .sources a:hover { text-decoration: underline; }
+  .sources li { margin-bottom: 6px; font-size: 13px; }
+  ul.plain { padding-left: 18px; }
+  ul.plain li { margin-bottom: 6px; font-size: 14px; }
+  .notice {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 7px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #1e40af;
+    margin-top: 12px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+  th {
+    text-align: left;
+    padding: 7px 10px;
+    background: #f3f4f6;
+    font-weight: 700;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #f3f4f6;
+    color: #374151;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 32px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Verasity VRA i PLRL - Brief sytuacyjny</h1>
+    <div class="meta">Przygotowany: czerwiec 2026 &nbsp;|&nbsp; Status: research na podstawie danych publicznych</div>
+  </div>
+
+  <!-- TL;DR -->
+  <div class="tl-dr">
+    <h2>TL;DR - trzy zdania</h2>
+    <p>Verasity (twórca tokenu VRA) uruchamia nowy, oddzielny token PLRL na blockchainie Base. To nie jest rebrand VRA ani zamiana, a VRA nadal istnieje i nie jest wycofywane.</p>
+    <p>Posiadacze VRA trzymający tokeny w oficjalnym portfelu VeraWallet dostają PLRL w ramach dużego airdropu (wypłaty ruszyły 28 maja 2026), natomiast konta z Unii Europejskiej w VeraWallet zostają zamknięte 1 lipca 2026 przez przepisy MiCA.</p>
+    <p>Jeśli trzymasz VRA w VeraWallet na koncie z UE, masz czas do 30 czerwca 2026: wypłać VRA na własny portfel (Ledger lub giełda) i w aplikacji VeraWallet wpisz swój adres Base, żeby zachować prawo do przyszłych rund PLRL.</p>
+  </div>
+
+  <!-- SEKCJA 1: Co to PLRL i co sie dzieje z VRA -->
+  <div class="section">
+    <h2>1. Co to PLRL i co się dzieje z VRA</h2>
+
+    <p><strong>PLRL to nowy, oddzielny token, nie rebrand VRA.</strong> <span class="badge badge-fact">FAKT</span><br>
+    Verasity ogłosiło na przełomie 2025 i 2026 uruchomienie tokenu PLRL jako oddzielnej warstwy konsumenckiej (tzw. "Internet Equity Layer"). VRA pozostaje tokenem dla biznesu (platforma reklamowa VeraViews), a PLRL ma trafić do użytkowników indywidualnych.</p>
+
+    <p><strong>VRA nie jest palony ani wycofywany.</strong> <span class="badge badge-fact">FAKT</span><br>
+    Oba tokeny mają działać równolegle. Nie ma żadnej zamiany 1:1 ani konwersji VRA na PLRL. PLRL to darmowy bonus (airdrop) dla posiadaczy VRA w VeraWallet, a nie wymiana jednego na drugie.</p>
+
+    <p><strong>Ważny kontekst: Verasity mocno zwiększyło podaż VRA.</strong> <span class="badge badge-fact">FAKT</span><br>
+    Pod koniec grudnia 2025 Verasity Foundation podniosło maksymalną podaż VRA do 200 miliardów tokenów. Decyzja była kontrowersyjna i spowodowała spadek kursu VRA o około 45 procent w ciągu tygodnia. Oficjalne uzasadnienie to potrzeby operacyjne platformy reklamowej. Część społeczności odebrała to negatywnie, bo rozszerzenie podaży osłabiło wartość wcześniejszych skupów i spalonych tokenów.</p>
+
+    <p><strong>Tokenomika PLRL.</strong> <span class="badge badge-fact">FAKT</span><br>
+    PLRL ma stałą podaż 10 miliardów tokenów (możliwość dodruku trwale wyłączona). 90 procent podaży trafia do społeczności (brak sprzedaży publicznej, brak inwestorów instytucjonalnych). Z tego:</p>
+    <ul class="plain" style="margin-top: 8px;">
+      <li><strong>35 procent (3,5 mld PLRL)</strong>, airdrop dla posiadaczy VRA w VeraWallet</li>
+      <li><strong>20 procent</strong>, pula społecznościowa (staking danych, marketplace treści)</li>
+      <li><strong>pozostałe</strong>, ekosystem, partnerzy, zespół (szczegóły nie w pełni ujawnione)</li>
+    </ul>
+
+    <p style="margin-top: 10px;"><strong>Sieć: PLRL działa na Base (Coinbase Layer 2).</strong> <span class="badge badge-fact">FAKT</span><br>
+    Base to sieć typu Ethereum L2 zbudowana przez Coinbase, z niskimi opłatami i szybkimi transakcjami. VRA nadal istnieje na Ethereum (ERC-20) oraz BNB Chain (BEP-20). PLRL to oddzielny token (ERC-20) na sieci Base.</p>
+  </div>
+
+  <!-- SEKCJA 2: Co trzeba zrobic przed 1.07.2026 -->
+  <div class="section">
+    <h2>2. Co trzeba zrobić przed 1 lipca 2026 (dla posiadacza VRA w VeraWallet z UE)</h2>
+
+    <div class="action-box">
+      <strong>Deadline: 30 czerwca 2026, 23:59 UTC. Po tej dacie konto VeraWallet z UE zostaje zablokowane.</strong>
+    </div>
+
+    <ol class="steps">
+      <li>
+        <strong>Wypłać VRA na własny portfel (Ledger lub MetaMask) albo na giełdę.</strong><br>
+        Wejdź w VeraWallet, wybierz opcję wypłaty (Withdraw) i podaj adres własnego portfela na sieci Ethereum (ERC-20) lub BNB Chain (BEP-20), zależnie od tego, gdzie chcesz trzymać tokeny. Po zamknięciu VeraWallet tokeny w Ledgerze lub na giełdzie pozostają bezpieczne.<br>
+        <span style="color: #6b7280; font-size: 13px;">Uwaga: wypłata bywa obarczona minimalną kwotą i prowizją (wg części źródeł minimum 5 000 VRA, prowizja ok. 2 700 VRA). Sprawdź to w aplikacji i nie zostawiaj wypłaty na ostatnią chwilę.</span>
+      </li>
+      <li>
+        <strong>Wpisz swój adres portfela na sieci Base w zakładce Account w VeraWallet.</strong><br>
+        Verasity prosi użytkowników z UE o podanie adresu Base (portfel MetaMask, Ledger lub inny zgodny z Ethereum, obsługujący sieć Base), żeby po zamknięciu konta móc dalej wysyłać przyszłe transze PLRL. Bez tego można stracić dostęp do kolejnych rund airdropu.<br>
+        <span style="color: #6b7280; font-size: 13px;">Adres Base to standardowy adres w formacie Ethereum (0x...). Ten sam adres, którego używasz do ETH w Ledgerze, działa również na sieci Base.</span>
+      </li>
+    </ol>
+
+    <div class="notice">
+      <strong>Dlaczego adres Base jest ważny:</strong> VeraWallet zamknie dostęp dla UE 1 lipca 2026, ale Verasity zapowiada wysyłanie kolejnych transz PLRL aż do maja 2027. Adres Base wpisany w aplikacji przed zamknięciem ma działać jako "kontakt do dalszej wysyłki". Bez niego możliwy jest brak dostępu do przyszłych airdropów. <span class="badge badge-plan">PLAN, szczegóły do potwierdzenia przez Verasity</span>
+    </div>
+  </div>
+
+  <!-- SEKCJA 3: Airdrop i snapshot -->
+  <div class="section">
+    <h2>3. Airdrop PLRL, mechanika i harmonogram</h2>
+
+    <p><strong>Snapshot 1 z 4 już wykonany.</strong> <span class="badge badge-fact">FAKT</span><br>
+    Pierwsza migawka (snapshot) salda VRA w VeraWallet miała miejsce przed 28 maja 2026. Planowane są łącznie 4 snapshoty, daty kolejnych nie zostały ogłoszone.</p>
+
+    <p style="margin-top: 10px;"><strong>Kto jest uprawniony.</strong> <span class="badge badge-fact">FAKT</span><br>
+    Kryterium to saldo VRA w VeraWallet w momencie snapshotu (tokeny stakowane i niestakowane liczone razem). Tokeny trzymane na giełdach lub w zewnętrznych portfelach NIE kwalifikują się. Verasity brało też pod uwagę długość trzymania VRA, ale dokładna formuła przeliczenia na PLRL nie została podana publicznie.</p>
+
+    <p style="margin-top: 10px;"><strong>Harmonogram dystrybucji.</strong> <span class="badge badge-fact">FAKT</span><br>
+    Airdrop jest wypłacany w 26 cyklach, co 2 tygodnie, od 28 maja 2026 do 14 maja 2027. Brak vestingu, tokeny są dostępne od razu po wpłynięciu. TGE (oficjalny "launch" PLRL na rynku) ma nastąpić w pierwszej połowie 2026, ale dokładna data na dzień sporządzenia tego briefu nie została potwierdzona.</p>
+
+    <table>
+      <tr>
+        <th>Element</th>
+        <th>Status</th>
+        <th>Szczegóły</th>
+      </tr>
+      <tr>
+        <td>Snapshot 1</td>
+        <td><span class="badge badge-fact">WYKONANY</span></td>
+        <td>Przed 28 maja 2026</td>
+      </tr>
+      <tr>
+        <td>Pierwsza wypłata</td>
+        <td><span class="badge badge-fact">WYKONANA</span></td>
+        <td>28 maja 2026</td>
+      </tr>
+      <tr>
+        <td>Snapshoty 2-4</td>
+        <td><span class="badge badge-plan">PLAN</span></td>
+        <td>Daty nie podane</td>
+      </tr>
+      <tr>
+        <td>TGE PLRL</td>
+        <td><span class="badge badge-plan">PLAN</span></td>
+        <td>Pierwsza połowa 2026 (data do potwierdzenia)</td>
+      </tr>
+      <tr>
+        <td>Cykl dystrybucji</td>
+        <td><span class="badge badge-fact">OGŁOSZONO</span></td>
+        <td>26 rund co 2 tygodnie, do 14.05.2027</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- SEKCJA 4: Timeline -->
+  <div class="section">
+    <h2>4. Oś czasu kluczowych dat</h2>
+    <div class="timeline">
+      <div class="tl-item done">
+        <div class="tl-date">Grudzień 2025</div>
+        <div class="tl-text">Verasity ogłosiło PLRL oraz zwiększenie podaży VRA do 200 mld. Początek spadku kursu VRA.</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">Styczeń 2026</div>
+        <div class="tl-text">Oficjalne wprowadzenie PLRL jako projektu.</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">Przed 28 maja 2026</div>
+        <div class="tl-text">Snapshot 1 z 4, zarejestrowanie sald VRA w VeraWallet.</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">28 maja 2026</div>
+        <div class="tl-text">Pierwsza wypłata PLRL dla uprawnionych posiadaczy VRA (cykl 1 z 26).</div>
+      </div>
+      <div class="tl-item urgent">
+        <div class="tl-date">Do 30 czerwca 2026, PILNE</div>
+        <div class="tl-text"><strong>Deadline dla użytkowników UE:</strong> wypłata VRA z VeraWallet oraz wpisanie adresu Base w zakładce Account.</div>
+      </div>
+      <div class="tl-item urgent">
+        <div class="tl-date">1 lipca 2026, 00:00 UTC</div>
+        <div class="tl-text">Zamknięcie kont VeraWallet dla użytkowników z Unii Europejskiej. Powód: MiCA (brak licencji Verasity w UE).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Pierwsza połowa 2026 (data do potwierdzenia)</div>
+        <div class="tl-text">TGE PLRL, oficjalny launch tokenu na rynku. Szczegóły nie zostały potwierdzone.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Co 2 tygodnie do 14 maja 2027</div>
+        <div class="tl-text">Kolejne cykle wypłat PLRL (cykle 2-26). Tokeny dostępne natychmiast po wpłynięciu.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEKCJA 5: Ryzyka i niewiadome -->
+  <div class="section">
+    <h2>5. Ryzyka i niewiadome (uczciwa ocena)</h2>
+
+    <div class="risk-item">
+      <strong>VRA straciło zaufanie po decyzji o podaży 200 mld.</strong> <span class="badge badge-fact">FAKT</span><br>
+      Kurs VRA spadł o około 45 procent po ogłoszeniu. Część społeczności uważa, że rozszerzenie podaży zniweczyło wartość wcześniejszych skupów i spalonych tokenów. To ryzyko dla wartości samego VRA.
+    </div>
+
+    <div class="risk-item">
+      <strong>PLRL nie ma jeszcze ceny rynkowej, jego wartość jest nieznana.</strong> <span class="badge badge-unclear">NIEWIADOME</span><br>
+      TGE jeszcze nie nastąpiło (stan na czerwiec 2026). Nie wiadomo, ile będą warte otrzymane tokeny PLRL. Airdrop może okazać się cenny albo mieć wartość bliską zeru po uruchomieniu.
+    </div>
+
+    <div class="risk-item">
+      <strong>Czy użytkownicy z UE na pewno dostaną kolejne transze PLRL po 1 lipca?</strong> <span class="badge badge-plan">PLAN</span><br>
+      Verasity zapowiedziało, że adres Base wpisany przed zamknięciem konta ma służyć do dalszej wysyłki. Szczegółowy mechanizm nie został jednak oficjalnie potwierdzony.
+    </div>
+
+    <div class="risk-item">
+      <strong>Snapshoty 2-4 mogą Cię pominąć, jeśli VRA już wypłaciłeś.</strong> <span class="badge badge-unclear">WAŻNE</span><br>
+      Kolejne snapshoty są planowane, ale bez dat. Jeśli wypłacisz VRA z VeraWallet (co musisz zrobić przed 30 czerwca), a snapshot 2, 3 lub 4 jeszcze nie nastąpił, Twoje saldo w tych migawkach będzie zerowe. To nieunikniony konflikt: wypłata VRA jest konieczna ze względu na zamknięcie konta, ale może zmniejszyć udział w późniejszych rundach. Dokładne daty snapshotów 2-4 nie są znane.
+    </div>
+
+    <div class="risk-item">
+      <strong>TGE PLRL nie ma potwierdzonej daty.</strong> <span class="badge badge-plan">PLAN</span><br>
+      Verasity mówiło o pierwszej połowie 2026 (czyli do 30 czerwca). Na dzień sporządzenia briefu TGE nie nastąpiło, a data nie została oficjalnie potwierdzona. Możliwy jest poślizg.
+    </div>
+
+    <div class="risk-item">
+      <strong>PLRL może nie być od razu dostępny dla UE.</strong> <span class="badge badge-fact">FAKT (z zastrzeżeniem)</span><br>
+      Verasity potwierdziło, że rozwiązania dla użytkowników z UE "są w opracowaniu". Nie wiadomo, czy i kiedy mieszkańcy UE będą mogli handlować PLRL na giełdach lub swobodnie go używać. Zależy to od regulacji MiCA i od tego, czy Verasity zdobędzie licencję.
+    </div>
+  </div>
+
+  <!-- SEKCJA 6: Zrodla -->
+  <div class="section sources">
+    <h2>6. Źródła i linki do weryfikacji</h2>
+    <ul class="plain">
+      <li><a href="https://x.com/verasitytech" target="_blank">@verasitytech na X, oficjalne konto Verasity / PLRL</a></li>
+      <li><a href="https://x.com/verasitytech/status/2005660798958362869" target="_blank">X: Verasity Strategic Update, Entering a Pivotal Phase (kluczowy post)</a></li>
+      <li><a href="https://plrl.verasity.io/" target="_blank">plrl.verasity.io, oficjalna strona PLRL</a></li>
+      <li><a href="https://app.verawallet.io/" target="_blank">app.verawallet.io, oficjalny portal VeraWallet</a></li>
+      <li><a href="https://verasity.helpscoutdocs.com/category/6-verawallet" target="_blank">Verasity Knowledge Base, dokumentacja VeraWallet</a></li>
+      <li><a href="https://airdropalert.com/airdrops/verasity-plrl/" target="_blank">AirdropAlert, Verasity PLRL Airdrop</a></li>
+      <li><a href="https://airdrops.io/plrl-by-verasity/" target="_blank">Airdrops.io, PLRL by Verasity</a></li>
+      <li><a href="https://www.bitrue.com/blog/verasity-plrl-airdrop-guide-vra" target="_blank">Bitrue Blog, Verasity PLRL Airdrop Guide</a></li>
+      <li><a href="https://blockzeit.com/verasity-vra-community-up-in-arms-amid-controversial-updates/" target="_blank">Blockzeit, kontrowersje wokół VRA</a></li>
+      <li><a href="https://www.kucoin.com/news/trends/VRA/6973b84eb753b600079b8e66" target="_blank">KuCoin, VRA holders i PLRL na Base</a></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Brief sporządzony na podstawie publicznie dostępnych informacji. Czerwiec 2026. Nie stanowi porady inwestycyjnej.
+  </div>
+
+</div>
+</body>
+</html>
