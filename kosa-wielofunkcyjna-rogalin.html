@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kosa wielofunkcyjna do Rogalina - research zakupowy</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f5f4f0;
+    color: #1a1a1a;
+    line-height: 1.6;
+    padding: 32px 16px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 28px;
+  }
+  section { margin-bottom: 32px; }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #d0ccc0;
+  }
+  .rec-box {
+    background: #fff;
+    border: 2px solid #4a7c3f;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 10px;
+  }
+  .rec-box p { font-size: 1rem; line-height: 1.65; }
+  .rec-box strong { color: #3a6030; }
+
+  /* tabela */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.88rem;
+  }
+  thead th {
+    background: #3a3a3a;
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  tbody tr { border-bottom: 1px solid #e8e6e0; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody td { padding: 10px 12px; vertical-align: top; }
+  tbody tr:nth-child(even) { background: #f9f8f5; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-budget { background: #e6f0fb; color: #1a5fa8; }
+  .badge-optimal { background: #e6f5e6; color: #2a6a2a; }
+  .badge-premium { background: #f5ede0; color: #8a4a10; }
+
+  /* karty opcji */
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    border-left: 4px solid #ccc;
+  }
+  .card.budget { border-left-color: #4a90d9; }
+  .card.optimal { border-left-color: #4a7c3f; }
+  .card.premium { border-left-color: #c07a20; }
+  .card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card .specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 20px;
+    margin: 12px 0;
+    font-size: 0.86rem;
+  }
+  .spec-row { display: flex; gap: 6px; }
+  .spec-label { color: #666; min-width: 120px; flex-shrink: 0; }
+  .spec-val { color: #1a1a1a; font-weight: 500; }
+  .tools-list { list-style: none; padding: 0; margin: 8px 0; }
+  .tools-list li {
+    padding: 3px 0;
+    font-size: 0.87rem;
+    display: flex;
+    gap: 6px;
+  }
+  .tools-list li::before { content: "•"; color: #888; flex-shrink: 0; }
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .pros, .cons { font-size: 0.84rem; }
+  .pros strong { color: #3a6030; }
+  .cons strong { color: #8a2020; }
+  .pros ul, .cons ul { list-style: none; padding: 0; }
+  .pros ul li::before { content: "+ "; color: #3a6030; font-weight: 700; }
+  .pros ul li, .cons ul li { padding: 2px 0; }
+  .cons ul li::before { content: "- "; color: #8a2020; font-weight: 700; }
+  .price-tag {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  .price-note { font-size: 0.78rem; color: #888; font-weight: 400; }
+
+  /* porad blok */
+  .tip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .tip {
+    background: #fff;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.87rem;
+  }
+  .tip h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; color: #333; }
+  .tip p { color: #444; }
+
+  /* linki */
+  .links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .link-group h4 { font-size: 0.85rem; font-weight: 700; color: #555; margin-bottom: 6px; }
+  .link-group a {
+    display: block;
+    font-size: 0.83rem;
+    color: #1a5fa8;
+    text-decoration: none;
+    padding: 2px 0;
+  }
+  .link-group a:hover { text-decoration: underline; }
+
+  /* uwagi */
+  .warning {
+    background: #fff8e8;
+    border: 1px solid #e0c860;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.84rem;
+    color: #5a4a10;
+    margin-top: 10px;
+  }
+  .warning strong { color: #7a5a00; }
+
+  @media (max-width: 600px) {
+    .specs { grid-template-columns: 1fr; }
+    .pros-cons { grid-template-columns: 1fr; }
+    .tip-grid { grid-template-columns: 1fr; }
+    .links-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Kosa wielofunkcyjna do Rogalina</h1>
+  <p class="subtitle">Research zakupowy - zarośnięta działka (krzaki, chwasty, samosiejki, gałęzie) / czerwiec 2026</p>
+
+  <!-- REKOMENDACJA -->
+  <section>
+    <h2>Rekomendacja w skrócie</h2>
+    <div class="rec-box">
+      <p>
+        Do zarośniętej działki z krzakami i samosiejkami <strong>najlepiej wybrać system spalinowy KombiSystem STIHL z jednostką KM 94 R-CE lub KM 131 R</strong>
+        (ten drugi polecany przy grubszych krzakach i intensywnym użyciu) wraz z przystawką koszącą FS-KM lub FSS-KM i opcjonalnie podkrzesywarką HT-KM do gałęzi.
+        STIHL wygrywa sieć serwisową w Polsce (ok. 600 punktów vs 200 Husqvarny), dostępnością części i najszerszym ekosystemem przystawek.
+        Opcja akumulatorowa (Makita UX01G XGT 40V) jest realną alternatywą pod warunkiem zakupu dwóch akumulatorów,
+        ale na naprawdę twardych krzakach i samosiejkach silnik spalinowy da wyraźnie większy komfort pracy.
+      </p>
+    </div>
+  </section>
+
+  <!-- TABELA PORÓWNAWCZA -->
+  <section>
+    <h2>Tabela porównawcza</h2>
+    <div style="overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>
+          <th>Opcja</th>
+          <th>Model bazowy</th>
+          <th>Napęd</th>
+          <th>Narzędzia do działki</th>
+          <th>Cena orientacyjna (PLN)</th>
+          <th>Gdzie kupić</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-budget">BUDZETOWA</span></td>
+          <td>STIHL KM 94 R-CE</td>
+          <td>Spalinowy 2-MIX, 0,9 kW (1,2 KM), 24 cm3</td>
+          <td>FS-KM (kosa zylkowa) + opcja HT-KM (podkrzesywarka)</td>
+          <td class="price-tag">2 250-2 300 zl (silnik) <span class="price-note">+ 650-900 zl/przystawka</span></td>
+          <td>STIHL dealerrzy, Ceneo, Allegro</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-optimal">OPTYMALNA</span></td>
+          <td>STIHL KM 131 R</td>
+          <td>Spalinowy 4-MIX, 1,4 kW (1,9 KM), 36 cm3</td>
+          <td>FSS-KM (kosa z szerokim wałem 45 cm) + HT-KM (podkrzesywarka)</td>
+          <td class="price-tag">2 600-2 700 zl (silnik) <span class="price-note">+ 700-900 zl/przystawka</span></td>
+          <td>STIHL dealerrzy, Ceneo, Allegro</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-premium">PREMIUM / AKU</span></td>
+          <td>Makita UX01G (XGT 40V)</td>
+          <td>Akumulatorowy BLDC, 1000 W, 40V</td>
+          <td>EM404MP (kosa zylkowa 43 cm) + piła lancuchowa UA004G osobno</td>
+          <td class="price-tag">ok. 2 400-3 500 zl <span class="price-note">(body + 2 aku + przystawka)</span></td>
+          <td>Makita.sklep.pl, Ceneo, Allegro, OBI</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="warning">
+      <strong>Uwaga dot. cen:</strong> ceny silnikow STIHL wg cennika STIHL.pl i Ceneo.pl (maj-czerwiec 2026).
+      Ceny przystawek sa orientacyjne z kilku sklepow. Ostateczna kwota przy zamowieniu u dealera moze roznic sie o 50-150 zl
+      w gore lub w dol. Zestawy zbiorcze (motor + 2 przystawki) zdarzaja sie na Allegro i u dilerow.
+    </div>
+  </section>
+
+  <!-- OPCJE SZCZEGOLOWE -->
+  <section>
+    <h2>Szczegoly opcji</h2>
+
+    <!-- OPCJA 1 -->
+    <div class="card budget">
+      <h3>
+        <span class="badge badge-budget">BUDZETOWA</span>
+        STIHL KombiSystem KM 94 R-CE
+      </h3>
+      <div class="specs">
+        <div class="spec-row"><span class="spec-label">Silnik</span><span class="spec-val">2-MIX, 24,1 cm3</span></div>
+        <div class="spec-row"><span class="spec-label">Moc</span><span class="spec-val">0,9 kW / 1,2 KM</span></div>
+        <div class="spec-row"><span class="spec-label">Waga (bez przystawki)</span><span class="spec-val">4,0 kg</span></div>
+        <div class="spec-row"><span class="spec-label">Funkcja</span><span class="spec-val">ECOSPEED (regulacja obrotow)</span></div>
+        <div class="spec-row"><span class="spec-label">Start</span><span class="spec-val">ErgoStart (latwiejszy rozruch)</span></div>
+        <div class="spec-row"><span class="spec-label">Cena silnika</span><span class="spec-val">ok. 2 249-2 299 zl</span></div>
+      </div>
+      <p style="font-size:0.87rem; margin-bottom:8px;"><strong>Przystawki polecane do dzialki:</strong></p>
+      <ul class="tools-list">
+        <li><strong>FS-KM</strong> - kosa zylkowa (glowica AutoCut 25-2 lub 26-2), ok. 649 zl - do trawy, chwastow, miekkich krzewin</li>
+        <li><strong>FSS-KM</strong> - kosa z szerszym walem 45 cm (AutoCut 26-2), ok. 709-779 zl - do trudnego terenu, sklonow, ogrodzen</li>
+        <li><strong>HT-KM</strong> - podkrzesywarka/piła na wysiegniku (30 cm prowadnica), ok. 900-1 099 zl - do galezie do 20 cm</li>
+      </ul>
+      <p style="font-size:0.85rem; margin-top:8px;"><strong>Orientacyjny koszt zestawu roboczego:</strong> 2 300 (silnik) + 710 (FSS-KM) + 1 050 (HT-KM) = ok. <strong>4 050 zl</strong></p>
+      <div class="pros-cons">
+        <div class="pros">
+          <strong>Zalety</strong>
+          <ul>
+            <li>Najnizszy koszt wejscia do systemu STIHL</li>
+            <li>Lekki (4 kg bez przystawki), dobry do dluzsza pracy</li>
+            <li>Wszystkie przystawki KombiSystem kompatybilne</li>
+            <li>ECOSPEED - oszczednosc paliwa przy latwiejszej trawie</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <strong>Wady</strong>
+          <ul>
+            <li>1,2 KM - przy grubych krzakach (ponad 3-4 cm) moze byc za slaby</li>
+            <li>Silnik 2-MIX (olej+benzyna), trochu wieksze emisje niz 4-MIX</li>
+          </ul>
+        </div>
+      </div>
+      <div class="warning" style="margin-top:12px;">
+        <strong>Dla kogo:</strong> dzialka gleboko zarosnieta, ale krzaki do 3-4 cm grubosci i samosiejki miekkie (wierzba, brzoza mloda).
+        Jesli samosiejki sa starsze / grubsze - wybierz KM 131 R.
+      </div>
+    </div>
+
+    <!-- OPCJA 2 - OPTYMALNA -->
+    <div class="card optimal">
+      <h3>
+        <span class="badge badge-optimal">OPTYMALNA (rekomendowana)</span>
+        STIHL KombiSystem KM 131 R
+      </h3>
+      <div class="specs">
+        <div class="spec-row"><span class="spec-label">Silnik</span><span class="spec-val">4-MIX, 36,3 cm3</span></div>
+        <div class="spec-row"><span class="spec-label">Moc</span><span class="spec-val">1,4 kW / 1,9 KM</span></div>
+        <div class="spec-row"><span class="spec-label">Waga (bez przystawki)</span><span class="spec-val">4,4 kg</span></div>
+        <div class="spec-row"><span class="spec-label">Typ silnika</span><span class="spec-val">4-MIX (4-suwowy z olejem osobno)</span></div>
+        <div class="spec-row"><span class="spec-label">Serwis</span><span class="spec-val">Start STOP, duzy zbiornik paliwa</span></div>
+        <div class="spec-row"><span class="spec-label">Cena silnika</span><span class="spec-val">ok. 2 600-2 699 zl</span></div>
+      </div>
+      <p style="font-size:0.87rem; margin-bottom:8px;"><strong>Przystawki polecane do dzialki:</strong></p>
+      <ul class="tools-list">
+        <li><strong>FSS-KM</strong> - kosa z walem 45 cm (AutoCut 26-2), ok. 709-779 zl - kompatybilna z KM 131 R i KM 235 R</li>
+        <li><strong>HT-KM</strong> - podkrzesywarka (30 cm prowadnica), ok. 900-1 099 zl - do galezie i modnych samosiejek</li>
+        <li>Opcja: <strong>tarcza tnaca 3-ramienna</strong> (do FS-KM lub FSS-KM) - mozna dokupic osobno ok. 60-100 zl; do najtwardszych krzakow</li>
+      </ul>
+      <p style="font-size:0.85rem; margin-top:8px;"><strong>Orientacyjny koszt zestawu roboczego:</strong> 2 650 (silnik) + 740 (FSS-KM) + 1 050 (HT-KM) = ok. <strong>4 440 zl</strong></p>
+      <div class="pros-cons">
+        <div class="pros">
+          <strong>Zalety</strong>
+          <ul>
+            <li>1,9 KM - radzi sobie z grubymi krzakami i starszymi samosiejkami</li>
+            <li>Silnik 4-MIX - czystsze spalanie, ciszejszy, mozna mieszac paliwo jak 4-suwowe</li>
+            <li>Duzy zbiornik - dluzszy czas pracy bez tankowania</li>
+            <li>Przeznaczony dla profesjonalistow - trwalosc na ciezkie zastosowanie</li>
+            <li>Pełen ekosystem przystawek (11 narzedzi)</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <strong>Wady</strong>
+          <ul>
+            <li>Ok. 350-400 zl drozszy silnik niz KM 94 R</li>
+            <li>Nieznacznie ciezszy (4,4 kg vs 4,0 kg)</li>
+            <li>Silnik 4-MIX wymaga osobnego oleju silnikowego</li>
+          </ul>
+        </div>
+      </div>
+      <div class="warning" style="margin-top:12px; border-color:#4a7c3f; background:#f0f7ee; color:#2a4a20;">
+        <strong>Dlaczego ta opcja:</strong> dzialka zarosnieta to nie okazjonalne kosenie - tu potrzeba mocy, zeby nie meczyl silnika.
+        KM 131 R ma zapas mocy, dlugsza zywotnosc przy trudnej pracy i jest na granicy profesjonalnego/domowego.
+        Cena rozni sie ok. 400 zl od budzetowej, a zysk w komforcie pracy jest istotny przy wiekszej powierzchni.
+      </div>
+    </div>
+
+    <!-- OPCJA 3 - AKU -->
+    <div class="card premium">
+      <h3>
+        <span class="badge badge-premium">ALTERNATYWA AKUMULATOROWA</span>
+        Makita UX01G XGT 40V Multisystem
+      </h3>
+      <div class="specs">
+        <div class="spec-row"><span class="spec-label">Napęd</span><span class="spec-val">Akumulatorowy BLDC, 40V max</span></div>
+        <div class="spec-row"><span class="spec-label">Moc</span><span class="spec-val">1000 W (bezszczotkowy)</span></div>
+        <div class="spec-row"><span class="spec-label">Waga jednostki</span><span class="spec-val">3,5 kg (bez akumulatora)</span></div>
+        <div class="spec-row"><span class="spec-label">Biegi</span><span class="spec-val">3 biegi elektroniczne (5700/8200/9700 rpm)</span></div>
+        <div class="spec-row"><span class="spec-label">Akumulator</span><span class="spec-val">40V 4Ah; 2x aku zalecane na ciezka prace</span></div>
+        <div class="spec-row"><span class="spec-label">Cena body</span><span class="spec-val">ok. 1 280 zl (bez aku)</span></div>
+      </div>
+      <p style="font-size:0.87rem; margin-bottom:8px;"><strong>Przystawki do dzialki:</strong></p>
+      <ul class="tools-list">
+        <li><strong>EM404MP</strong> - kosa zylkowa 43 cm, ok. 420 zl</li>
+        <li><strong>EN402MP</strong> - nozyce do zywoplotu 50 cm, ok. 580-700 zl</li>
+        <li><strong>UA004G</strong> - okrzesywarka z wysiegniku (piłka 30 cm), ok. 1 400-1 500 zl (osobna jednostka XGT) lub piła okrzesywarka z przystawka do UX01G (sprawdz kompatybilnosc)</li>
+        <li><strong>WA400MP</strong> - noz do usuwania chwastow (specjalne narzedzie do korzeni)</li>
+      </ul>
+      <p style="font-size:0.85rem; margin-top:8px;">
+        <strong>Orientacyjny koszt zestawu:</strong> 1 280 (body) + 900 (2x aku 4Ah + ladowarka) + 420 (EM404MP kosa) = ok. <strong>2 600 zl starter</strong>,
+        z pila okrzesywarka ok. <strong>4 000-4 500 zl</strong>
+      </p>
+      <div class="pros-cons">
+        <div class="pros">
+          <strong>Zalety</strong>
+          <ul>
+            <li>Cicha praca - komfort i brak spalin</li>
+            <li>Lzejszy (brak silnika spalinowego)</li>
+            <li>Brak mieszanki; proste uruchomienie</li>
+            <li>Wspoldzielenie akumulatorow z innymi narzędziami Makita XGT</li>
+            <li>Ponad 30 przystawek w systemie</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <strong>Wady</strong>
+          <ul>
+            <li>Czas pracy: 1 akumulator 4Ah = ok. 30-45 min ciezkiej pracy</li>
+            <li>Przy grubych krzakach moze byc slabszy od 1,9 KM STIHL</li>
+            <li>Akumulatory drogie; pelny zestaw podobna cena co spalinowy</li>
+            <li>Siec serwisow slabsza niz STIHL</li>
+          </ul>
+        </div>
+      </div>
+      <div class="warning" style="margin-top:12px;">
+        <strong>Dla kogo:</strong> dobry wybor jesli Pawel ma juz inne narzedzia Makita XGT 40V lub jesli hałas jest problemem (ssiadiedzi, strefa ciszy).
+        Przy zarośniętej dzialce bez wcześniejszego wstępnego czyszczenia - zalecam jednak spalinowy.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- NA CO ZWROCIC UWAGE -->
+  <section>
+    <h2>Na co zwrócic uwage przy zakupie</h2>
+    <div class="tip-grid">
+      <div class="tip">
+        <h4>Moc do twardych krzaków</h4>
+        <p>Krzaki i samosiejki powyzej 2-3 cm wymagaja co najmniej 1,5-2 KM.
+        Ponizej tej mocy silnik male krzewy zniesie, ale ciezej (wolniej, wibracje, większe zuzyce).
+        KM 94 R (1,2 KM) to minimum; KM 131 R (1,9 KM) to komfort. Tarcza trojramienna zamiast zylki
+        zwielokrotnia efektywnosc przy twardszej roslinnosci.</p>
+      </div>
+      <div class="tip">
+        <h4>Serwis i dostepnosc czesci</h4>
+        <p>STIHL ma ok. 600 autoryzowanych punktow serwisowych w Polsce.
+        Husqvarna ok. 200. Makita rowniez ok. 200. Dla sprzetu ogrodowego uzywane sezonowo
+        dostepnosc serwisu lokalnie nie jest krytyczna, ale przy awarii sezonu
+        serwis STIHL statystycznie szybszy. Sprawdz najblizszego dilera
+        przed zakupem przez internet.</p>
+      </div>
+      <div class="tip">
+        <h4>Spalinowy: benzyna i olej</h4>
+        <p>STIHL KM 94 R (silnik 2-MIX) wymaga mieszanki benzyna+olej dwusuwowy (1:50).
+        STIHL KM 131 R (silnik 4-MIX) - benzyna 95 + osobny olej do 4-MIX (przez maselniczke);
+        lzejsze spalanie, mniej dymienia, akceptowalny olej etanolowy E10.
+        Akumulatorowy Makita - brak paliwa, ale koszt 2 akumulatorow to 800-900 zl.</p>
+      </div>
+      <div class="tip">
+        <h4>Glowica zylkowa vs tarcza</h4>
+        <p>Glowica zylkowa (AutoCut) do trawy i miekkiej roslinnoci.
+        Tarcza trojramienna lub tarcza Razorback do chwastow, modnych siewnikow i miekkiego drewna do 3 cm.
+        W zestawie z FS-KM lub FSS-KM mozna dokupio tarcze osobno (ok. 60-120 zl) - mocujace sa standardowe dla STIHL.
+        Do galezi powyzej 5 cm: koniecznie przystawka HT-KM z lancuchem.</p>
+      </div>
+      <div class="tip">
+        <h4>Husqvarna 525LK jako alternatywa</h4>
+        <p>Husqvarna 525LK (spalinowy, ok. 2 699 zl) to dobra alternatywa dla KM 131 R - podobna moc,
+        mniejszy ekosystem przystawek w PL (piła na wysiegniku PA1100 ok. 1 799 zl, nozyce zywoplotu ok. 2 299 zl).
+        Mocno komercyjny, profesjonalny, uzywany przez firmy zieleni.
+        Wada: przystawki sa drozsze niz STIHL. Polecany jesli jest autoryzowany serwis blisko.</p>
+      </div>
+      <div class="tip">
+        <h4>Gdzie kupic</h4>
+        <p>STIHL - tylko przez autoryzowanych dilerow (nie Castorama, nie Leroy Merlin).
+        Lista na stihl.pl. Allegro i Ceneo - oferty od autoryzowanych dilerow online, ceny zblizone.
+        Husqvarna - dealer (sprawdz husqvarna.com/pl) lub niektore sklepy ogrodnicze, OBI.
+        Makita - OBI, Castorama, Leroy Merlin, Allegro, makita.sklep.pl.
+        Dla systemow STIHL najlepiej kupowac u dealera lokalnie - demo do reki i serwis z tego samego miejsca.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINKI -->
+  <section>
+    <h2>Przydatne linki</h2>
+    <div class="links-grid">
+      <div class="link-group">
+        <h4>STIHL KombiSystem</h4>
+        <a href="https://www.stihl.pl/pl/c/kombisystem-98055" target="_blank">STIHL.pl - KombiSystem (wszystkie modele)</a>
+        <a href="https://www.stihl.pl/pl/p/kombisystem-km-94-r-ce-47939" target="_blank">STIHL KM 94 R-CE - strona produktu</a>
+        <a href="https://www.stihl.pl/pl/p/kombisystem-km-131-r-74719" target="_blank">STIHL KM 131 R - strona produktu</a>
+        <a href="https://natrawniku.pl/pl/c/KombiNarzedzia-STIHL-przystawki/118" target="_blank">Przystawki STIHL - naTrawniku.pl</a>
+        <a href="https://mamynarzedzia.pl/pl/p/Stihl-FSS-KM-Kosa-mechaniczna-do-KMA-200RKM-131-R-i-KM-235-R/8775" target="_blank">FSS-KM kosa mechaniczna - mamynarzedzia.pl</a>
+        <a href="https://mamynarzedzia.pl/pl/p/Stihl-HT-KM-Podkrzesywarka%2C-przystawka-Kombi/5819" target="_blank">HT-KM podkrzesywarka - mamynarzedzia.pl</a>
+        <a href="https://www.ceneo.pl/54249869" target="_blank">STIHL KM 94 R-CE - Ceneo (porownanie cen)</a>
+        <a href="https://www.ceneo.pl/113304275" target="_blank">STIHL KM 131 R - Ceneo (porownanie cen)</a>
+      </div>
+      <div class="link-group">
+        <h4>Husqvarna / Makita</h4>
+        <a href="https://www.husqvarna.com/pl/podkaszarki/podkaszarki-typu-combi/" target="_blank">Husqvarna Combi - wszystkie modele</a>
+        <a href="https://www.husqvarna.com/pl/podkaszarki/525lk/" target="_blank">Husqvarna 525LK - strona produktu</a>
+        <a href="https://sklep.lasogrod.pl/Podkaszarka-525LK-Husqvarna" target="_blank">Husqvarna 525LK - lasogrod.pl (cena)</a>
+        <a href="https://www.makita.pl/product/ux01g.html" target="_blank">Makita UX01G - strona produktu</a>
+        <a href="https://www.makita.sklep.pl/makita-ux01gz-body-akumulatorowy-multisystem-ogrodowy-1000w-xgt-40v-max-xpt-aft-bldc-p-13847.html" target="_blank">Makita UX01GZ BODY - makita.sklep.pl</a>
+        <h4 style="margin-top:12px;">Poradzniki wyboru</h4>
+        <a href="https://www.narzedzia.pl/blog/kosa-spalinowa-czy-akumulatorowa-jaka-wybrac/" target="_blank">Kosa spalinowa vs akumulatorowa - porownanie</a>
+        <a href="https://www.elektroda.pl/rtvforum/topic3985506.html" target="_blank">Forum: kosa spalinowa do 6000 m2 - opinie</a>
+        <a href="https://pomarancze.net/Kosa-spalinowa-STIHL-wszystko-co-musisz-wiedziec" target="_blank">Ranking kos STIHL 2026</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="warning" style="margin-top: 8px;">
+    <strong>Co niepewne / do potwierdzenia przed zakupem:</strong>
+    Ceny przystawek Husqvarny (HA860, PA1100) sa z wyszukiwarki i moga byc nieaktualne.
+    Czas pracy akumulatora Makita 4Ah na ciezkim terenie nie byl podany przez producenta - podany przedział (30-45 min) jest szacunkowy.
+    Kompatybilnosc piły na wysiegniku UA004G z UX01G wymaga potwierdzenia u dealera Makita.
+    Ceny sprawdzone na Ceneo i STIHL.pl w czerwcu 2026.
+  </div>
+
+  <p style="font-size:0.75rem; color:#aaa; margin-top:24px; text-align:center;">
+    Research: Rocky / CityroomAI, czerwiec 2026. Dane z STIHL.pl, Ceneo.pl, makita.pl, husqvarna.com/pl, sklepy partnerskie.
+  </p>
+
+</div>
+</body>
+</html>

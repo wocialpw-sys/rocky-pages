@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melania i spiew - jak zaczac</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #fafaf7;
+      color: #2c2c2c;
+      line-height: 1.75;
+      font-size: 16px;
+      padding: 0 16px;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 0 80px;
+    }
+    .header {
+      border-bottom: 2px solid #d4a76a;
+      padding-bottom: 24px;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: -0.3px;
+    }
+    .header p.subtitle {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: #666;
+      font-style: italic;
+    }
+    .toc {
+      background: #f3ede3;
+      border-left: 4px solid #d4a76a;
+      padding: 20px 24px;
+      border-radius: 4px;
+      margin-bottom: 40px;
+    }
+    .toc h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8a6a3a;
+      margin-bottom: 12px;
+    }
+    .toc ol {
+      padding-left: 20px;
+    }
+    .toc ol li {
+      margin-bottom: 4px;
+    }
+    .toc a {
+      color: #6a4a1a;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .toc a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-bottom: 48px;
+    }
+    h2.section-title {
+      font-size: 1.25rem;
+      color: #1a1a1a;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    h2.section-title span.num {
+      color: #d4a76a;
+      margin-right: 8px;
+    }
+    h3 {
+      font-size: 1rem;
+      color: #3a2a0a;
+      margin: 20px 0 8px;
+    }
+    p {
+      margin-bottom: 14px;
+    }
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 14px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .highlight-box {
+      background: #fff8ee;
+      border: 1px solid #d4a76a;
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .highlight-box p:last-child {
+      margin-bottom: 0;
+    }
+    .warning-box {
+      background: #fff3f0;
+      border-left: 4px solid #c0392b;
+      padding: 16px 20px;
+      border-radius: 0 4px 4px 0;
+      margin: 16px 0;
+    }
+    .warning-box p:last-child {
+      margin-bottom: 0;
+    }
+    .info-box {
+      background: #f0f7ee;
+      border-left: 4px solid #5a9a4a;
+      padding: 16px 20px;
+      border-radius: 0 4px 4px 0;
+      margin: 16px 0;
+    }
+    .info-box p:last-child {
+      margin-bottom: 0;
+    }
+    .place-card {
+      background: #fff;
+      border: 1px solid #e0d8cc;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+    .place-card h3 {
+      margin-top: 0;
+      font-size: 1.05rem;
+      color: #1a1a1a;
+    }
+    .place-card .type-badge {
+      display: inline-block;
+      background: #d4a76a;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .place-card .type-badge.chor {
+      background: #5a9a4a;
+    }
+    .place-card .type-badge.publiczna {
+      background: #3a6ea8;
+    }
+    .place-card .contact-row {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .place-card .contact-row a {
+      color: #6a4a1a;
+      text-decoration: none;
+    }
+    .place-card .contact-row a:hover {
+      text-decoration: underline;
+    }
+    .place-card .verify {
+      font-size: 0.82rem;
+      color: #999;
+      margin-top: 8px;
+      font-style: italic;
+    }
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.95rem;
+    }
+    .price-table th {
+      background: #f3ede3;
+      color: #6a4a1a;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      border-bottom: 2px solid #d4a76a;
+    }
+    .price-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #ede8e0;
+    }
+    .price-table tr:last-child td {
+      border-bottom: none;
+    }
+    .price-table tr:nth-child(even) td {
+      background: #faf7f2;
+    }
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    @media (max-width: 560px) {
+      .pros-cons { grid-template-columns: 1fr; }
+    }
+    .pros, .cons {
+      padding: 14px 18px;
+      border-radius: 6px;
+    }
+    .pros {
+      background: #f0f7ee;
+      border: 1px solid #b5d9ad;
+    }
+    .cons {
+      background: #fff3f0;
+      border: 1px solid #f5b8ad;
+    }
+    .pros h4 {
+      color: #2d7a1a;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .cons h4 {
+      color: #c0392b;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .pros ul, .cons ul {
+      padding-left: 16px;
+      margin: 0;
+    }
+    .pros li, .cons li {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .sources-section {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #ddd;
+    }
+    .sources-section h2 {
+      font-size: 0.9rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .sources-section ul {
+      padding-left: 18px;
+    }
+    .sources-section li {
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+    .sources-section a {
+      color: #6a8aaa;
+      text-decoration: none;
+    }
+    .sources-section a:hover {
+      text-decoration: underline;
+    }
+    .footer-note {
+      margin-top: 32px;
+      font-size: 0.82rem;
+      color: #aaa;
+      font-style: italic;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Melania i spiew</h1>
+    <p class="subtitle">Jak madrzez zaczac naukę wokalną u dziecka w wieku wczesnoszkolnym. Opcje w Poznaniu. Opracowanie: czerwiec 2026.</p>
+  </div>
+
+  <nav class="toc">
+    <h2>Spis tresci</h2>
+    <ol>
+      <li><a href="#start">W skrocie (od czego zaczac)</a></li>
+      <li><a href="#uwaga">Na co zwrocic uwage u dziecka</a></li>
+      <li><a href="#formy">Formy zajec (indywidualne, grupowe, chor)</a></li>
+      <li><a href="#poznan">Opcje w Poznaniu</a></li>
+      <li><a href="#ceny">Ceny orientacyjne</a></li>
+      <li><a href="#rodzic">Wskazowki dla rodzica</a></li>
+      <li><a href="#zrodla">Zrodla</a></li>
+    </ol>
+  </nav>
+
+
+  <!-- SEKCJA 1 -->
+  <section id="start">
+    <h2 class="section-title"><span class="num">1.</span>W skrocie: od czego zaczac</h2>
+
+    <div class="highlight-box">
+      <p><strong>Optymalny wiek do startu z formalna nauka spiewu to 6-8 lat.</strong> Wiek wczesnoszkolny jest swietny: dziecko ma juz wystarczajaca dojrzalosc uwagi i emocjonalna, zeby skupic sie na cwiczeniach, a jednoczesnie struny glosowe sa na tyle plastyczne, ze mozna budowac dobre nawyki od podstaw. Czekanie do 10+ lat nie zaszkodzi, ale tez nie jest konieczne.</p>
+      <p>Najrozsadniejszy poczatek to <strong>krotkie zajecia indywidualne lub mala grupa wokalna</strong> (4-6 osob), 1 raz w tygodniu, 30-45 minut. Priorytetem w tym wieku nie jest popis, lecz budowanie zdrowych nawykow emisyjnych i radosc ze spiewu. Jesli Melania chodzi juz do szkoly, mozna rownoczesnie rozejrzec sie za chorem szkolnym lub mlodziezowym jako uzupelnieniem.</p>
+    </div>
+
+    <p>Kluczowy wskaznik sukcesu: dziecko wychodzi z zajec <strong>rozsmiame, nie zmeczone</strong>. Jesli po miesiacu zajeciach skarzy sie na bol gardla albo widac niechec do cwiczenia, cos idzie nie tak (forsowanie glasu lub nieodpowiedni nauczyciel).</p>
+  </section>
+
+
+  <!-- SEKCJA 2 -->
+  <section id="uwaga">
+    <h2 class="section-title"><span class="num">2.</span>Na co zwrocic uwage u dziecka</h2>
+
+    <h3>Emisja glosu u dzieci: podstawy</h3>
+    <p>Dzieciecy aparat glosowy rozni sie od doroslego. Struny glosowe sa krotsze i bardziej delikatne, a caly mechanizm dopiero dojrzewa. <strong>Glowne ryzyko to forsowanie</strong>: krzyk, zbyt dlugie cwiczenia bez przerwy, repertuar za wysoki albo zbyt nizki.</p>
+
+    <div class="warning-box">
+      <p><strong>Czego unikac bezwzglednie:</strong></p>
+      <ul>
+        <li>Cwiczenia powyzej 30 minut bez przerwy na wodę i odpoczynek gardla.</li>
+        <li>Krzyk i glosne pokrzykiwanie w trakcie zabawy czy sportu (forsuje struny tak samo jak zla technika).</li>
+        <li>Szepty forsowane ("zeby nikt nie slyszal") (paradoksalnie bardziej mecia niz normalny glos).</li>
+        <li>Repertuaru pisanego dla doroslych: inne zakresy, inne obciazenie.</li>
+      </ul>
+    </div>
+
+    <h3>Sygnaly ze cos jest nie tak</h3>
+    <ul>
+      <li>Chlipanie, chrypka po cwiczeniach (nie po przeziebieniu).</li>
+      <li>Bol lub "dyskomfort" gardla w trakcie spiewu.</li>
+      <li>Glos "przeskakuje" lub "wysiada" na okreslonych nutach, bo nauczyciel puszcza na to bez korekty.</li>
+      <li>Dziecko nie chce cwicyc wlasnie przez zmeczenie, nie z powodu lenistwa.</li>
+    </ul>
+
+    <h3>Sygnaly ze wszystko idzie dobrze</h3>
+    <ul>
+      <li>Spontaniczne spiewanie w domu miedzy lekcjami.</li>
+      <li>Glos brzmi "swobodnie", bez slyszalnego napinania sie.</li>
+      <li>Dziecko rozumie, co robi: potrafi pokazac, jak "oddychac brzuchem" albo "ziewnieto".</li>
+    </ul>
+  </section>
+
+
+  <!-- SEKCJA 3 -->
+  <section id="formy">
+    <h2 class="section-title"><span class="num">3.</span>Formy zajec</h2>
+
+    <h3>Lekcje indywidualne</h3>
+    <p>Nauczyciel skupia sie tylko na Melanii, na biezaco koryguje oddech, intonacje i postawe. Najszybszy postep techniczny. Dla niestarszego dziecka 30-40 minut to optymalny czas (nie 60).</p>
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>Plusy</h4>
+        <ul>
+          <li>Indywidualne korekty na biezaco</li>
+          <li>Repertuar dopasowany do glosu</li>
+          <li>Elastyczne terminy</li>
+          <li>Szybszy postep techniczny</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>Minusy</h4>
+        <ul>
+          <li>Wyzszy koszt</li>
+          <li>Brak wsparcia grupy i zabawy razem</li>
+          <li>Moze byc presja ("tylko ja i nauczyciel")</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Zajecia grupowe / szkola wokalna</h3>
+    <p>Male grupy (3-8 osob) w podobnym wieku. Dzieci ucza sie od siebie nawzajem, jest element zabawy i koncertow. Dobry wybor jezeli Melania jest towarzyska i lubi robic cos wspolnie.</p>
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>Plusy</h4>
+        <ul>
+          <li>Zawarcie przyjazni, motywacja grupy</li>
+          <li>Nizszy koszt niz indywidualne</li>
+          <li>Nauka harmonii i sluchania innych</li>
+          <li>Mniejsza presja niz "jeden na jeden"</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>Minusy</h4>
+        <ul>
+          <li>Mniej korekty personalnej</li>
+          <li>Poziom grupy moze nie pasowac do Melanii</li>
+          <li>Stalsze terminy, mniej elastycznosci</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Chor dzieciecy</h3>
+    <p>Doskonale jako uzupelnienie lub nawet poczatek, jesli Melania jest otwarta spolecznie. Chor uczy wspolnego brzmienia, oddychania z innymi, skupienia. Dobre chory dziecece w Poznaniu maja wysokie standardy i wymagaja regularnych prob (zwykle 2 x w tygodniu). Chory dziewczece czesto wymagaja przesluchania.</p>
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>Plusy</h4>
+        <ul>
+          <li>Silna wspolnota i poczucie wyjatkowosci</li>
+          <li>Nauka harmonii, intonacji grupowej</li>
+          <li>Czesto bezplatny lub bardzo tani</li>
+          <li>Wyjazdy, festiwale, wystepy</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>Minusy</h4>
+        <ul>
+          <li>Maloindywidualna technika</li>
+          <li>Stalowe, nieelastyczne terminy prob</li>
+          <li>Wymaga duzej regularnosci (absencja bywa problemem)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <p><strong>Rekomendacja startowa:</strong> Jesli Melania jest ciekawa ale niepewna, zacznij od lekcji indywidualnych (1 x tydzien) przez pol roku. Daje to czas na poznanie sie z nauczycielem bez presji grupy. Gdy polubi, mozna dodac chor lub zamieniec na grupe. Nie musisz wybierac "na zawsze" od razu.</p>
+    </div>
+
+    <h3>Jak rozpoznac dobrego nauczyciela spiewu dla dziecka</h3>
+    <ul>
+      <li><strong>Doswiadczenie z dziecmi</strong> (nie tylko z doroslymi amatorami lub studentami ASP). Pytaj wprost: "Czy uczy Pan/Pani dzieci w wieku 7-9 lat? Jaki ma pan/pani repertuar dla tego wieku?"</li>
+      <li><strong>Pierwsze zajecia nie bola</strong>: dobra technika emisji nawet przy dlugim spiewaniu nie powoduje dyskomfortu gardla.</li>
+      <li><strong>Tlumaczenie, nie tylko "robic jak ja"</strong>: nauczyciel powinien tlumac, co robi aparat glosowy (np. "teraz odczuj jak brzuch sie opada przy oddechu"). Dzieci ucza sie przez wyobrazenie.</li>
+      <li><strong>Brak presji i pospiechu</strong>: dobry nauczyciel celebruje male postepy, nie goniony jest do "juz grasz piosenke po miesiacu".</li>
+      <li><strong>Zajecia sa krotkie i skoncentrowane</strong>: 30-40 min dla dziecka 7-8 lat to maximum. Jesli chce ciagnac do 60 min bez przerwy, to sygnał ostrzegawczy.</li>
+      <li><strong>Kompatybilnosc osobowosci</strong>: przes pierwsze 2-3 zajecia obserwuj, czy Melania chce isc na nastepne. Dobry nauczyciel moze byc nieodpowiedni dla konkretnego dziecka i odwrotnie.</li>
+    </ul>
+  </section>
+
+
+  <!-- SEKCJA 4 -->
+  <section id="poznan">
+    <h2 class="section-title"><span class="num">4.</span>Opcje w Poznaniu</h2>
+    <p>Ponizej konkretne miejsca. Dane kontaktowe podane na podstawie stron internetowych (czerwiec 2026). Przy wyborze skontaktuj sie i zapytaj o aktualna oferte dla dzieci 7-8 lat.</p>
+
+    <!-- Szkoly prywatne -->
+    <h3 style="margin-bottom:12px; color:#8a6a3a; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em;">Szkoly prywatne i studia wokalne</h3>
+
+    <div class="place-card">
+      <span class="type-badge">Prywatna szkola</span>
+      <h3>Artyz Music School</h3>
+      <p>Trzy lokalizacje w Poznaniu (Ogrody, Wilda, Winogrady). Zajecia dla dzieci w wieku wczesnoszkolnym, lekcje indywidualne i grupowe. Znane z programu "Spiewajace Artyziaki" (glosy, muzykalnosc, rytm). Metoda FeelHarmony, elastyczna rekrutacja bez dlugich umow.</p>
+      <div class="contact-row">
+        Glowna lokalizacja: <strong>ul. Piekna 51, Poznan</strong><br>
+        Tel.: <a href="tel:727717775">727 717 775</a><br>
+        Web: <a href="https://artyz.pl" target="_blank">artyz.pl</a><br>
+        Lekcja probna indywidualna: 29 zl, grupowa: 19 zl
+      </div>
+      <p class="verify">Opinie: pozytywne wzmianki, elastyczne podejscie. Ceny probne zweryfikowane ze strony (06.2026).</p>
+    </div>
+
+    <div class="place-card">
+      <span class="type-badge">Prywatna szkola</span>
+      <h3>Performance Music Studio</h3>
+      <p>Prywatna szkola muzyczna przy ul. Norwida 14, zalozyciele Agata i Bartek Rajpold (absolwenci AM Poznan, spiew solowy). Powyzej 15 nauczycieli wokalnych. Glowna oferta to spiew rozrywkowy (pop, jazz, soul). Mniej informacji o specjalistycznym programie dla malych dzieci, warto zapytac o oferte dla 7-8 lat.</p>
+      <div class="contact-row">
+        Adres: <strong>ul. Norwida 14, III piętro, Poznan</strong><br>
+        Tel.: <a href="tel:669001019">669 001 019</a><br>
+        E-mail: <a href="mailto:kontakt@performancemusicstudio.pl">kontakt@performancemusicstudio.pl</a><br>
+        Web: <a href="https://www.performancemusicstudio.pl" target="_blank">performancemusicstudio.pl</a><br>
+        Lekcja probna: 95 zl
+      </div>
+      <p class="verify">Dla najmlodszych dzieci (4-7 lat) oferta Performance Kids skupia sie na rytmice i tancui; spiew solowy glownie od 8+. Do potwierdzenia czy maja program wokalu dla 7-latki.</p>
+    </div>
+
+    <div class="place-card">
+      <span class="type-badge">Prywatna szkola</span>
+      <h3>Swiat Gitary (studio wokalu)</h3>
+      <p>Oprócz gitar prowadza tez lekcje spiewu. Nauczyciel (absolwent AM Poznan, doswiadczenie choralne). Zajecia indywidualne, brak ograniczen wiekowych, osobny program dla dzieci. Lokalizacja na os. Zwycięstwa.</p>
+      <div class="contact-row">
+        Adres: <strong>os. Zwycięstwa 2, kl. "i", Poznan</strong><br>
+        Tel.: <a href="tel:570578100">570 578 100</a><br>
+        E-mail: <a href="mailto:info@swiatgitary.com.pl">info@swiatgitary.com.pl</a><br>
+        Web: <a href="https://www.swiatgitary.com.pl/instrumenty/nauka-spiewu/" target="_blank">swiatgitary.com.pl</a>
+      </div>
+      <p class="verify">Ceny do potwierdzenia na stronie lub przez telefon.</p>
+    </div>
+
+    <div class="place-card">
+      <span class="type-badge">Prywatna szkola</span>
+      <h3>Yamaha Music School Poznan</h3>
+      <p>Zajecia wokalne od 6 lat, format grupowy (2-10 osob), 45-55 min. Program obejmuje spiew, czytanie nut, mikrofon, ruch sceniczny i podstawy keyboardu. Uwaga: zajecia prowadzone sa po angielsku (angielski program Yamaha).</p>
+      <div class="contact-row">
+        Adres: <strong>os. Zwycięstwa 110, Poznan</strong><br>
+        Tel.: <a href="tel:616100101">61 100 01 01</a><br>
+        E-mail: <a href="mailto:info@yamahaszkola.poznan.pl">info@yamahaszkola.poznan.pl</a><br>
+        Web: <a href="https://yamahaszkola.poznan.pl" target="_blank">yamahaszkola.poznan.pl</a><br>
+        Miesieczna oplata: ok. 369 zl (do potwierdzenia)
+      </div>
+      <p class="verify">Jesli Melania nie mowi po angielsku, to nie bedzie odpowiednia opcja. Do potwierdzenia czy prowadza tez zajecia polskojezyczne.</p>
+    </div>
+
+    <!-- Chory dziecięce -->
+    <h3 style="margin-bottom:12px; margin-top:32px; color:#8a6a3a; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em;">Chory dziecięce w Poznaniu</h3>
+
+    <div class="place-card">
+      <span class="type-badge chor">Chor dziewczat</span>
+      <h3>Chor Dziewczecy Skowronki</h3>
+      <p>Jeden z najstarszych i najbardziej nagradzanych chorow dziewczecych w Europie (ponad 75 lat historii, liczne Grand Prix na miedzynarodowych festiwalach). Okolo 100 spiewaezek. Siedziba przy CK Zamek. Rekrutacja cykliczna, wymagane przesluchanie. Bardzo wysoki poziom, wiec raczej dla dzieci po pewnym przygotowaniu lub z naturalna muzykalnoscia.</p>
+      <div class="contact-row">
+        Adres: <strong>Centrum Kultury ZAMEK, ul. Sw. Marcin 80/82, Poznan</strong><br>
+        Tel.: <a href="tel:616465228">61 64 65 228</a><br>
+        E-mail: <a href="mailto:info@chor-skowronki.pl">info@chor-skowronki.pl</a><br>
+        Web: <a href="https://chor-skowronki.pl" target="_blank">chor-skowronki.pl</a><br>
+        Dyrygent: Alicja Szeluga, tel. <a href="tel:605941381">605 941 381</a>
+      </div>
+      <p class="verify">Terminy naboru i wymagania wiekowe do potwierdzenia. Sugestia: najpierw rok indywidualnych lekcji, potem przesluchanie do Skowronek.</p>
+    </div>
+
+    <div class="place-card">
+      <span class="type-badge chor">Chor mieszany</span>
+      <h3>Poznanskie Slowiki (Filharmonia Poznanska)</h3>
+      <p>Chor chlopiecy i meski przy Filharmonii Poznanskiej. Uwaga: to chor CHLOPCOW, wiec dla Melanii (dziewczynki) nie pasuje. Wymieniony dla pelnosci obrazu, na wypadek gdyby pojawil sie braciszek.</p>
+      <div class="contact-row">
+        Adres: <strong>ul. Sw. Marcin 80/82, Poznan</strong><br>
+        Tel.: <a href="tel:602711512">602 711 512</a><br>
+        E-mail: <a href="mailto:biuro@slowiki.poznan.pl">biuro@slowiki.poznan.pl</a><br>
+        Web: <a href="https://www.slowiki.poznan.pl" target="_blank">slowiki.poznan.pl</a>
+      </div>
+    </div>
+
+    <!-- Szkoly publiczne -->
+    <h3 style="margin-bottom:12px; margin-top:32px; color:#8a6a3a; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em;">Publiczne szkoly muzyczne (bezplatne)</h3>
+
+    <div class="place-card">
+      <span class="type-badge publiczna">Szkola publiczna</span>
+      <h3>POSM I st. nr 1 im. H. Wieniawskiego</h3>
+      <p>Poznanszka Ogolnoksztalcaca Szkola Muzyczna I stopnia nr 1. Jedna z najlepszych publicznych szkol muzycznych w Polsce (miejsce w czolowce rankingowej). Program laczi nauke ogolnoksztalcaca z muzyka przez 6-8 lat. Nauka spiewu jako instrument glowny lub dodatkowy. Bezplatna dla uczniow. Rekrutacja przez badanie predyspozycji muzycznych (zwykle zima/wiosna na rok szkolny nastepny).</p>
+      <div class="contact-row">
+        Adres: <strong>ul. Solna 12, Poznan</strong><br>
+        Tel.: <a href="tel:618522855">61 852 28 55</a><br>
+        Web: <a href="https://posm1nr1.poznan.pl" target="_blank">posm1nr1.poznan.pl</a>
+      </div>
+      <p class="verify">Terminy rekrutacji na rok 2026/2027 do potwierdzenia bezposrednio w szkole. Uwaga: to duze zobowiazanie (codzienne cwiczenia, 2 szkoly rownoczesnie). Rekomendowane dla dzieci z wyrazna motywacja.</p>
+    </div>
+
+    <div class="place-card">
+      <span class="type-badge publiczna">Szkola publiczna</span>
+      <h3>PSM I st. im. K. Kurpinskiego (ZSM Poznan)</h3>
+      <p>Panstwowa Szkola Muzyczna I stopnia, czesc Zespolu Szkol Muzycznych. Cykle 4-letni i 6-letni. Spiew jako instrument glowny. Ok. 320 uczniow. Publiczna, bezplatna.</p>
+      <div class="contact-row">
+        Web: <a href="https://www.gov.pl/web/zsmpoznan/panstwowa-szkola-muzyczna-i-st" target="_blank">gov.pl/web/zsmpoznan</a>
+      </div>
+      <p class="verify">Szczegoly rekrutacji i adres do potwierdzenia przez strone lub kontakt bezposredni.</p>
+    </div>
+
+    <!-- Platforma -->
+    <h3 style="margin-bottom:12px; margin-top:32px; color:#8a6a3a; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em;">Prywatni nauczyciele (platformy)</h3>
+
+    <div class="place-card">
+      <span class="type-badge">Platforma</span>
+      <h3>Superprof.pl (nauczyciele prywatni)</h3>
+      <p>Platforma z 70+ nauczycielami spiewu w Poznaniu (w tym specjalizujacych sie w pracy z dziecmi). Mozna filtrowac po wieku ucznia, cenie i lokalizacji. Wiekszos nauczycielek oferuje pierwsza lekcje gratis. Dobra opcja do przetestowania bez zobowiazan, zanim wybierze sie stale miejsce.</p>
+      <div class="contact-row">
+        Web: <a href="https://www.superprof.pl/lekcje/spiew/poznan/dzieci/" target="_blank">superprof.pl/lekcje/spiew/poznan/dzieci</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SEKCJA 5 -->
+  <section id="ceny">
+    <h2 class="section-title"><span class="num">5.</span>Ceny orientacyjne</h2>
+    <p>Ceny sa orientacyjne i moga sie roznic w zaleznosci od nauczyciela, lokalizacji i dlugosci lekcji. Warto proscic o aktualny cennik bezposrednio.</p>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Forma</th>
+          <th>Cena orientacyjna</th>
+          <th>Uwaga</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lekcja indywidualna (prywatny nauczyciel)</td>
+          <td>60-100 zl / 45-60 min</td>
+          <td>Srednia na Superprof: ok. 83-91 zl/h</td>
+        </tr>
+        <tr>
+          <td>Lekcja probna (Artyz)</td>
+          <td>29 zl indywidualna, 19 zl grupowa</td>
+          <td>Zweryfikowane na stronie 06.2026</td>
+        </tr>
+        <tr>
+          <td>Lekcja probna (Performance Music Studio)</td>
+          <td>95 zl</td>
+          <td>Zweryfikowane na stronie 06.2026</td>
+        </tr>
+        <tr>
+          <td>Zajecia grupowe Yamaha (miesieczne)</td>
+          <td>ok. 369 zl / miesiac</td>
+          <td>Do potwierdzenia; zajecia w jezyku angielskim</td>
+        </tr>
+        <tr>
+          <td>Chor dzieciecy (Skowronki, chory szkolne)</td>
+          <td>0-50 zl / miesiac</td>
+          <td>Czesto bezplatne lub symboliczna skladka. Do potwierdzenia.</td>
+        </tr>
+        <tr>
+          <td>Publiczna szkola muzyczna (POSM, PSM)</td>
+          <td>Bezplatna nauka</td>
+          <td>Koszty podrecznikow i strojow do potwierdzenia. Wymaga rekrutacji.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Przy lekcjach indywidualnych warto negocjowac pakiet 4-lekcyjny (miesiac) lub 8-lekcyjny, ktory czesto wychodzi taniej niz platnosc jednorazowa. Regularnosc jest kluczowa dla postepu, wiec pakiet ma sens.</p>
+  </section>
+
+
+  <!-- SEKCJA 6 -->
+  <section id="rodzic">
+    <h2 class="section-title"><span class="num">6.</span>Wskazowki dla rodzica</h2>
+
+    <h3>Co robic w domu</h3>
+    <ul>
+      <li><strong>Nawodnienie</strong>: spiewak to przede wszystkim czlowiek dobrze nawodniony. Zwykla woda (niegazowana, nie lodowata) to lepszy "akcesorium" niz jakikolwiek sprzet.</li>
+      <li><strong>Spiewaj razem</strong>: dziecko ktore slyszy rodzica spiewajacego bez wstydu chcetniej probuje samo. Wlaczaj muzyke w samochodzie i spiewaj razem, bez oceniania.</li>
+      <li><strong>Celebruj male postepy</strong>: "ale ladnie trafiles/trafilasz ta nuте" dziala lepiej niz "kiedy zagrasz na wystepie". Roczna perspektywa jest dla rodzicow, nie dla 7-latki.</li>
+      <li><strong>Krotkie cwiczenia</strong>: jesli nauczyciel da cwiczenie domowe, 5-10 minut dziennie jest wiecej warte niz 1 godzina w sobote. Czestotliwosc buduje nawyk.</li>
+      <li><strong>Nagrywaj</strong>: raz na miesiac krotkie nagranie na telefonie. Dziecko slyszac swoj glos sprzed 3 miesiecy widzi realny postep i moze nie zauwazac na biezaco.</li>
+    </ul>
+
+    <h3>Czego unikac</h3>
+    <ul>
+      <li>Nie porownuj z innymi dziecmi ani z Youtubem. Glosy sa jak odciski palcow: kazdy inny.</li>
+      <li>Nie wymuszaj cwiczen gdy dziecko jest zmeczone, chore lub ma "kiepski dzien glosowy" (tak, sa: zmiana temperatury, alergia, zmeczenie rowniez wplywaja na glos).</li>
+      <li>Nie oceniaj negatywnie przed innymi (bracia, siostry, dziadkowie), nawet zartobliwie. Wrazliwosc glosowa jest spora.</li>
+      <li>Nie oczekuj koncertu po pol roku. Technika buduje sie latami, zabawa i pewnosc siebie moga przyjsc szybciej.</li>
+    </ul>
+
+    <h3>Czy potrzebny jest instrument lub sprzet na start?</h3>
+    <div class="highlight-box">
+      <p><strong>Nie. Na samym poczatku nie potrzebujesz niczego dodatkowego.</strong></p>
+      <ul>
+        <li>Glos jest instrumentem samym w sobie. Zadnego specjalnego sprzetu na start.</li>
+        <li>Jezeli po kilku miesiacach Melania chce cwiczye w domu przy muzyce, przyda sie aplikacja do sluchania tonow (np. prosta aplikacja do strojenia lub podklady do spiewu). Koszt: 0 zl.</li>
+        <li>Mikrofon i gloscnik: kompletnie zbedne przez pierwsze 2-3 lata. Dopiero gdy pojawia sie wystepy sceniczne i zainteresowanie nimi, nauczyciel podpowie odpowiedni moment.</li>
+        <li>Keyboard lub pianino: przydatne jezeli Melania chce sama sprawdzac tony w domu, ale absolutnie nie jest wymagany. Nie kupuj z wyprzedzeniem.</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- SEKCJA 7 -->
+  <div class="sources-section" id="zrodla">
+    <h2>Zrodla</h2>
+    <ul>
+      <li><a href="https://www.wokal.studio/blog/15/nauka-spiewu-dla-dzieci" target="_blank">wokal.studio - Jak nauczyc dzieci spiewu: przewodnik dla rodzicow</a></li>
+      <li><a href="https://szkola-muzyki.pl/dobry-nauczyciel-spiewu-jak-go-znalezc/" target="_blank">szkola-muzyki.pl - Dobry nauczyciel spiewu: jak go znalezc?</a></li>
+      <li><a href="https://www.superprof.pl/blog/spiew-w-chorze/" target="_blank">superprof.pl - Spiewanie w chorze jako sposob na rozwoj wokalny</a></li>
+      <li><a href="https://artyz.pl/c/nauka-spiewu/poznan" target="_blank">artyz.pl - Nauka spiewu dla dzieci Poznan</a></li>
+      <li><a href="https://www.performancemusicstudio.pl/project_category/lekcje-spiewu-nauka-wokal/" target="_blank">performancemusicstudio.pl - Spiew rozrywkowy Poznan</a></li>
+      <li><a href="https://yamahaszkola.poznan.pl/offer-in-english/vocal-classes-in-english/" target="_blank">yamahaszkola.poznan.pl - Vocal Classes</a></li>
+      <li><a href="https://chor-skowronki.pl/" target="_blank">chor-skowronki.pl - Chor Dziewczecy Skowronki</a></li>
+      <li><a href="https://www.slowiki.poznan.pl/" target="_blank">slowiki.poznan.pl - Poznanskie Slowiki</a></li>
+      <li><a href="https://posm1nr1.poznan.pl/" target="_blank">posm1nr1.poznan.pl - POSM I st. nr 1 im. H. Wieniawskiego</a></li>
+      <li><a href="https://www.gov.pl/web/zsmpoznan/panstwowa-szkola-muzyczna-i-st" target="_blank">gov.pl/web/zsmpoznan - PSM I st. im. K. Kurpinskiego</a></li>
+      <li><a href="https://www.swiatgitary.com.pl/instrumenty/nauka-spiewu/" target="_blank">swiatgitary.com.pl - Nauka spiewu Poznan</a></li>
+      <li><a href="https://www.superprof.pl/lekcje/spiew/poznan/dzieci/" target="_blank">superprof.pl/lekcje/spiew/poznan/dzieci - Nauczyciele spiewu dla dzieci Poznan</a></li>
+    </ul>
+  </div>
+
+  <p class="footer-note">Opracowanie na podstawie dostepnych zrodel internetowych, czerwiec 2026. Dane kontaktowe i cenowe nalezy zweryfikowac bezposrednio z placowkami przed podjyciem decyzji.</p>
+
+</div>
+</body>
+</html>

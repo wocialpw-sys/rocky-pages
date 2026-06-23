@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pajaczki naczyniowe na nogach - kompendium leczenia</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #faf9f7;
+      color: #2c2c2c;
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    .wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .header {
+      background: #f0ece6;
+      border-left: 5px solid #c9a97a;
+      padding: 28px 32px;
+      margin-bottom: 40px;
+      border-radius: 4px;
+    }
+
+    .header h1 {
+      font-size: 1.7rem;
+      font-weight: normal;
+      color: #5a3e28;
+      margin-bottom: 6px;
+    }
+
+    .header .subtitle {
+      font-size: 0.9rem;
+      color: #7a6a5a;
+      font-style: italic;
+    }
+
+    .disclaimer {
+      background: #fff8e1;
+      border: 1px solid #f0c040;
+      padding: 14px 20px;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      color: #5a4a10;
+      margin-bottom: 36px;
+    }
+
+    .disclaimer strong { color: #3a2a00; }
+
+    section {
+      margin-bottom: 44px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #5a3e28;
+      border-bottom: 2px solid #e8ddd0;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: #3c2a18;
+      margin: 20px 0 8px;
+    }
+
+    p { margin-bottom: 12px; }
+
+    ul {
+      padding-left: 22px;
+      margin-bottom: 14px;
+    }
+
+    ul li { margin-bottom: 6px; }
+
+    .summary-box {
+      background: #eef7f0;
+      border-left: 4px solid #5a9a6a;
+      padding: 20px 24px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .summary-box p { margin-bottom: 8px; }
+    .summary-box p:last-child { margin-bottom: 0; }
+
+    /* Tabela metod */
+    .methods-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin-top: 10px;
+    }
+
+    .methods-table th {
+      background: #e8ddd0;
+      color: #3c2a18;
+      text-align: left;
+      padding: 10px 12px;
+      font-weight: bold;
+    }
+
+    .methods-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e8ddd0;
+      vertical-align: top;
+    }
+
+    .methods-table tr:nth-child(even) td { background: #faf7f3; }
+
+    .methods-table .method-name {
+      font-weight: bold;
+      color: #5a3e28;
+      white-space: nowrap;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #f0ece6;
+      color: #5a3e28;
+      border: 1px solid #c9a97a;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      padding: 2px 8px;
+      margin-top: 4px;
+    }
+
+    .badge.green {
+      background: #eef7f0;
+      color: #2a6a3a;
+      border-color: #5a9a6a;
+    }
+
+    /* Placowki */
+    .clinic-card {
+      background: #fff;
+      border: 1px solid #e0d4c4;
+      border-radius: 6px;
+      padding: 20px 22px;
+      margin-bottom: 18px;
+    }
+
+    .clinic-card h3 {
+      margin: 0 0 8px;
+      color: #5a3e28;
+    }
+
+    .clinic-card .detail {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 4px;
+    }
+
+    .clinic-card .detail strong { color: #333; }
+
+    .clinic-card .opinia {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: #666;
+      border-left: 3px solid #c9a97a;
+      padding-left: 12px;
+    }
+
+    .verify-note {
+      font-size: 0.78rem;
+      color: #8a6a3a;
+      font-style: italic;
+    }
+
+    /* Lista pytan */
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist li {
+      padding: 8px 0 8px 28px;
+      position: relative;
+      border-bottom: 1px solid #f0ece6;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .checklist li::before {
+      content: "?";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      background: #c9a97a;
+      color: white;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 18px;
+    }
+
+    .tip-box {
+      background: #f5f0eb;
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin-top: 18px;
+      font-size: 0.9rem;
+    }
+
+    .tip-box strong { color: #5a3e28; }
+
+    /* Zrodla */
+    .sources {
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+
+    .sources a {
+      color: #7a5a30;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .sources a:hover { text-decoration: underline; }
+
+    .price-range {
+      font-size: 0.88rem;
+      color: #444;
+      background: #f7f3ee;
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 600px) {
+      .methods-table, .methods-table tbody, .methods-table tr, .methods-table td, .methods-table th {
+        display: block;
+      }
+      .methods-table th { display: none; }
+      .methods-table td {
+        border-bottom: none;
+        padding: 5px 8px;
+      }
+      .methods-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        font-size: 0.78rem;
+        color: #7a6a5a;
+        margin-bottom: 2px;
+      }
+      .methods-table tr {
+        border: 1px solid #e8ddd0;
+        border-radius: 5px;
+        margin-bottom: 12px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <h1>Pajaczki naczyniowe na nogach - co to jest i jak to sie leczy</h1>
+    <div class="subtitle">Kompendium informacyjne. Opracowane na podstawie polskich zrodel medycznych, czerwiec 2026.</div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Wazna informacja:</strong> Ten dokument ma charakter wylacznie informacyjny i NIE zastepuje porady lekarskiej. Przed podjaciem jakiegokolwiek leczenia skonsultuj sie z flebologiem lub chirurgiem naczyniowym, ktory oceni Twoja indywidualna sytuacje.
+  </div>
+
+  <!-- 1. W SKROCIE -->
+  <section>
+    <h2>1. W skrocie - od czego zaczac</h2>
+    <div class="summary-box">
+      <p>Pajaczki naczyniowe (teleangiektazje) to poszerzone, cienkie naczynka krwionosne widoczne przez skore, najczesciej na udach i lydkach. Ich leczenie jest skuteczne i dobrze tolerowane - zlotymspierstalnym standardem jest <strong>mikroskleroterapia</strong> (zastrzyk zamykajacy naczynie), a przy drobnych zmianach rowniez <strong>laser Nd:YAG</strong>.</p>
+      <p>Najlepszy poczatek to <strong>konsultacja u flebologa</strong>, najlepiej z badaniem USG Doppler zyl konczyn dolnych - pozwala wykluczyc glebsza niewydinosc zylna, ktura czesto kryje sie pod pajaczkami. Dopiero po tej ocenie lekarz dobierze metode i wyceni leczenie.</p>
+      <p>W Poznaniu dziala kilka renomowanych placowek specjalizujacych sie w tej dziedzinie. Ceny konsultacji to zwykle 150-300 zl, a zabiegu od 350 do 1600 zl za sesje - finalnie wycenia lekarz po obejrzeniu zmian.</p>
+    </div>
+  </section>
+
+  <!-- 2. CO TO I PRZYCZYNY -->
+  <section>
+    <h2>2. Co to jest i skad sie biora</h2>
+
+    <h3>Czym sa pajaczki naczyniowe (teleangiektazje)</h3>
+    <p>Teleangiektazje to trwale poszerzone, drobne naczynka krwionosne (o srednicy ponizej 1 mm), ktore staly sie widoczne przez skore jako czerwone, fioletowe lub niebieskawe nitki lub "pajaczki". Wystepuja najczesciej na udach, lydkach i kostkach, ale takze na twarzy. Nie wchoza ponad poziom skory, maja raczej charakter placki niz wyp
+
+ukly.</p>
+
+    <h3>Zyly siatkowate - warto znac roznice</h3>
+    <p>Zyly siatkowate (reticularne) to nieco wieksze, zielonkawo-niebieskie zyly, widoczne pod skora jak siatka. Nie wychylaja sie jeszcze mocno ponad powierzchnie, ale sa wieksze niz pajaczki. Czesto wspolwystepuja z teleangiektazjami i moga byc ich "zasilaczem" - to wazne przy planowaniu leczenia, bo lekarz moze chciec je potraktowac razem.</p>
+
+    <h3>Najczestsze przyczyny</h3>
+    <ul>
+      <li><strong>Genetyka:</strong> to czynnik numer jeden. Jezeli mama lub babcia mialy pajaczki, ryzyko jest wyraznie wyzsze.</li>
+      <li><strong>Hormony i plec zenska:</strong> estrogeny oslabiaja scianki naczyn krwionosnych. Pajaczki sa zdecydowanie czestsze u kobiet.</li>
+      <li><strong>Ciaza:</strong> wzrost objetosci krwi i cisnienie wywierane przez macice na zyly mogac przyspieszac ich powstawanie.</li>
+      <li><strong>Tryb zycia:</strong> dlugie stanie lub siedzenie (praca biurowa, praca stojaca), nadwaga, brak aktywnosci fizycznej, goraco (gorace kapiele, sauna, slonce), obcisla odziez.</li>
+      <li><strong>Wiek:</strong> scianki naczyn traca elastycznosc z wiekiem.</li>
+      <li><strong>Urazy i zabiegi chirurgiczne</strong> w przeszlosci rowniez moga sprzyjac pojawieniu sie zmian.</li>
+    </ul>
+
+    <h3>Kiedy to tylko estetyka, a kiedy sygnał zdrowotny</h3>
+    <p>Pojedyncze, drobne, bezbolene pajaczki u doroslejszej osoby to najczesciej kwestia estetyczna i nie wymagaja leczenia z powodow zdrowotnych. Jednak warto skonsultowac sie ze specjalista gdy:</p>
+    <ul>
+      <li>towarzysza im <strong>objawy</strong>: uczucie ciezkosci nog, obrzeki, kurcze nocne, pieczenie lub swiad skory,</li>
+      <li>wspolistnieja <strong>zyly siatkowate lub zylaki</strong> (wyraznie uniesione, wijace sie zyly),</li>
+      <li>zmiany <strong>pojawiaja sie wczesnie</strong> (przed 30. rokiem zycia) lub szybko narastaja,</li>
+      <li><strong>nawracaja</strong> mimo wczesniejszego leczenia.</li>
+    </ul>
+    <p>W takich przypadkach pajaczki moga byc objawem glebszej <strong>niewydinosci zylnej</strong>, ktora wymaga leczenia przyczynoweho - i to w pierwszej kolejnosci.</p>
+
+    <div class="tip-box">
+      <strong>USG Doppler zyl konczyn dolnych</strong> to badanie, ktore pokazuje, czy zyly glebsze i powierzchowne pracuja prawidlowo (czy nie ma refluksu, czyli cofania sie krwi). Wielu flebologow wykonuje je lub zleca przed pierwszym zabiegiem - pozwala uniknac leczenia samego objawu przy nieusuniectej przyczynie. Koszt badania: zwykle 150-300 zl.
+    </div>
+  </section>
+
+  <!-- 3. METODY LECZENIA -->
+  <section>
+    <h2>3. Metody leczenia</h2>
+    <p>Najskuteczniejsza i najszerzej stosowana metoda na nogach jest mikroskleroterapia. Laser bywa uzupelnieniem lub alternatywa przy drobnych zmianach. Czesto lekarz laczy obie metody dla najlepszego efektu.</p>
+
+    <div style="overflow-x:auto; margin-top:16px;">
+    <table class="methods-table">
+      <thead>
+        <tr>
+          <th>Metoda</th>
+          <th>Na czym polega / dla kogo</th>
+          <th>Liczba sesji</th>
+          <th>Rekonwalescencja</th>
+          <th>Orientacyjny koszt (sesja)</th>
+          <th>Uwagi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Metoda" class="method-name">Mikroskleroterapia<br><span class="badge green">zloty standard</span></td>
+          <td data-label="Dla kogo / na czym polega">Iniekcja cienka igla srodka sklerotyzujacego bezposrednio do pajaczka. Srodek podraza sciankenprzyjaczka, powodujac jego zamkniecie i wchoniecie przez organizm. Najlepsza metoda na pajaczki i zyly siatkowate na nogach. Dla zdecydowanej wiekszosci pacjentow.</td>
+          <td data-label="Liczba sesji">1-4 sesje (srednie nasilenie zmian zwykle 2-3)</td>
+          <td data-label="Rekonwalescencja">Ponczochy uciskowe przez 3-7 dni, unikanie upalu/sauny/intensywnego slonca przez 3-4 tygodnie. Mozna od razu chodzic i pracowac.</td>
+          <td data-label="Koszt"><span class="price-range">300-800 zl / sesje</span><br><span class="verify-note">(do potwierdzenia na miejscu)</span></td>
+          <td data-label="Uwagi">Sezon letni: mozna wykonywac, ale trzeba rygorystycznie chronics skore przed slocem przez pierwsze tygodnie. Czesc lekarzy zaleca zabieg jesien-zima dla wygody.</td>
+        </tr>
+        <tr>
+          <td data-label="Metoda" class="method-name">Skleroterapia piankowa</td>
+          <td data-label="Dla kogo / na czym polega">Wariant skleroterapii, gdzie srodek podany jest w formie pianki - lepiej wypelnia swiatlo wiekszego naczynia. Stosowana przy zylach siatkowatych i wiekszych zmianach, czesto pod kontrola USG.</td>
+          <td data-label="Liczba sesji">1-3 sesje</td>
+          <td data-label="Rekonwalescencja">Jak przy mikroskleroterapii, mozliwe wieksze zasinienie/obrzek przez kilka dni.</td>
+          <td data-label="Koszt"><span class="price-range">600-1600 zl / sesje</span><br><span class="verify-note">(do potwierdzenia)</span></td>
+          <td data-label="Uwagi">Czesto laczona z mikroskleroterapia przy rozleglych zmianach.</td>
+        </tr>
+        <tr>
+          <td data-label="Metoda" class="method-name">Laser Nd:YAG<br><span class="badge">alternatywa / uzupelnienie</span></td>
+          <td data-label="Dla kogo / na czym polega">Wiazka lasera celuje w hemoglobine w naczynku, podgrzewajac je i powodujac zamkniecie. Bez iniekcji. Najlepszy na drobne (ponizej 0,5 mm), czerwonawe, powierzchowne pajaczki. Rowniez na naczynka twarzy. Mniej skuteczny przy grubszych niebieskich zylkach na nogach.</td>
+          <td data-label="Liczba sesji">1-4 sesje (co 4-6 tygodni)</td>
+          <td data-label="Rekonwalescencja">Minimalna. Zaczerwienienie i obrzek znikaja w ciagu doby. Nie trzeba nosic ponczoch.</td>
+          <td data-label="Koszt"><span class="price-range">300-1500 zl / sesje</span><br><span class="verify-note">(do potwierdzenia)</span></td>
+          <td data-label="Uwagi">Wazne: swiezo opalona skora jest przeciwwskazaniem. Minimum 4 tygodnie bez opalania przed zabiegiem. Przez 4-6 tygodni po zabiegu unikac slonca lub krem SPF 50.</td>
+        </tr>
+        <tr>
+          <td data-label="Metoda" class="method-name">Terapia laczona (skleroterapia + laser)</td>
+          <td data-label="Dla kogo / na czym polega">Polaczenie obu metod w jednej serii zabiegow - czesto daje najlepsze efekty przy zroznicowanych zmianach (i grubszych, i drobnych). Decyzja nalezy do lekarza po obejrzeniu zmian.</td>
+          <td data-label="Liczba sesji">Indywidualnie</td>
+          <td data-label="Rekonwalescencja">Jak przy skleroterapii (dominujaca czesc procedury).</td>
+          <td data-label="Koszt"><span class="price-range">Suma obu metod</span><br><span class="verify-note">(do ustalenia)</span></td>
+          <td data-label="Uwagi">Coraz popularniejsza opcja w doswiadczonych klinikach flebologicznych.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="tip-box" style="margin-top:20px;">
+      <strong>Efekty nie sa natychmiastowe.</strong> Po skleroterapii skora moze wygladac gorzej przez 2-4 tygodnie (zasinienia, lekkie przebarwienia) zanim pojawia sie poprawa. To normalny przebieg gojenia. Ostateczny efekt ocenia sie po 6-8 tygodniach od zabiegu.
+    </div>
+  </section>
+
+  <!-- 4. GDZIE W POZNANIU -->
+  <section>
+    <h2>4. Gdzie w Poznaniu - wytypowane placowki</h2>
+    <p>Ponizsze placowki zostaly wytypowane na podstawie dostepnych danych online. <strong>Przed umowieniem wizyty zweryfikuj aktualnosc danych kontaktowych i godzin przyjec</strong> - sytuacja klinik zmienia sie.</p>
+
+    <div class="clinic-card">
+      <h3>Venavita - Specjalistyczny Osrodek Leczenia Zylakow</h3>
+      <div class="detail"><strong>Adres:</strong> ul. Kurpiowska 8, Poznan</div>
+      <div class="detail"><strong>Specjalista:</strong> Dr Krzysztof Blachowiak (chirurg ogolny, flebolog)</div>
+      <div class="detail"><strong>Godziny:</strong> pn.-pt. 8:00-19:00 <span class="verify-note">(do weryfikacji)</span></div>
+      <div class="detail"><strong>Uslugi:</strong> mikroskleroterapia, skleroterapia piankowa, laser Nd:YAG, USG Duplex Doppler</div>
+      <div class="detail"><strong>Ocena:</strong> 9,4/10 na podstawie 578 opinii (kliniki.pl)</div>
+      <div class="opinia">Jedna z najwyzej ocenianych placowek flebologicznych w Poznaniu. Kompleksowa diagnostyka i leczenie. Uwaga: w momencie sprawdzania placowka nie przyjmowala nowych pacjentow - sprawdz aktualny status.</div>
+    </div>
+
+    <div class="clinic-card">
+      <h3>Klinika Grunwaldzka (lek. Artur Dobosz)</h3>
+      <div class="detail"><strong>Adres:</strong> ul. Zabkowicka 4/6, 60-166 Poznan</div>
+      <div class="detail"><strong>Telefon:</strong> <a href="tel:618679901">61 867 99 01</a> / <a href="tel:618641541">61 864 15 41</a></div>
+      <div class="detail"><strong>Uslugi:</strong> skleroterapia pajaczkow i zylakow, chirurgia zylna (metoda Mullera), chirurgia maloinwazyjna</div>
+      <div class="detail"><strong>Specjalista:</strong> lek. med. Artur Dobosz - doswiadczenie w flebologii</div>
+      <div class="opinia">Klinika z wieloletnią praktyka chirurgiczna. Prezentuje wyniki przed/po na stronie. Profil glownie chirurgiczny, skleroterapia w ofercie uzupelniajacych.</div>
+    </div>
+
+    <div class="clinic-card">
+      <h3>Klinika Zlotowska</h3>
+      <div class="detail"><strong>Adres:</strong> ul. Zlotowska 63, 60-184 Poznan</div>
+      <div class="detail"><strong>Telefon:</strong> <a href="tel:+48693636363">+48 693 63 63 63</a></div>
+      <div class="detail"><strong>Specjalista:</strong> Dr Mikolaj Kubasik</div>
+      <div class="detail"><strong>Uslugi:</strong> skleroterapia pajaczkow, chirurgia naczyniowa</div>
+      <div class="detail"><strong>Czas trwania:</strong> ok. 30 minut / sesja</div>
+      <div class="opinia">Klinika specjalizujaca sie w chirurgii naczyniowej. Skleroterapia wymieniona wsrod glownych procedur. Dokladne ceny po kontakcie.</div>
+    </div>
+
+    <div class="clinic-card">
+      <h3>Derma Solutions</h3>
+      <div class="detail"><strong>Adres:</strong> ul. Szczepankowo 94A, 61-306 Poznan</div>
+      <div class="detail"><strong>Telefon:</strong> <a href="tel:+48510211836">+48 510 211 836</a></div>
+      <div class="detail"><strong>Email:</strong> biuro@dermasolutions.pl</div>
+      <div class="detail"><strong>Uslugi:</strong> skleroterapia, usuwanie pajaczkow na nogach, dermatologia i medycyna estetyczna</div>
+      <div class="detail"><strong>Ceny:</strong> od 350 zl / sesja <span class="verify-note">(do potwierdzenia)</span></div>
+      <div class="detail"><strong>Lekarze:</strong> Dr Anna Ciazkowska, Dr Grzegorz Kierzynka, Dr Jaroslaw Adamczak</div>
+      <div class="opinia">Klinika dermatologiczna z medycyna estetyczna w ofercie, skleroterapia jako zabieg specjalistyczny. Aktywna na social media.</div>
+    </div>
+
+    <div class="clinic-card">
+      <h3>Dr Wlodzimierz Rosinski - Medycyna Estetyczna</h3>
+      <div class="detail"><strong>Adres:</strong> ul. Promienista 132/1, 60-142 Poznan (Grunwald)</div>
+      <div class="detail"><strong>Telefon:</strong> <a href="tel:+48571323530">571 323 530</a></div>
+      <div class="detail"><strong>Godziny:</strong> pn.-czw. 11:00-19:00, pt. 10:00-18:00 <span class="verify-note">(do weryfikacji)</span></div>
+      <div class="detail"><strong>Uslugi:</strong> skleroterapia pajaczkow (laser Nd:YAG rowniez w ofercie), USG Doppler wymagane przed zabiegiem</div>
+      <div class="detail"><strong>Ceny skleroterapii:</strong> od 600 zl (jedna noga) / 1100 zl (obie nogi) <span class="verify-note">(do potwierdzenia)</span></div>
+      <div class="detail"><strong>Specjalista:</strong> Dr Wlodzimierz Rosinski - chirurg, 30 lat doswiadczenia, certyfikowany specjalista medycyny estetycznej</div>
+      <div class="opinia">Placowka wymaga USG Doppler przed zabiegiem - to dobry znak swiadczacy o rzetelnym podejsciu do bezpieczenstwa. Laczy laser Nd:YAG i skleroterapie.</div>
+    </div>
+
+    <div class="clinic-card">
+      <h3>Centrum Medyczne Artmedica</h3>
+      <div class="detail"><strong>Adres:</strong> ul. Rakoniewicka 23A, 60-111 Poznan</div>
+      <div class="detail"><strong>Telefon:</strong> <a href="tel:+48503075095">+48 503 075 095</a></div>
+      <div class="detail"><strong>Email:</strong> artmedica@artmedicapoznan.pl</div>
+      <div class="detail"><strong>Uslugi:</strong> skleroterapia, laserowe usuwanie zylakow i pajaczkow</div>
+      <div class="detail"><strong>Specjalista:</strong> Grzegorz Oszkinski (chirurg naczyniowy)</div>
+      <div class="opinia">Centrum oferuje skleroterapie i leczenie laserowe. Cennik na zapytanie. Warto zadzwonic po szczegoly.</div>
+    </div>
+
+    <div class="clinic-card">
+      <h3>Mandala Beauty Clinic</h3>
+      <div class="detail"><strong>Adres:</strong> ul. Zofii Nalkowskiej 59/U3, 60-573 Poznan</div>
+      <div class="detail"><strong>Telefon:</strong> <a href="tel:+48618330881">+48 61 833 08 81</a></div>
+      <div class="detail"><strong>Godziny:</strong> pn.-pt. 9:00-17:00 <span class="verify-note">(do weryfikacji)</span></div>
+      <div class="detail"><strong>Uslugi:</strong> mikroskleroterapia, skleroterapia zylakow</div>
+      <div class="opinia">Klinika urody z oferta mikroskleroterapii. Ceny do zapytania przez telefon lub ze strony cennika.</div>
+    </div>
+
+    <p style="margin-top:16px; font-size:0.88rem; color:#666; font-style:italic;">Dane kontaktowe zweryfikowane na podstawie stron klinik (czerwiec 2026). Zalecane potwierdzenie telefoniczne przed wizyta.</p>
+  </section>
+
+  <!-- 5. PRZYGOTOWANIE I PYTANIA -->
+  <section>
+    <h2>5. Jak sie przygotowac i o co pytac na konsultacji</h2>
+
+    <h3>Przed konsultacja</h3>
+    <ul>
+      <li>Zrob zdjecia zmian w dobrym oswietleniu - latwiej porozmawiac z lekarzem o tym, co Cie niepokoi.</li>
+      <li>Zastanow sie, czy zmianom towarzysza objawy: ciezkiesc nog, obrzeki, kurcze w nocy, swiazenie, pieczenie.</li>
+      <li>Przypomnij sobie, kiedy pierwsze pajaczki sie pojawily i czy jest cos podobnego w rodzinie.</li>
+      <li>Przygotuj liste lekow i suplementow (niektorze - np. leki przeciwzakrzepowe, retinoidy - moga miec znaczenie).</li>
+    </ul>
+
+    <h3>O co pytac specjaliste</h3>
+    <ul class="checklist">
+      <li>Czy zaleca Pan/Pani USG Doppler zyl przed zabiegiem lub czy wykona je w gabinecie?</li>
+      <li>Czy widoczne zmiany to tylko pajaczki, czy rowniez zyly siatkowate lub zylaki? Co to oznacza dla leczenia?</li>
+      <li>Ktora metode Pan/Pani rekomenduje i dlaczego - skleroterapia, laser, czy polaczenie?</li>
+      <li>Ile sesji bedzie najprawdopodobniej potrzeba i co ile czasu?</li>
+      <li>Jaki jest orientacyjny koszt calego cyklu (nie tylko pierwszej wizyty)?</li>
+      <li>Jak bedzie wygladac pielegnacja po zabiegu - co nalezy robic, czego unikac i jak dlugo?</li>
+      <li>Czy sa jakies przeciwwskazania w moim przypadku?</li>
+      <li>Czy teraz, w sezonie letnim (opalanie, upaly), to dobry moment na zabieg?</li>
+      <li>Jak moge zapobiegac nawrotom - co warto zmienic w stylu zycia?</li>
+    </ul>
+
+    <h3>Wazne kwestie dotyczace sezonu</h3>
+    <div class="tip-box">
+      <strong>Lato i opalanie a zabieg.</strong> Swiezo opalona skora jest <strong>przeciwwskazaniem</strong> do skleroterapii i lasera (ryzyko przebarwien, powiklan). Przed zabiegiem: minimum 4 tygodnie bez opalania i bez solarium. Po zabiegu: przez 3-4 tygodnie unikac slonca lub stosowac krem SPF 50 na leczone miejsca. Wielu flebologow preferuje wykonywac zabiegi jesienia lub zima dla wygody pacjentki - ale nie jest to twardy zakaz, a kwestia ostroznosci.
+    </div>
+
+    <h3>Na co zwrocic uwage przy wyborze placowki</h3>
+    <ul>
+      <li><strong>Specjalizacja:</strong> szukaj flebologow lub chirurgow naczyniowych, nie tylko "medycyny estetycznej" bez przygotowania naczyniowego.</li>
+      <li><strong>Dostepnosc USG Doppler</strong> w ramach konsultacji lub wspolpraca z pracownia badajaca zyly - to sygnał, ze placowka podchodzi do sprawy rzetelnie.</li>
+      <li><strong>Konsultacja przed zabiegiem</strong> to standard - podejrzliwe sa placowki, ktore od razu umawiaja na zabieg bez wstepnego badania.</li>
+      <li><strong>Opinie pacjentow</strong> na ZnanyLekarz.pl i Kliniki.pl - szukaj komentarzy dot. konkretnie pajaczkow / skleroterapii.</li>
+    </ul>
+  </section>
+
+  <!-- 6. ZRODLA -->
+  <section>
+    <h2>6. Zrodla</h2>
+    <div class="sources">
+      <a href="https://www.mp.pl/pacjent/zakrzepica/wszystkoozakrzepicy/zakrzepicazylna/349721,teleangiektazje-pajaczki-naczyniowe-co-oznaczaja-pajaczki-na-nogach-udach-i-twarzy" target="_blank">Medycyna Praktyczna (mp.pl) - Teleangiektazje: co oznaczaja pajaczki na nogach</a>
+      <a href="https://recepta.pl/artykuly/pajaczki-na-nogach-przyczyny-leczenie-i-domowe-sposoby-na-ukrycie-i-pozbycie-sie-teleangiektazji" target="_blank">Recepta.pl - Pajaczki na nogach: przyczyny, leczenie, domowe sposoby</a>
+      <a href="https://zdrowiedzis.pl/leczenie-zmian-naczyniowych-co-wybrac-skleroterapia-czy-laser/" target="_blank">ZdrowieDzis.pl - Skleroterapia czy laser? Porownanie metod</a>
+      <a href="https://www.dopplerinstytut.pl/strefa-edukacji/skleroterapiaapajaczki" target="_blank">Doppler Instytut Warszawa - skleroterapia pajaczkow (kiedy USG Doppler)</a>
+      <a href="https://alfamedycyna.pl/porady-ekspertow/wpis/co-warto-wiedziec-o-laserowym-usuwaniu-pajaczkow-naczyniowych-konczyn-dolnych" target="_blank">Alfa Medycyna - laserowe usuwanie pajaczkow naczyniowych</a>
+      <a href="https://alfamedycyna.pl/porady-ekspertow/wpis/pajaczki-naczyniowe-na-nogach-czy-trzeba-je-leczyc" target="_blank">Alfa Medycyna - czy pajaczki naczyniowe trzeba leczyc?</a>
+      <a href="https://centrummedycynyiestetyki.pl/informacje/skuteczne-metody-zamykania-naczynek-na-nogach-medycyna-estetyczna-w-praktyce/" target="_blank">Centrum Medycyny i Estetyki - metody zamykania naczynek na nogach</a>
+      <a href="https://www.kliniki.pl/venavita-specjalistyczny-osrodek-leczenia-zylakow/" target="_blank">Kliniki.pl - profil Venavita Poznan</a>
+      <a href="https://www.kliniki.pl/mikroskleroterapia-pajaczkow-konczyn-dolnych/poznan/" target="_blank">Kliniki.pl - mikroskleroterapia pajaczkow Poznan (ceny i placowki)</a>
+      <a href="https://www.wrosinski.pl/zabiegi/skleroterapia/" target="_blank">Dr Wlodzimierz Rosinski - skleroterapia Poznan</a>
+      <a href="https://dermasolution.pl/dermatologia/skleroterapia/" target="_blank">Derma Solutions Poznan - skleroterapia</a>
+      <a href="https://www.arturdobosz.pl/flebologia/" target="_blank">Klinika Grunwaldzka Poznan - flebologia</a>
+      <a href="https://klinikazlotowska.pl/skleroterapia/" target="_blank">Klinika Zlotowska Poznan - skleroterapia pajaczkow</a>
+      <a href="https://artmedicapoznan.pl/oferta/skleroterapia" target="_blank">Artmedica Poznan - skleroterapia i leczenie zylakow</a>
+      <a href="https://www.mandalaclinic.com/en/offer/microsclerotherapy-sclerotherapy/" target="_blank">Mandala Beauty Clinic Poznan - mikroskleroterapia</a>
+      <a href="https://www.doktora.pl/aktualnosci/skleroterapia-cena-ile-kosztuje-zabieg/" target="_blank">Doktora.pl - skleroterapia: ceny w Polsce</a>
+      <a href="https://www.arsestetica.pl/blog/teleangiektazje-miejsce-wystepowania-przyczyny-i-leczenie/" target="_blank">Ars Estetica - teleangiektazje: miejsce, przyczyny, leczenie</a>
+    </div>
+  </section>
+
+  <div style="margin-top:40px; padding:16px 20px; background:#f0ece6; border-radius:4px; font-size:0.82rem; color:#7a6a5a; text-align:center;">
+    Opracowanie informacyjne - czerwiec 2026. Wszelkie decyzje medyczne nalezy podejmowac z lekarzem specjalista.
+  </div>
+
+</div>
+</body>
+</html>

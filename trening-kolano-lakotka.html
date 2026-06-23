@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan treningu siłowego 2x/tydz. - ochrona kolana (łąkotka)</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #2c2c2a;
+    background: #f8f7f4;
+    padding: 2rem 1rem 4rem;
+  }
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a18;
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    color: #5f5e5a;
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a18;
+    margin-top: 2.2rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid #d3d1c7;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #3c3489;
+    margin-top: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  p { margin-bottom: 0.8rem; }
+  ul, ol { margin-left: 1.4rem; margin-bottom: 0.8rem; }
+  li { margin-bottom: 0.35rem; }
+
+  .zastrzezenie {
+    background: #faeeda;
+    border-left: 4px solid #ef9f27;
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    font-size: 0.93rem;
+  }
+  .zastrzezenie strong { color: #633806; }
+
+  .zasady-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .zasada-karta {
+    background: #fff;
+    border: 0.5px solid #b4b2a9;
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+  }
+  .zasada-karta .label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #5f5e5a;
+    margin-bottom: 0.35rem;
+  }
+  .zasada-karta.bezpieczne .label { color: #3b6d11; }
+  .zasada-karta.ryzykowne .label { color: #993c1d; }
+  .zasada-karta.bezpieczne { border-left: 3px solid #639922; }
+  .zasada-karta.ryzykowne { border-left: 3px solid #d85a30; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 0.5px solid #d3d1c7;
+  }
+  thead th {
+    background: #534ab7;
+    color: #eeedfe;
+    text-align: left;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  tbody tr:nth-child(even) { background: #f8f7f4; }
+  tbody td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 0.5px solid #d3d1c7;
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  .uwaga-kolano {
+    font-size: 0.82rem;
+    color: #3b6d11;
+  }
+
+  .progresja-blok {
+    background: #fff;
+    border: 0.5px solid #b4b2a9;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.9rem;
+  }
+  .progresja-blok .tydz {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #534ab7;
+    margin-bottom: 0.3rem;
+  }
+
+  .rehab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .rehab-karta {
+    background: #e1f5ee;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    border: 0.5px solid #9fe1cb;
+  }
+  .rehab-karta .cwiczenie {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #085041;
+    margin-bottom: 0.25rem;
+  }
+  .rehab-karta .opis {
+    font-size: 0.84rem;
+    color: #0f6e56;
+  }
+
+  .alert-box {
+    background: #fcebeb;
+    border-left: 4px solid #e24b4a;
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.92rem;
+  }
+  .alert-box strong { color: #791f1f; }
+
+  .unikaj-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .unikaj-karta {
+    background: #fff;
+    border: 0.5px solid #f09595;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+  }
+  .unikaj-karta .titel {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #a32d2d;
+    margin-bottom: 0.25rem;
+  }
+  .unikaj-karta p {
+    font-size: 0.85rem;
+    color: #2c2c2a;
+    margin: 0;
+  }
+
+  .zrodla {
+    margin-top: 2.5rem;
+    font-size: 0.83rem;
+    color: #5f5e5a;
+    border-top: 0.5px solid #d3d1c7;
+    padding-top: 1rem;
+  }
+  .zrodla a { color: #534ab7; }
+
+  @media (max-width: 540px) {
+    .zasady-grid, .unikaj-grid { grid-template-columns: 1fr; }
+    thead th { font-size: 0.76rem; }
+    tbody td { font-size: 0.84rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Plan treningu siłowego 2x/tydz.<br>przy urazie łąkotki (w trakcie rehabilitacji)</h1>
+  <p class="subtitle">Opracowany na podstawie sprawdzonych wytycznych fizjoterapii i medycyny sportowej. Wersja: czerwiec 2026.</p>
+
+  <!-- 1. ZASTRZEZENIE -->
+  <div class="zastrzezenie">
+    <strong>Obowiazkowe zastrzezenie:</strong> Ten plan jest materiałem pomocniczym i edukacyjnym, NIE zastepuje indywidualnego planu rehabilitacji ani porady fizjoterapeuty prowadzacego. Kazdy uraz łakotki jest inny (zakres pekniecia, strefa, etap gojenia, chirurgia lub leczenie zachowawcze). <strong>Przed rozpoczeciem pokaz ten plan fizjoterapeucie i uzgodnij, ktore cwiczenia sa odpowiednie na Twoim obecnym etapie.</strong> Jesli po treningu pojawia sie wiekszy bol lub obrzniek kolana, przerywaj i konsultuj.
+  </div>
+
+  <!-- 2. ZASADY BEZPIECZENSTWA -->
+  <h2>1. Zasady bezpieczenstwa przy łakotce</h2>
+
+  <p>Łakotka to chrzastka absorbujaaca wstrzasy wewnatrz kolana. Przy peknieciu (zwlaszcza w strefie awaskularnej) nadmierna kompresja i sily skretne spowalniaja gojenie lub pogłebiaja uszkodzenie. Trening siłowy jest mozliwy i wskazany pod warunkiem szanowania tych granic.</p>
+
+  <div class="zasady-grid">
+    <div class="zasada-karta bezpieczne">
+      <div class="label">Bezpieczne (priorytet)</div>
+      <ul>
+        <li>Wzmacnianie czworogłowego (szczegolnie VMO, wewnetrzna czesc uda)</li>
+        <li>Wzmacnianie posladkow i bioder (hip thrust, mostek)</li>
+        <li>Cwiczenia w małym zakresie zgiecia kolana (do ok. 60 stopni)</li>
+        <li>Prostowanie kolana z maszyny lub z taśma (kontrolowany zakres)</li>
+        <li>Martwy ciaag rumuński (minim. zgiec kolana, nacisk na biodro)</li>
+        <li>Rower stacjonarny o niskim oporze (siodełko wysokie)</li>
+        <li>Cwiczenia gornej czesci ciała (klata, plecy, ramiona)</li>
+        <li>Cwiczenia izometryczne (bez ruchu w stawie)</li>
+        <li>Stabilizacja rdzenia (deska, mostek)</li>
+        <li>Pompki, wiosłowanie, ciaag górny, press</li>
+      </ul>
+    </div>
+    <div class="zasada-karta ryzykowne">
+      <div class="label">Ryzykowne / unikac na poczatku</div>
+      <ul>
+        <li>Głebokie przysiady pod obciazeniem (kolano ponizej 90 stopni)</li>
+        <li>Skoki, plyometria, sprinty</li>
+        <li>Skret kolana pod obciazeniem</li>
+        <li>Rotacja tułowia z zablokowanym kolanem</li>
+        <li>Wykroki z duzym krokiem i duzo obciazenia (poczatkowo)</li>
+        <li>Cwiczenia w siłowni na niestabilnym podłozu (na starcie)</li>
+        <li>Bieg (do czasu zgody fizjo)</li>
+        <li>Przysiad bułgarski z ciezarem (wczesny etap)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Rola rozgrzewki i zakresu ruchu</h3>
+  <p>Rozgrzewka (10-12 min) to obowiazkowy element, nie opcja. Rower stacjonarny 5-7 min o niskim oporze, nastepnie mobilizacja stawu biodrowego i kostki, aktywacja posladkow w lezu (mostek, obroty nog w bok). Zakres ruchu kolana rozszerzamy stopniowo, nie przez bol. Gdy kolano jest zapaline lub obrznite po treningu nastepnego dnia, cofamy sie do łagodniejszej wersji.</p>
+
+  <!-- 3. DZIEN A -->
+  <h2>2. Dzien A: nogi i rdzen (kolano-przyjazny)</h2>
+  <p><strong>Kiedy:</strong> np. poniedzialek. Przerwa min. 48 godz. od Dnia B.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%">Cwiczenie</th>
+        <th style="width:18%">Serie x powt.</th>
+        <th>Uwagi / bezpieczenstwo kolana</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Rozgrzewka: rower stacjonarny</strong></td>
+        <td>1 x 7 min</td>
+        <td class="uwaga-kolano">Siodełko wysoko, minimalny opor. Kolano lekko ugiete w dolnej pozycji pedału, nie prostowane "na sztywno".</td>
+      </tr>
+      <tr>
+        <td><strong>Mostek posladkowy (hip thrust) obustronny</strong></td>
+        <td>3 x 15</td>
+        <td class="uwaga-kolano">Kolana zgiete ok. 90 stopni. Stopniowo dokładaj ciezar (2-4 tyg. bez obciazenia). Doskonale aktywuje posladki i stabilizuje biodro, minimalny nacisk na łakotke.</td>
+      </tr>
+      <tr>
+        <td><strong>Wyprost kolana na maszynie (leg extension)</strong></td>
+        <td>3 x 12</td>
+        <td class="uwaga-kolano">Zakres 0-60 stopni, nie pełny wyprost z siłą. Małe obciazenie, kontrolowany ruch. Najskuteczniejsze cwiczenie VMO. Zatrzymaj 2 sek. w wyproście.</td>
+      </tr>
+      <tr>
+        <td><strong>Przysiady do krzesła (box squat)</strong></td>
+        <td>3 x 12</td>
+        <td class="uwaga-kolano">Siadaj na krzesło / awka ok. 50 cm, nie schodzac ponizej 90 stopni. Brak obciazenia na poczatku. Kolana nie wyprzedzaja palcow stop.</td>
+      </tr>
+      <tr>
+        <td><strong>Uginanie nogi na maszynie (leg curl)</strong></td>
+        <td>3 x 12</td>
+        <td class="uwaga-kolano">Wolne tempo, powrót kontrolowany. Wzmacnia dwugłowy uda, ktory chroni kolano od tyłu.</td>
+      </tr>
+      <tr>
+        <td><strong>Wspinanie na palce (calf raises) - stojac</strong></td>
+        <td>3 x 15</td>
+        <td class="uwaga-kolano">Kolano lekko ugiete lub proste. Łydka to kluczowy stabilizator kolana. Można trzymac sie porechcy dla rownowagi.</td>
+      </tr>
+      <tr>
+        <td><strong>Deska (plank)</strong></td>
+        <td>3 x 30-45 sek.</td>
+        <td class="uwaga-kolano">Neutralna pozycja kolana. Stabilizacja rdzenia odciaza kregosłup i poprawia mechanike całego ciała.</td>
+      </tr>
+      <tr>
+        <td><strong>Mostek jednostronny (single-leg bridge)</strong></td>
+        <td>3 x 10 (kazda noga)</td>
+        <td class="uwaga-kolano">Noga kontuzjowana jako opora - tylko jesli nie ma bolu. Jesli bol, robimy obustronny dłuzej.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 4. DZIEN B -->
+  <h2>3. Dzien B: gorna czesc ciała i stabilizacja</h2>
+  <p><strong>Kiedy:</strong> np. czwartek. Skupienie na gorze ciała zwalnia ciazenie z kolana, jednoczesnie utrzymujac ogolna sprawnosc i siłe. Raz na dwa tygodnie mozna dołaczyc RDL zamiast machine curl.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%">Cwiczenie</th>
+        <th style="width:18%">Serie x powt.</th>
+        <th>Uwagi / bezpieczenstwo kolana</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Rozgrzewka: rower stacjonarny</strong></td>
+        <td>1 x 5-7 min</td>
+        <td class="uwaga-kolano">Jw. Mozna zastapic marszem 8 min w umiarkowanym tempie.</td>
+      </tr>
+      <tr>
+        <td><strong>Wiosłowanie siedzone (cable row) lub hantlami</strong></td>
+        <td>3 x 12</td>
+        <td class="uwaga-kolano">Pozycja siedzaca. Brak nacisku na kolano. Buduje plecy i posture, kluczowe dla całej mechaniki ruch.</td>
+      </tr>
+      <tr>
+        <td><strong>Wyciskanie na lawce (klata)</strong></td>
+        <td>3 x 10-12</td>
+        <td class="uwaga-kolano">Leznie na plecach. Stopy na podłodze lub na lawce (jesli kolano dyskomfortowe w lezeniu). Brak nacisku na kolano.</td>
+      </tr>
+      <tr>
+        <td><strong>Ciaag gorny (lat pulldown)</strong></td>
+        <td>3 x 12</td>
+        <td class="uwaga-kolano">Siedzac. Poprawia siłe gornej czesci pleców. Zero stresu dla kolana.</td>
+      </tr>
+      <tr>
+        <td><strong>Martwy ciaag rumuński (RDL)</strong></td>
+        <td>3 x 10</td>
+        <td class="uwaga-kolano">Kolana lekko ugiete (ok. 15-20 stopni), stałe przez całe cwiczenie. Ruch pochodzi z biodra, nie z kolana. Małe obciazenie na poczatku. Swietne dla tylnej łancucha kinetycznego (posladki, dwugłowy).</td>
+      </tr>
+      <tr>
+        <td><strong>Wznosy boczne hantelkami (barki)</strong></td>
+        <td>3 x 12-15</td>
+        <td class="uwaga-kolano">Stojaco lub siedzaco. Wzmacnia barki. Brak nacisku na kolano (jesli stojaco, kolano lekko ugiete dla komfortu).</td>
+      </tr>
+      <tr>
+        <td><strong>Pompki (push-ups)</strong></td>
+        <td>3 x 10-15</td>
+        <td class="uwaga-kolano">Klasyczna lub na kolanach (jesli opierac kolano o matke nie boli). Klata, trojgłowy, stabilizacja rdzenia.</td>
+      </tr>
+      <tr>
+        <td><strong>Rownowaga na jednej nodze (balans)</strong></td>
+        <td>3 x 20-30 sek. (kazda noga)</td>
+        <td class="uwaga-kolano">Zaczynamy przy scianie (jeden palec dla wsparcia), stopniowo bez wsparcia. Propriocepcja kolana to fundament bezpieczenstwa przy łakotce. Kolano lekko ugiete (5-10 stopni), nie zablokowane.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 5. PROGRESJA -->
+  <h2>4. Progresja tydzien po tygodniu</h2>
+
+  <div class="progresja-blok">
+    <div class="tydz">Tygodnie 1-2 (adaptacja)</div>
+    <ul>
+      <li>Wszystkie cwiczenia bez dodatkowego obciazenia lub z minimalnymi ciezarami.</li>
+      <li>Priorytet: technika, brak bolu, oswojenie z zakresem ruchu.</li>
+      <li>Box squat tylko do krzesła (ok. 50 cm), leg extension tylko do 45-60 stopni.</li>
+      <li>Rower 5 min. Mostek obustronny, balans przy scianie.</li>
+      <li>Obserwuj kolano przez 24 godz. po treningu. Jeśli nie ma wiekszego bolu ani obrznieku - kontynuuj.</li>
+    </ul>
+  </div>
+
+  <div class="progresja-blok">
+    <div class="tydz">Tygodnie 3-4 (wzmocnienie bazowe)</div>
+    <ul>
+      <li>Dodaj lekkie obciazenie do hip thrust (pas z ciezarem lub sztanga na biodrach, zaczynaj od 20-30 kg).</li>
+      <li>Leg extension: stopniowo zwiekszaj ciezar (2-3 kg tygodniowo) jesli brak bolu.</li>
+      <li>Box squat: jesli komfortowy, mozna wziać lekkie hantle (po 5 kg) lub trzymac kettlebell przy klatce.</li>
+      <li>Rower mozna przedluzyc do 10-12 min.</li>
+      <li>Mostek jednostronny (zdrowa noga jako pora) jesli noga kontuzjowana sluzy jako wsparcie bez bolu.</li>
+      <li>Balans bez wsparcia sciany - cel: 20-30 sek. stabilnie.</li>
+    </ul>
+  </div>
+
+  <div class="progresja-blok">
+    <div class="tydz">Tygodnie 5 i dalej (budowanie sily)</div>
+    <ul>
+      <li>Stopniowe zwiekszanie obciazenia o 5-10% co 2 tygodnie jesli brak symptomow.</li>
+      <li>Mozna wyjsc poza box squat (nizej do 90 stopni) tylko po konsultacji z fizjo i jesli pełny zakres jest bezbólowy.</li>
+      <li>Hip thrust: docelowo ciazar pozwalajacy na 10-12 powtorzeń z wysiłkiem (RDL: podobnie).</li>
+      <li>Mozna rozwazyc wejscie na stopien (step-up) z obciazeniem (10 cm krok, mały ciezar).</li>
+      <li>Wykroki kontrolowane (krótki krok, rak na biodrach) - tylko po ocenie fizjo.</li>
+      <li>NIE DODAWAJ plyometrii ani biegu bez zielonego swiatła od fizjo.</li>
+    </ul>
+  </div>
+
+  <!-- 6. CWICZENIA REHAB -->
+  <h2>5. Cwiczenia rehabilitacyjne na kolano (robic czesciej, poza treningiem)</h2>
+  <p>Te cwiczenia mozna wykonywac codziennie lub 4-5x/tydzien. Sa niskiej intensywnosci i wspieraja gojenie oraz wzmocnienie. Robic rano, wieczorem lub w dni bez treningu.</p>
+
+  <div class="rehab-grid">
+    <div class="rehab-karta">
+      <div class="cwiczenie">Izometria czworogłowego (quad set)</div>
+      <div class="opis">Lezac na plecach, prosta noga. Napnij przod uda wciskajac kolen w matke. Trzymaj 5-10 sek. 3 x 15 powt.</div>
+    </div>
+    <div class="rehab-karta">
+      <div class="cwiczenie">Unoszenie wyprostowanej nogi (SLR)</div>
+      <div class="opis">Lezac, druga noga ugieta. Unosisz kontuzjowana noge (prosta) na 30 cm, trzymaj 3-5 sek. 2-3 x 15. Wzmacnia czworogłowego bez obciazenia kolana.</div>
+    </div>
+    <div class="rehab-karta">
+      <div class="cwiczenie">Suwak pietka (heel slide)</div>
+      <div class="opis">Lezac na plecach, przesuwaj piete ku posladkom i z powrotem. Powoli. 2 x 15. Przywraca zakres zgiecia kolana.</div>
+    </div>
+    <div class="rehab-karta">
+      <div class="cwiczenie">Aktywacja VMO z piłka</div>
+      <div class="opis">Siedzac, mała pilka między kolanami. Sciskaj pilke + zaciskaj posladki. Trzymaj 5 sek. 3 x 10. Aktywuje wewnetrzna czesc czworogłowego.</div>
+    </div>
+    <div class="rehab-karta">
+      <div class="cwiczenie">Calf raises (wspinanie na palce)</div>
+      <div class="opis">Stojac prosto, obustronne. 3 x 15. Łydka stabilizuje kolano od dołu. Mozna codziennie.</div>
+    </div>
+    <div class="rehab-karta">
+      <div class="cwiczenie">Terminal knee extension z taśma</div>
+      <div class="opis">Taśma za kolanem (na wysokosci dołu podkolanowego). Lekko ugiec kolano, a nastepnie wyprostuj je do konca. 3 x 15. Cwicza VMO w finalnym wyproście.</div>
+    </div>
+    <div class="rehab-karta">
+      <div class="cwiczenie">Mostek posladkowy obustronny</div>
+      <div class="opis">Lezac na plecach, kolana zgiete ok. 90 stopni, unosisz biodra. 3 x 15. Codziennie jako cwiczenie rehab (lekka wersja).</div>
+    </div>
+    <div class="rehab-karta">
+      <div class="cwiczenie">Mobilizacja kostki</div>
+      <div class="opis">Siedzac, krecisz stopa w kółko (10 razy w lewo, 10 w prawo). Napinasz i rozluzniasz lekko kostke. Poprawia mechanike łancucha kinestetycznego.</div>
+    </div>
+    <div class="rehab-karta">
+      <div class="cwiczenie">Rozciaganie łydki</div>
+      <div class="opis">Stojac przed sciana, jedna noga z tyłu, pietn na ziemi. Trzymaj 30 sek. x 3 powt. Zmniejsza naprezenie z tyłu kolana.</div>
+    </div>
+    <div class="rehab-karta">
+      <div class="cwiczenie">Odwodzenie nogi w lezu (hip abductor)</div>
+      <div class="opis">Lezac na boku, unosisz gore noge prosta. 2 x 15. Wzmacnia posladkowy sredni, stabilizuje kolen od strony biodra.</div>
+    </div>
+  </div>
+
+  <!-- 7. CZEGO UNIKAC I SYGNALY OSTRZEGAWCZE -->
+  <h2>6. Czego unikac i sygnały ostrzegawcze</h2>
+
+  <div class="unikaj-grid">
+    <div class="unikaj-karta">
+      <div class="titel">Głebokie przysiady ze sztanga</div>
+      <p>Kompresja łakotki rosnie dramatycznie ponizej 90 stopni. Unikaj na etapie rehabilitacji.</p>
+    </div>
+    <div class="unikaj-karta">
+      <div class="titel">Skoki i plyometria</div>
+      <p>Box jumpy, burpee, skakanka - do czasu pełnej zgody fizjo i bezbólowego zakresu ruchu.</p>
+    </div>
+    <div class="unikaj-karta">
+      <div class="titel">Skret kolana pod obciazeniem</div>
+      <p>Rotacja tułowia ze stopa zablokowana na ziemi (np. w wielu ruchach funkcjonalnych). Szczegolnie niebezpieczna.</p>
+    </div>
+    <div class="unikaj-karta">
+      <div class="titel">Bieg bez oceny fizjo</div>
+      <p>Nawet marsz w szybkim tempie moze byc za duzo na poczatku. Ocen kolano po kazdem aktywnosci.</p>
+    </div>
+    <div class="unikaj-karta">
+      <div class="titel">Trening "przez bol"</div>
+      <p>Lekki dyskomfort to norma, ostry bol to sygnał STOP. Bol podczas cwiczenia lub wiekszy nastepnego dnia = cof sie o stopien.</p>
+    </div>
+    <div class="unikaj-karta">
+      <div class="titel">Cwiczenia na niestabilnym podłozu na poczatku</div>
+      <p>BOSU, dysk sensomotoryczny - dopiero gdy balans na jednej nodze jest stabilny i bezbólowy przez 30 sek.</p>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Sygnały alarmowe - przerywaj trening i konsultuj fizjo / lekarza:</strong>
+    <ul style="margin-top: 0.5rem;">
+      <li>Ostry, kłujacy bol w kolanie podczas lub po cwiczeniu</li>
+      <li>Widoczny obrzniek kolana po treningu lub nastepnego dnia</li>
+      <li>Uczucie "blokowania" kolana (nie mozesz go w pełni wyprostowac lub zgiac)</li>
+      <li>Uczucie niestabilnosci, "uciekania" kolana</li>
+      <li>Trzeszczenie kolana połaczone z bolem (samo trzeszczenie bez bolu to inna sprawa)</li>
+      <li>Wzrost bolu w porownaniu do stanu przed treningiem, utrzymujacy sie ponad 24 godz.</li>
+    </ul>
+  </div>
+
+  <!-- 8. ZRODLA -->
+  <div class="zrodla">
+    <strong>Zrodła:</strong><br>
+    <a href="https://www.sports-injury-physio.com/post/exercises-for-meniscus-tear-rehab" target="_blank">Sports Injury Physio - Meniscus tear rehabilitation exercises (23 exercises)</a><br>
+    <a href="https://mskdoctors.com/insights/essential-exercises-for-meniscus-tear-recovery-step-by-step-strengthening-guide-from-leading-experts" target="_blank">MSK Doctors - Essential exercises for meniscus tear recovery</a><br>
+    <a href="https://www.kcbj.com/knee-strengthening-exercises-for-meniscal-tears-orthopedic-musculoskeletal-care-overland-park-kansas-city/" target="_blank">Kansas City Bone and Joint - Knee strengthening for meniscal tears</a><br>
+    <a href="https://www.medicalnewstoday.com/articles/meniscus-tear-exercises" target="_blank">Medical News Today - 8 meniscus tear exercises</a><br>
+    <a href="https://www.knee-pain-explained.com/vastus-medialis-exercises.html" target="_blank">Knee Pain Explained - Vastus medialis / VMO exercises</a><br>
+    <a href="https://przygotowaniemotoryczne.com/urazy-kolan-trening-rehabilitacja/" target="_blank">Przygotowanie Motoryczne - Urazy kolan, trening i rehabilitacja</a><br>
+    <a href="https://bostonsportsmedicine.com/wp-content/uploads/2024/01/meniscus_repair.pdf" target="_blank">Boston Sports Medicine - Rehabilitation after knee meniscus repair (PDF 2024)</a><br>
+    <br>
+    <em>Plan nie zastepuje indywidualnej diagnozy ani planu rehabilitacji. Skonsultuj z fizjoterapeutą prowadzacym przed wdrozeniem.</em>
+  </div>
+
+</div>
+</body>
+</html>
