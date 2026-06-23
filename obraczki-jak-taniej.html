@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obraczki slubne -- jak taniej | Research dla Pawla</title>
+  <style>
+    :root {
+      --gold: #b8882a;
+      --gold-light: #f0dfa0;
+      --gold-pale: #fdf8ee;
+      --text: #2c2c2c;
+      --muted: #666;
+      --border: #e0cfa0;
+      --green: #2d6a3a;
+      --green-bg: #f0faf3;
+      --red: #8b1a1a;
+      --red-bg: #fff5f5;
+      --blue: #1a3a6b;
+      --blue-bg: #f0f5ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #faf8f4;
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    .container { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
+    header {
+      background: linear-gradient(135deg, #1a1208 0%, #2e1f08 100%);
+      color: #f0dfa0;
+      padding: 40px 32px;
+      border-radius: 6px;
+      margin-bottom: 36px;
+    }
+    header h1 { font-size: 1.7rem; font-weight: normal; letter-spacing: 0.02em; }
+    header .sub { font-size: 0.95rem; color: #c8b47a; margin-top: 8px; font-family: sans-serif; }
+    header .date { font-size: 0.85rem; color: #9a8454; margin-top: 4px; font-family: sans-serif; }
+
+    h2 {
+      font-size: 1.2rem;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin: 36px 0 18px;
+      font-weight: normal;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    h3 { font-size: 1.05rem; color: var(--text); margin: 20px 0 8px; }
+    p { margin-bottom: 12px; }
+
+    /* SEDNO BOX */
+    .sedno {
+      background: #2e1f08;
+      color: #f0dfa0;
+      border-radius: 6px;
+      padding: 28px 32px;
+      margin-bottom: 36px;
+    }
+    .sedno h2 { color: #f0c060; border-color: #5a3f10; margin-top: 0; }
+    .sedno p { color: #d8c48a; }
+    .sedno .nums {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .sedno .num-box {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid #5a3f10;
+      border-radius: 4px;
+      padding: 14px 18px;
+      text-align: center;
+    }
+    .sedno .num-box .val { font-size: 1.9rem; font-weight: bold; color: #f0c060; line-height: 1.1; }
+    .sedno .num-box .lbl { font-size: 0.8rem; color: #a08848; font-family: sans-serif; margin-top: 4px; }
+
+    /* TABLES */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.93rem; font-family: sans-serif; }
+    th {
+      background: #2e1f08;
+      color: #f0dfa0;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: normal;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    td { padding: 9px 12px; border-bottom: 1px solid #ede8d8; }
+    tr:nth-child(even) td { background: var(--gold-pale); }
+    tr:last-child td { border-bottom: none; }
+
+    /* CALLOUT */
+    .callout {
+      border-left: 3px solid var(--gold);
+      background: var(--gold-pale);
+      padding: 14px 18px;
+      margin: 16px 0;
+      border-radius: 0 4px 4px 0;
+      font-family: sans-serif;
+      font-size: 0.93rem;
+    }
+    .callout.green { border-color: var(--green); background: var(--green-bg); color: var(--green); }
+    .callout.red { border-color: var(--red); background: var(--red-bg); color: var(--red); }
+    .callout.blue { border-color: var(--blue); background: var(--blue-bg); color: var(--blue); }
+    .callout strong { display: block; margin-bottom: 4px; }
+
+    /* FORMULA */
+    .formula {
+      background: #f5f0e8;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 16px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      color: #3a2a08;
+      margin: 12px 0;
+      line-height: 1.9;
+    }
+
+    /* STEP BOX */
+    .steps { counter-reset: step; }
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+    .step-num {
+      background: var(--gold);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-content { flex: 1; }
+    .step-content strong { color: var(--gold); }
+
+    /* TAG */
+    .tag {
+      display: inline-block;
+      background: var(--gold-light);
+      color: #6a4010;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-family: sans-serif;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+      vertical-align: middle;
+    }
+    .tag.green { background: #d0f0d8; color: #1a5a28; }
+    .tag.red { background: #ffd8d8; color: #8b1a1a; }
+    .tag.blue { background: #d0e0ff; color: #1a3a6b; }
+    .tag.gray { background: #e8e8e8; color: #555; }
+
+    /* WARN */
+    .warn {
+      background: #fff8e8;
+      border: 1px solid #e0b840;
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-family: sans-serif;
+      font-size: 0.88rem;
+      color: #6a4010;
+      margin: 12px 0;
+    }
+
+    /* SOURCES */
+    .sources {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .sources a { color: var(--gold); text-decoration: none; }
+    .sources a:hover { text-decoration: underline; }
+
+    ul, ol { padding-left: 20px; margin: 8px 0 12px; }
+    li { margin-bottom: 5px; }
+    a { color: var(--gold); }
+
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+    @media (max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--gold-pale);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 16px 18px;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    }
+    .card h4 { color: var(--gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Obraczki slubne -- jak kupic uczciwie i tanio</h1>
+  <div class="sub">Para: zloto 585, 4 mm, gladkie klasyczne -- rozmiar 25 (Pawel) i 13 (Klaudia)</div>
+  <div class="date">Research: 23 czerwca 2026 &nbsp;|&nbsp; Oferta do porownania: Auroria 5 100 zl za pare</div>
+</header>
+
+<!-- SEDNO -->
+<div class="sedno">
+  <h2>Sedno w skrocie</h2>
+  <div class="nums">
+    <div class="num-box">
+      <div class="val">~6,4 g</div>
+      <div class="lbl">szacunkowa waga zlota pary</div>
+    </div>
+    <div class="num-box">
+      <div class="val">~1 860 zl</div>
+      <div class="lbl">koszt samego kruszcu (cena rynkowa)</div>
+    </div>
+    <div class="num-box">
+      <div class="val">~3 240 zl</div>
+      <div class="lbl">marza salonu + robocizna w ofercie Aurorii</div>
+    </div>
+    <div class="num-box">
+      <div class="val">2 400--3 100 zl</div>
+      <div class="lbl">uczciwa cena pary u rzemielnika</div>
+    </div>
+  </div>
+  <p>Auroria bierze okolo 5 100 zl za pare prostych gladkich obraczek. Samo zloto w tej parze jest warte okolo 1 860 zl po cenie rynkowej. Robocizna wykonania 2 gladkich obwarzankow u dobrego jubilera to 400--800 zl. Lacznie: uczciwa cena u rzemielnika to <strong>2 400--3 100 zl</strong> -- czyli oszczednosc 2 000--2 700 zl wzgledem salonu sieciowego. Sklepy internetowe (producenci, np. Marko, Bovem, Czajkowska) sa w przedziale 3 500--4 750 zl za pare i sa rozsadnym kompromisem bez szukania jubilera lokalnie.</p>
+</div>
+
+<!-- SEKCJA 2: KALKULACJA -->
+<h2>1. Kalkulacja kosztu kruszcu -- transparentnie</h2>
+
+<h3>System rozmiarow obraczek w Polsce</h3>
+<p>Polski standard jubilerski = europejski: <strong>rozmiar = obwod wewnetrzny w milimetrach.</strong> Przyrost 1 mm na kazdy kolejny numer rozmiaru.</p>
+
+<table>
+  <tr><th>Wlasciciel</th><th>Rozmiar</th><th>Obwod wewn.</th><th>Srednica wewn. (d = C/pi)</th></tr>
+  <tr><td>Klaudia</td><td>13</td><td>52,4 mm</td><td>16,7 mm</td></tr>
+  <tr><td>Pawel</td><td>25</td><td>65,0 mm</td><td>20,7 mm</td></tr>
+</table>
+<p style="font-size:0.85rem;color:var(--muted);font-family:sans-serif;">Zrodlo: tabela rozmiarow jubilerskich (rozmiar.com) -- dane zweryfikowane.</p>
+
+<h3>Szacunek objetosci i wagi zlota</h3>
+<p>Model uproszczony (wystarczajacy do wyceny): traktujemy obraczke jako cienki pierscien o przekroju prostokatanym, a nastepnie redukujemy objetosc o ~25% ze wzgledu na profil polokragly/okragly (zamiast plaskiego).</p>
+
+<div class="formula">
+-- Obwod srodkowy pierscienia --
+C_srod = C_wewn + pi * grubosc (1,3 mm)
+
+-- Objetosc bazowa (przekroj prostokatny) --
+V_baz = C_srod x szerokosc (4 mm) x grubosc (1,3 mm)
+
+-- Korekta na profil wyplukly --
+V_fin = V_baz x 0,75  [profil polokragly/okragly = ok. 25% mniej materialu niz plaski]
+
+-- Masa --
+m = V_fin x gestosc zlota 585 (ok. 13,0 g/cm3)
+</div>
+
+<table>
+  <tr>
+    <th>Parametr</th>
+    <th>Obraczka Pawla (r.25)</th>
+    <th>Obraczka Klaudii (r.13)</th>
+  </tr>
+  <tr>
+    <td>Obwod wewnetrzny</td>
+    <td>65,0 mm</td>
+    <td>52,4 mm</td>
+  </tr>
+  <tr>
+    <td>Obwod srodkowy (+ pi x 1,3)</td>
+    <td>69,1 mm</td>
+    <td>56,5 mm</td>
+  </tr>
+  <tr>
+    <td>Objetosc bazowa (prostokatna)</td>
+    <td>359,3 mm&#179; = 0,359 cm&#179;</td>
+    <td>294,0 mm&#179; = 0,294 cm&#179;</td>
+  </tr>
+  <tr>
+    <td>Objetosc po korekcie profilu (-25%)</td>
+    <td>0,269 cm&#179;</td>
+    <td>0,221 cm&#179;</td>
+  </tr>
+  <tr>
+    <td><strong>Masa szacunkowa</strong></td>
+    <td><strong>3,50 g</strong></td>
+    <td><strong>2,87 g</strong></td>
+  </tr>
+</table>
+
+<div class="callout">
+  <strong>Para razem: ~6,37 g zlota 585</strong>
+  Przedzial ufnosci (niepewnosc profilu +/-15%): od 5,4 g do 7,3 g. Dla kalkulacji stosuj srodek: ~6,4 g.
+  Dla porownania: Czajkowska.pl podaje wagepary 4mm/585 jako 6,75 g (przy rozmiarach typowych) -- to potwierdza rzad wielkosci.
+</div>
+
+<h3>Cena zlota 585 w Polsce -- czerwiec 2026</h3>
+<p>Cena spot zlota (23.06.2026): <strong>$4 129/oz</strong>. Kurs USD/PLN: <strong>3,7452</strong>.</p>
+
+<div class="formula">
+Cena 1 g zlota 999 (czystego):
+  $4 129 / 31,1035 g/oz x 3,7452 = 132,7 USD/g x 3,7452 = 496,9 zl/g
+
+Cena 1 g zlota 585 (58,5% czystosci):
+  496,9 x 0,585 = 290,7 zl/g  [cena rynkowa / skup]
+
+Cena jubilerska (z narzutem na metal ok. 15-30%):
+  290,7 x 1,20 = 349 zl/g (dolny przedzial)
+  290,7 x 1,30 = 378 zl/g (gorny przedzial)
+</div>
+
+<table>
+  <tr><th>Scenariusz</th><th>Cena za gram 585</th><th>Koszt kruszcu pary (6,4 g)</th></tr>
+  <tr>
+    <td>Cena rynkowa / skup</td>
+    <td>291 zl/g</td>
+    <td><strong>1 862 zl</strong></td>
+  </tr>
+  <tr>
+    <td>Cena jubilerska (narzut +20%)</td>
+    <td>349 zl/g</td>
+    <td><strong>2 234 zl</strong></td>
+  </tr>
+  <tr>
+    <td>Cena jubilerska (narzut +30%)</td>
+    <td>378 zl/g</td>
+    <td><strong>2 419 zl</strong></td>
+  </tr>
+  <tr>
+    <td>Auroria: 5 100 zl za pare</td>
+    <td><em>implikowane 797 zl/g</em></td>
+    <td><strong>5 100 zl</strong></td>
+  </tr>
+</table>
+
+<div class="callout red">
+  <strong>Wniosek negocjacyjny</strong>
+  W cenie 5 100 zl Auroria bierze implikowanie ~800 zl za gram zlota -- zamiast rynkowych ~290 zl. Na pare 6,4 g to 3 240 zl nadbudowane nad kruszciem (robocizna + marza salonu + VAT + lokal + marketing). Przy prostym gladkim wzorze (bez kamieni, brak skomplikowanej obrobki) robocizna u dobrego jubilera to realnie 400--800 zl. Reszte bierze salon.
+</div>
+
+<!-- SEKCJA 3: KANALY -->
+<h2>2. Kanaly zakupu -- od najtanszego do najdrozszego</h2>
+
+<table>
+  <tr>
+    <th>Kanal</th>
+    <th>Jak dziala</th>
+    <th>Cena pary (4mm, 585, r.13+25)</th>
+    <th>Ocena</th>
+  </tr>
+  <tr>
+    <td><strong>Pracownia rzemieslnicza / zlotnik (zamowienie)</strong></td>
+    <td>Jubiler liczy: waga x cena kruszcu + robocizna. Prosty gladki wzor = najnizsza robocizna.</td>
+    <td><strong>2 400--3 200 zl</strong></td>
+    <td><span class="tag green">Najtaniej</span></td>
+  </tr>
+  <tr>
+    <td><strong>Sklep internetowy -- producent/pracownia</strong></td>
+    <td>Obraczki seryjne lub polseryjne, wysylane po zamowieniu (10--14 dni). Dostepnosc r.25 i r.13 zwykle ok.</td>
+    <td><strong>3 500--4 750 zl</strong></td>
+    <td><span class="tag">Dobry kompromis</span></td>
+  </tr>
+  <tr>
+    <td><strong>Allegro -- pracownie</strong></td>
+    <td>Podobnie do sklepow internetowych, ale mozna negocjowac przez wiadomosc i czesto brak kosztow staly lokalu.</td>
+    <td><strong>3 000--4 500 zl</strong></td>
+    <td><span class="tag">Warte sprawdzenia</span></td>
+  </tr>
+  <tr>
+    <td><strong>Salony sieciowe (Apart, W.Kruk, Yes)</strong></td>
+    <td>Gotowe z magazynu lub na zamowienie, certyfikat, estetyczny salon. Najwyzsza marza.</td>
+    <td><strong>4 800--8 000+ zl</strong></td>
+    <td><span class="tag red">Drogie</span></td>
+  </tr>
+  <tr>
+    <td><strong>Auroria (aktualna oferta)</strong></td>
+    <td>Salon jubilerski, personalizowany serwis.</td>
+    <td><strong>5 100 zl</strong></td>
+    <td><span class="tag red">Benchmark drogi</span></td>
+  </tr>
+  <tr>
+    <td><strong>Import Turcja / Alibaba</strong></td>
+    <td>Masowa produkcja, brak certyfikatu PL, ryzyko próby i wykonczen.</td>
+    <td><strong>1 500--2 500 zl</strong></td>
+    <td><span class="tag gray">Odradza sie</span></td>
+  </tr>
+</table>
+
+<div class="warn">
+  Import z Turcji lub hurtowni azjatyckich: cena kusi, ale ryzyko jest realne -- niedotrzymana proba, brak kontroli jakoskiej polskiej, trudna reklamacja. Dla obraczek noszonych przez dziesiatki lat to nie jest gra warta swieczki. Zostac przy polskim zlotnictwie.
+</div>
+
+<h3>Przykladowe sklepy internetowe -- ceny i dostepnosc</h3>
+<div class="grid2">
+  <div class="card">
+    <h4>Czajkowska.pl</h4>
+    Para 4mm gladka polokragla 585:<br>
+    <strong>~4 749 zl</strong><br>
+    Waga pary wg katalogu: ~6,75 g<br>
+    Dostepne rozmiary: 7--30 (ok. dla r.25 i r.13)<br>
+    Czas: do 14 dni roboczych<br>
+    <a href="https://czajkowska.pl" target="_blank">czajkowska.pl</a>
+  </div>
+  <div class="card">
+    <h4>Bovem.com.pl</h4>
+    Para 4mm polokragla 585 yellow:<br>
+    <strong>6 439 zl</strong> (warto szukac przecen)<br>
+    Waga: 2,85--4,17 g <em>per sztuka</em><br>
+    Dostepne rozmiary 13 i 25: <strong>tak</strong><br>
+    Bezplatny grawer, zwrot 30 dni<br>
+    <a href="https://bovem.com.pl" target="_blank">bovem.com.pl</a>
+  </div>
+  <div class="card">
+    <h4>EkoKarat (Jubilo)</h4>
+    Para klasyczna 4mm 585:<br>
+    <strong>od 3 580 zl</strong><br>
+    Rozmiary damskie: 5--26; meskie: 5--35<br>
+    Wysokosc: do wyboru 0,9--1,3 mm<br>
+    Bezplatny grawer + box<br>
+    <a href="https://ekokarat.pl" target="_blank">ekokarat.pl</a>
+  </div>
+  <div class="card">
+    <h4>Marko.pl (producent)</h4>
+    Obraczki 4mm polokragle z soczewka 585:<br>
+    <strong>cena przy zapytaniu</strong> (producent, wysylka 10 dni)<br>
+    Bezplatny grawer, duzy wybor rozmiarow<br>
+    Bezposredni producent = brak marzy posrednika<br>
+    <a href="https://www.marko.pl" target="_blank">marko.pl</a>
+  </div>
+</div>
+
+<div class="callout blue">
+  <strong>Uwaga: rozmiar 25 i rozmiar 13 -- dostepnosc</strong>
+  Rozmiar 13 (52,4 mm obwodu) to rozmiar drobny, kobiecy. Rozmiar 25 to rozmiar meskie-plus. Wiekszosc polskich producentow obsluguje zakres 8--30 i obydwa te rozmiary powinny byc dostepne bez dopłaty. Przy zamawianiu warto wyraznie potwierdzic dostepnosc rozmiaru 25 (duze rozmiary meskie czasem wiaza sie z dopłata za dodatkowe zloto, co jest logiczne i uczciwe -- ale warto wiedziec wczesniej).
+</div>
+
+<!-- SEKCJA 4: WLASNE ZLOTO -->
+<h2>3. Opcja wlasnego zlota -- przetop i poczet</h2>
+
+<p>Jezeli Pawel lub Klaudia ma stara zlota bizuterie (lancuszki, kolczyki, pierscionki -- dowolna proba i kolor), mozna ja odda jubilerowi na <strong>poczet wykonania obraczek.</strong></p>
+
+<h3>Jak to dziala</h3>
+<div class="steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content"><strong>Wycena zdawanego zlota.</strong> Jubiler wazy i sprawdza probe (probierz lub kwas). Liczy mase zlota netto i mnozy przez aktualny kurs skupu (ok. 270--290 zl/g dla 585, z potraceniem ~10% "na zanieczyszczenia i badanie").</div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content"><strong>Ubytek przy przetopie.</strong> Przy topieniu gubi sie ok. 10--11% masy metalu (spalanie, odgazowanie, dopasowanie proby). Jubiler dolicza to do rachunku -- standardowe.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content"><strong>Rozliczenie.</strong> Wartosc zdanego zlota odejmuje sie od kosztu nowych obraczek. Jesli zdasz wystarczajaco duzo, placisz tylko robocizne (400--800 zl).</div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content"><strong>Rozne proby / kolory.</strong> Mozna zdac zloto 333, 585, 750 lub mieszanke. Jubiler standaryzuje do probny docelowej (585). Kolor zlota (zolty/bialy/roze) ustala sie przy zamowieniu -- przetop pozwala na zmiane koloru.</div>
+  </div>
+</div>
+
+<h3>Ile mozna zaoszczedzic</h3>
+<p>Jezeli masz 8--10 g starych zlotych outletow (np. stare pierscionki, lancuszek), mozesz w calosci pokryc koszt kruszcu obraczek (wartosc ~2 300 zl) i zaplacic tylko 500--700 zl robocizny za pare. To najbardziej radykalna oszczednosc.</p>
+
+<div class="callout green">
+  <strong>Na co uwazac przy przetopie</strong>
+  (1) Nie oddawaj zlota ze szlachetnymi kamieniami -- kamienie trzeba usunac wczesniej lub wycenic osobno.<br>
+  (2) Sprawdz jubilera: oddaj w mniejszej ilosci jako "test" albo idz do pracowni z dobra reputacja.<br>
+  (3) Prosic o protokol odboru: ile zdales gramow, po jakiej cenie skupu, jaki ubytek naliczono.<br>
+  (4) Mozna rozdzielic: czesc zlota zdajesz, brakujaca wage dopłacasz w gotowce.
+</div>
+
+<!-- SEKCJA 5: NEGOCJACJE -->
+<h2>4. Strategia negocjacji i oszczednosci</h2>
+
+<h3>Wejdz na rozmowe z liczba</h3>
+<p>Wiedzac, ze para wazy ~6,4 g, a gram 585 kosztuje ~291 zl rynkowych, wiesz ze samo zloto to ~1 860 zl. Mozesz powiedziec jubilerowi wprost: "Ile kosztuje robocizna za dwie gladkie obraczki 4mm do tej wagi?" -- dobre pracownie odpowiedza uczciwie. Robocizna za 2 proste obraczki to 400--800 zl (nizsza dla seryjnych form, wyzsza dla recznie kutych). Razem: ~2 300--2 700 zl to uczciwa cena u rzemielnika.</p>
+
+<h3>Prosty wzor = duza dzwignia</h3>
+<p>Gladka obraczka 4mm bez kamieni i zdobien to najtanszy mozliwy typ w pracy zlotnika. Biuteria z brylantami, grawerowane wzory, teksury mloteczkowane -- to wszystko mnozy koszty. Tutaj wzor maksymalnie oszczedza na robocizne. Nie daj sie namowic na upgrade "bo teraz jest modne".</p>
+
+<h3>Gotowe vs. na zamowienie</h3>
+<p>Dla tego konkretnego przypadku (standardowe rozmiary 13 i 25, prosty wzor) <strong>gotowe ze sklepu internetowego</strong> sa rozsadna opcja -- brak dopłaty za "na zamowienie", produkcja seryjna obniza koszt. Pracownia na zamowienie oplaca sie bardziej gdy chcesz niestandardowy profil lub naprawde unikalna robote.</p>
+
+<h3>Czas dziala na korzysc</h3>
+<p>Slub w pazdzierniku 2026 -- jest ponad 3 miesiace. To znaczy: <strong>zero dopłaty za ekspres.</strong> Standardowy czas realizacji to 10--14 dni roboczych, zamowienie wrzesien byloby bezpieczne. Nie ma sensu dzialic teraz pod presja.</p>
+
+<h3>Kolor zlota</h3>
+<div class="warn">
+  Kolor zlota NIE jest jeszcze potwierdzony. Przyjeto do kalkulacji zloto zolte 585 (standard). Biale zloto 585 wymaga rodowania (pokrycie rodem dla bialego blesku) -- dopłata jubilerska za rod to zwykle 50--150 zl za sztuke, plus rod trzeba odnawiach co 2--5 lat. Rozowe zloto nie wymaga dodatkowych zabiegow, ale jest mniej klasyczne. Zalecane: potwierdzic kolor PRZED zlozeniem zamowienia.
+</div>
+
+<h3>Grawer</h3>
+<p>Wiekszosc sklepow internetowych oferuje bezplatny grawer (do 30 znakow laserowy lub do 20 znakow reczny). Reczny jest elegantszy, trwalszy i drogi w salonie (100--200 zl). Online: gratis. Warto z tego skorzystac.</p>
+
+<h3>Rozmiar 25 -- uwaga</h3>
+<p>Rozmiar 25 jest powyzej sredniej meskiej (typowo 18--22). Przy serijnych modelach zwykle jest dostepny bez dopłaty, ale przy niektorych wzorach jubiler moze naliczyc dopłate za dodatkowe zloto (logiczne -- wieksza obraczka = wiecej materialu). W tej parze Pawel ma obraczke o ok. 25% wieksza masowo niz Klaudia -- trzeba zapytac przy zamowieniu, czy cena "za pare" wlacza obydwa te rozmiary bez zmian.</p>
+
+<!-- SEKCJA 6: REKOMENDACJA -->
+<h2>5. Rekomendacja -- konkretna sciezka</h2>
+
+<div class="callout green">
+  <strong>Docelowy budzet uczciwy: 2 400--3 200 zl za pare</strong>
+  Przy sklepie internetowym (producent): 3 500--4 400 zl. Auroria i podobne salony: 5 000--5 500 zl (placisz za lokal, branding i serwis).
+</div>
+
+<div class="steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Krok 1 -- Potwierdz kolor zlota z Klaudia.</strong>
+      Zanim gdziekolwiek wyslij zapytanie: zolte czy biale zloto 585? To roznica w cenie i wymaganiach serwisowych. Dla klasyki i cenowej prostoty: zloto zolte.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Krok 2 -- Sprawdz EkoKarat (Jubilo) i Marko.pl.</strong>
+      EkoKarat oferuje pare od 3 580 zl, dostepne rozmiary 13 i 25, wybor grubosci profilu (w tym 1,3 mm), bezplatny grawer. Marko.pl to producent -- wyslij zapytanie o cene dla konkretnych rozmiarow 13+25, szerokosc 4mm, grub. 1,3mm, profil polokragly. Cena producenta powinna byc o 15--25% nizsza niz w sklepie detalicznym.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Krok 3 (opcja najlepsza cenowo) -- Zapytaj lokalnego jubilera o wycene "kruszec + robocizna".</strong>
+      Wejdz z ta kartka: para 585, 4mm, grub. 1,3mm, profil polokragly, rozmiary 13 i 25, gladkie bez kamieni. Podaj "wiecie, ze samo zloto to okolo 6,4 g po aktualnej cenie -- jaka jest wasza robocizna?". To kluczowe zdanie. Dobra pracownia odpowie konkretna liczba.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>Krok 4 (jesli macie stare zloto) -- Przetop.</strong>
+      Jezeli laczycie macie 8+ gramow starych zlotych outletow: jedz do jubilera z nimi. Najgorsza cena skupu da ci ~270 zl/g = 2 160 zl na 8g. Zostaje ci tylko robocizna. Zawsze prosc o protokol pisemny wyceny zdanego zlota.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <strong>Krok 5 -- Termin zamowienia: sierpien/wrzesien 2026.</strong>
+      Realizacja 10--14 dni, nie ma pospiechu. Nie zamawiaj w lipcu ("sezon slubny szczytu" -- jubilerzy maja wiecej zamowien, moglyby byc dluze terminy lub ekspresowe dopłaty). Sierpien/wrzesien to bezpieczne okno.
+    </div>
+  </div>
+</div>
+
+<h3>Ktory kanal wybrac -- szybka decyzja</h3>
+<table>
+  <tr>
+    <th>Jesli...</th>
+    <th>To wybierz</th>
+    <th>Spodziewana cena</th>
+  </tr>
+  <tr>
+    <td>Chcesz minimum wysilku, pewnosc rozmiaru, certyfikat</td>
+    <td>EkoKarat lub Czajkowska online</td>
+    <td>3 500--4 750 zl</td>
+  </tr>
+  <tr>
+    <td>Chcesz najtaniej i masz czas na 1 spotkanie</td>
+    <td>Lokalny zlotnik / pracownia</td>
+    <td>2 400--3 200 zl</td>
+  </tr>
+  <tr>
+    <td>Macie stare zloto do oddania</td>
+    <td>Pracownia z mozliwoscia przerobu</td>
+    <td>500--1 500 zl (robocizna)</td>
+  </tr>
+  <tr>
+    <td>Chcesz cenowo bic Aurorie zostajac "w salonie"</td>
+    <td>Zapytaj Aurorie o rabat, pokazujac alternatywy</td>
+    <td>ewentualnie 3 800--4 200 zl po negocjacji</td>
+  </tr>
+</table>
+
+<h3>Negocjacja z Auroria -- czy warto</h3>
+<p>Tak, warto sprobowac. Przyjdz z informacja, ze znalazles pare u producenta za 3 580 zl i chcesz wiedziec, czy Auroria moze dobrac cene. Salony sieciowe przy prostych modelach bez kamieni maja pewna elastycznosc, szczegolnie przy powtarczajacych sie klientach lub przy platnosci gotowka. Jesli Auroria zejdzie do 3 800--4 200 zl, to cena za komfort i lokal moze byc do przyjecia.</p>
+
+<h3>Niepewnosci -- co trzeba potwierdzic</h3>
+<ul>
+  <li><strong>Kolor zlota (zolte / biale / roze)</strong> -- do potwierdzenia z Klaudia. Biale: dopłata za rod.</li>
+  <li><strong>Dostepnosc rozmiaru 25</strong> przy wybranym modelu -- zawsze pytac wprost.</li>
+  <li><strong>Profil "z soczewka" Pawla</strong> -- upewnic sie, ze sklep/jubiler rozumie: polokragly z wypukloscia wewnatrz (soczewka/beczka ulatwia zdejmowanie). Czajkowska kataloguje to jako "profil plaski od wewnatrz z polokraglym zewnetrzem".</li>
+  <li><strong>Wagi katalogowe</strong> -- przy zamowieniu przez internet warto zapytac o wage gotowej obraczki w Twoim rozmiarze (nie podawana zawsze); waga = bezposredni koszt kruszcu.</li>
+  <li><strong>Grawer</strong> -- zdecydowac przed zamowieniem, bo potem trudny do dodania, szczegolnie maszynowy.</li>
+</ul>
+
+<div class="sources">
+  <strong>Zrodla i dane:</strong><br>
+  <a href="https://jubilerpagacz.pl/zloto-585-cena-za-gram/" target="_blank">Jubiler Pagacz -- cena zlota 585 2026</a> |
+  <a href="https://goldtrader.pl/cena-zlota" target="_blank">GoldTrader.pl -- notowania zlota</a> |
+  <a href="https://www.rozmiar.com/obraczek.php" target="_blank">Rozmiar.com -- tabela rozmiarow obraczek PL</a> |
+  <a href="https://czajkowska.pl/klasyczne/50827-zlote-obraczki-slubne-4mm-polokragle-gladkie-585.html" target="_blank">Czajkowska.pl -- obraczki 4mm 585</a> |
+  <a href="https://bovem.com.pl/product-pol-9254-Obraczki-slubne-para-zloto-585-klasyczne-polokragle-4-mm.html" target="_blank">Bovem.com.pl -- para klasyczna 4mm</a> |
+  <a href="https://ekokarat.pl/zlote-obraczki-slubne-klasyczne-4mm-pr585/zlote-obraczki-eko-karat/para-obraczek-slubnych-klasycznych" target="_blank">EkoKarat -- para klasyczna od 3 580 zl</a> |
+  <a href="https://wkruk.pl/obraczki/obraczki-zlote" target="_blank">W.Kruk -- benchmark salony sieciowe</a> |
+  <a href="https://jubilerlyko.pl/obraczki-z-wlasnego-zlota-przetapianie-starej-bizuterii/" target="_blank">Jubiler Lyko -- przetapianie wlasnego zlota</a> |
+  <a href="https://www.godziszewscy.pl/recykling-zlota-w-praktyce" target="_blank">Godziszewscy -- recykling zlota w praktyce</a> |
+  <a href="https://www.money.pl/pieniadze/ile-kosztuje-dolar-kurs-dolara-do-zlotego-pln-usd-23-06-2026-7299854254118912a.html" target="_blank">Money.pl -- kurs USD/PLN 23.06.2026</a><br>
+  Cena spot zlota: 4 129 USD/oz (23.06.2026) -- zrodlo: tradingeconomics.com, jmbullion.com.
+</div>
+
+</div>
+<footer>Rocky dla Pawla &nbsp;|&nbsp; Wygenerowano 23.06.2026 &nbsp;|&nbsp; Dane aktualne na dzien publikacji</footer>
+</body>
+</html>

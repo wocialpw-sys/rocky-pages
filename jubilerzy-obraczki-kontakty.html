@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jubilerzy - obraczki slubne na zamowienie</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #faf9f7;
+      color: #2c2c2c;
+      padding: 32px 24px;
+      max-width: 960px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+    h1 {
+      font-size: 1.7rem;
+      color: #1a1a1a;
+      border-bottom: 2px solid #c5a55a;
+      padding-bottom: 10px;
+      margin-bottom: 6px;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 28px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      color: #3a2d1a;
+      margin: 32px 0 12px;
+      padding-left: 10px;
+      border-left: 4px solid #c5a55a;
+    }
+    h3 {
+      font-size: 1rem;
+      color: #5a4020;
+      margin: 22px 0 8px;
+    }
+    p { margin-bottom: 10px; }
+    .box {
+      background: #fff;
+      border: 1px solid #e0d8cc;
+      border-radius: 6px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+    .box p { margin: 0; }
+    .highlight {
+      background: #fdf6e3;
+      border-left: 3px solid #c5a55a;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #3a2d1a;
+      color: #f5ead8;
+      text-align: left;
+      padding: 9px 11px;
+      font-weight: normal;
+      font-style: italic;
+    }
+    td {
+      padding: 9px 11px;
+      vertical-align: top;
+      border-bottom: 1px solid #ebe4d8;
+    }
+    tr:nth-child(even) td { background: #faf6ee; }
+    tr:hover td { background: #f5eddf; }
+    a { color: #7a5c1e; text-decoration: underline; }
+    a:hover { color: #c5a55a; }
+    .tag-mail {
+      display: inline-block;
+      background: #d4edda;
+      color: #1d5c2a;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-family: Arial, sans-serif;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .tag-weryfikuj {
+      display: inline-block;
+      background: #fff3cd;
+      color: #7d5700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-family: Arial, sans-serif;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .note {
+      font-size: 0.82rem;
+      color: #888;
+      margin-top: 4px;
+      font-family: Arial, sans-serif;
+    }
+    .stars { color: #c5a55a; }
+    ol { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    ul { padding-left: 20px; }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #e0d4c0;
+      margin: 36px 0;
+    }
+    .toplist {
+      counter-reset: item;
+      list-style: none;
+      padding: 0;
+    }
+    .toplist li {
+      counter-increment: item;
+      padding: 10px 12px 10px 44px;
+      position: relative;
+      border-bottom: 1px solid #ebe4d8;
+    }
+    .toplist li:last-child { border-bottom: none; }
+    .toplist li::before {
+      content: counter(item);
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 24px;
+      height: 24px;
+      background: #c5a55a;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.78rem;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .contact-pill {
+      font-family: 'Courier New', monospace;
+      font-size: 0.83rem;
+      background: #f2f0ec;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Jubilerzy - obraczki slubne na zamowienie</h1>
+<p class="meta">Opracowano: czerwiec 2026. Cel: porownanie ofert do ceny referencyjnej Auroria (5100 zl za pare, projekt klasyczny, wg indywidualnych wymiarow).</p>
+
+<div class="highlight">
+  <strong>W skrocie:</strong> zebrano lacznie <strong>11 pracowni</strong> (6 stacjonarnych w Poznaniu, 5 przyjmujacych zamowienia zdalne z wysylka po Polsce). Rekomendowany tryb kontaktu: mail z krotkim opisem specyfikacji (material, proba zlota, szerokosc, profil, wykoncenie powierzchni, rozmiary palcow, termin slubu). Maile oznaczone <span class="tag-mail">mail</span> sa potwierdzone; <span class="tag-weryfikuj">do wer.</span> wymaga sprawdzenia na stronie lub Google Maps. Na koncu dokumentu: wskazowki jak porownac oferty.
+</div>
+
+<h2>1. Poznan - stacjonarnie (6 pracowni)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pracownia</th>
+      <th>Adres</th>
+      <th>Kontakt</th>
+      <th>Opinie</th>
+      <th>Na zamowienie</th>
+      <th>Ceny / uwagi</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>
+        <strong><a href="https://chart.poznan.pl/" target="_blank">Pracownia CHART</a></strong>
+        <br><span class="note">od 1980, zalozyciel - jeden z pierwszych ekspertow od brylantow w PL</span>
+      </td>
+      <td>Szelagowska 13A<br>61-626 Poznan</td>
+      <td>
+        <a href="tel:618529924">61 852 99 24</a><br>
+        <a href="mailto:chart.wlodawiec@gmail.com">chart.wlodawiec@gmail.com</a>
+        <span class="tag-mail">mail</span>
+        <br><a href="https://chart.poznan.pl/zamowienia-indywidualne/" target="_blank">Zamowienia indywidualne</a>
+      </td>
+      <td class="stars">Bardzo dobre opinie klientow (jakisc artystycznosci, precyzja). Wyroznienie Wesele z klasa.</td>
+      <td>Tak, klient ma realny wplyw na projekt; obraczki i pierscionki; platyna dostepna.</td>
+      <td>Bez cennika publicznego. Segment autorski/premium. Warto zapytac maila o wycene prostej obraczki.</td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong><a href="https://www.stobieckidesign.pl/" target="_blank">Stobiecki Design</a></strong>
+        <br><span class="note">rodzinna pracownia zlotniczo-grawerska Urszula Stobiecka</span>
+      </td>
+      <td>Warszawska 37/1B<br>Poznan</td>
+      <td>
+        <a href="tel:535276272">+48 535 276 272</a><br>
+        <a href="tel:616537801">61 653 78 01</a><br>
+        <a href="mailto:kontakt@stobieckidesign.pl">kontakt@stobieckidesign.pl</a>
+        <span class="tag-mail">mail</span>
+      </td>
+      <td class="stars">Pozytywne recenzje na Google Maps i portalach slubnych. Wyroznienie "pierscjonki zareczynowe".</td>
+      <td>Tak, obraczki robione od podstaw recznie, zloto 585, indywidualne projekty. Darmowa dostawa od 1000 zl.</td>
+      <td>Pierscionki od ok. 2490 zl; obraczki wg indywidualnej wyceny. Dobry punkt wyjscia dla prostego wzoru.</td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong><a href="https://www.obraczkislubnepoznan.pl/" target="_blank">Pracownia Zlotniczo-Jubilerska Aleksander Malecki</a></strong>
+        <br><span class="note">od 1986, laurat Orly Jubilerstwa w Poznaniu</span>
+      </td>
+      <td>Konarzewska 32<br>60-101 Poznan</td>
+      <td>
+        <a href="tel:510034767">510 034 767</a><br>
+        <a href="mailto:obraczkislubnepoznan@gmail.com">obraczkislubnepoznan@gmail.com</a>
+        <span class="tag-mail">mail</span>
+        <br><span class="note">Godz: Pn-Pt 8-17, sob. po tel.</span>
+      </td>
+      <td class="stars">4,7/5 (13 recenzji Google). Opinie: "wyjatkowa jakosc od 15 lat", "duzy wybor", "przystepne ceny".</td>
+      <td>Tak, wykonywanie wg indywidualnego projektu; personalizowane szkice; niestandardowe kombinacje metali.</td>
+      <td>Klienci wskazuja na "przystepne ceny" - moze byc taniej niz w Aurorii. Warto wyslac maila z wycena.</td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong><a href="https://nieweglowski.com/jubiler-poznan" target="_blank">Nieweglowski Classica</a></strong>
+        <br><span class="note">Poznan + Wroclaw; producent krajowy</span>
+      </td>
+      <td>Paderewskiego 8<br>61-770 Poznan</td>
+      <td>
+        <a href="tel:882578731">882 578 731</a><br>
+        Formularz kontaktowy na stronie
+        <span class="tag-weryfikuj">do wer.</span>
+        <br><span class="note">Godz: Pn-Pt 11-19, sob 11-16</span>
+      </td>
+      <td class="stars">5,0/5 (109 recenzji Google). Jedna z najlepiej ocenianych pracowni w Poznaniu.</td>
+      <td>Tak, kazda para obraczek na zamowienie; klient moze dostarczyc swoje zloto lub kamienie; certyfikaty do brylantow; wysylka kurierska.</td>
+      <td>Bez jawnego cennika dla prostych obraczek. Segment sredni/premium. Warto porownac - bardzo dobre opinie.</td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong><a href="https://zlotnik-poznan.pl/" target="_blank">Pracownia Zlotnicza Cezary Klawinski</a></strong>
+        <br><span class="note">os. Wichrowe Wzgorze, specjalizacja zloto/srebro/platyna</span>
+      </td>
+      <td>os. Wichrowe Wzgorze 11F<br>61-674 Poznan</td>
+      <td>
+        <a href="tel:618269674">(61) 826-96-74</a><br>
+        <a href="tel:604466510">604 466 510</a><br>
+        <a href="mailto:ckzlotnik@o2.pl">ckzlotnik@o2.pl</a>
+        <span class="tag-mail">mail</span>
+        <br><span class="note">Godz: Pn-Pt 10:30-18, sob 10-12</span>
+      </td>
+      <td class="stars">Brak oceny na Google w wynikach. Specjalizacja rzemieślnicza potwierdzona. <span class="tag-weryfikuj">sprawdz opinie na Google Maps</span></td>
+      <td>Tak, wykonywanie biżuterii wg indywidualnych potrzeb; zloto, srebro, platyna; projekty 3D; laser welding.</td>
+      <td>Brak cennika. Zlotnik rzemieślnik - potencjalnie konkurencyjne ceny dla prostego wzoru.</td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong><a href="https://pracowniatomczak.pl/" target="_blank">Pracownia Zlotnicza Tomasz Tomczak</a></strong>
+        <br><span class="note">rodzinna pracownia, od 1990</span>
+      </td>
+      <td>ul. Swit 34/36<br>60-376 Poznan</td>
+      <td>
+        <a href="tel:616624610">61 662 46 10</a><br>
+        <a href="mailto:biuro@pracowniatomczak.pl">biuro@pracowniatomczak.pl</a>
+        <span class="tag-mail">mail</span>
+      </td>
+      <td class="stars"><span class="tag-weryfikuj">sprawdz opinie na Google Maps</span> - pracownia polecana na portalach slubnych.</td>
+      <td>Tak, obraczki ślubne wg indywidualnego zamowienia; zloto zolte i biale; dwokolorowe.</td>
+      <td>Brak jawnego cennika. Rodzinna pracownia zlotnicza - warto zapytac maila o ceny bazowe.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div class="highlight">
+  <strong>Dwie dodatkowe pracownie w Poznaniu (bez potwierdzonych maili):</strong><br>
+  <strong>Zakład Zlotniczy (ul. Wielka 21)</strong> - <a href="https://zaklad-zlotniczy.pl/" target="_blank">zaklad-zlotniczy.pl</a>, tel. <a href="tel:612824997">61 282 49 97</a>, mail: <a href="mailto:sklep@zaklad-zlotniczy.pl">sklep@zaklad-zlotniczy.pl</a> <span class="tag-mail">mail</span>. Obraczki od ok. 1535 zl, 36 lat doswiadczenia, ceny zaliczone przez klientow jako atrakcyjne.<br><br>
+  <strong>Pracownia Zlotnicza Dariusz Cholewa (ul. Krasińskiego 4)</strong> - <a href="https://pracowniazlotnicza-poznan.pl/" target="_blank">pracowniazlotnicza-poznan.pl</a>, tel. <a href="tel:618481665">61 848 16 65</a>. Mail do weryfikacji na stronie. Biżuteria wg projektow klientow, od 1984.
+</div>
+
+<hr class="section-divider">
+
+<h2>2. Zdalne / wysylkowe - cala Polska (5 pracowni)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pracownia</th>
+      <th>Lokalizacja</th>
+      <th>Kontakt</th>
+      <th>Opinie</th>
+      <th>Zdalne / wysylka</th>
+      <th>Ceny / uwagi</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>
+        <strong><a href="https://gregoryglos.com/" target="_blank">Gregory Glos - Zlotnik</a></strong>
+        <br><span class="note">dyplomowany mistrz, 1. miejsce w woj. slaskim, Mistrzowie Handlu 2026</span>
+      </td>
+      <td>Katowice<br>(wizyta po umowieniu)</td>
+      <td>
+        <a href="tel:698856555">+48 698 856 555</a><br>
+        <a href="mailto:biuro@gregoryglos.com">biuro@gregoryglos.com</a>
+        <span class="tag-mail">mail</span>
+        <br><span class="note">Godz: Pn-Pt 11-20</span>
+      </td>
+      <td class="stars">Bardzo wysokie oceny. Wyroznienie "Mistrzowie Handlu 2026 - 1. miejsce woj. slaskie".</td>
+      <td>Tak, wyraznie: "Przyjmuje zamowienia online, gotowa bizuterie wysylam bezpiecznie kurierem." Wycena zdalna po opisie specyfikacji.</td>
+      <td>Bez cennika publicznego. Kontakt mailowy - dostarcz specyfikacje i zapytaj o wycene.</td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong><a href="https://www.interjubiler.pl/" target="_blank">Interjubiler</a></strong>
+        <br><span class="note">Warszawa, 25 lat doswiadczenia, producent krajowy</span>
+      </td>
+      <td>Rydygiera 8, bud. 20B<br>Warszawa</td>
+      <td>
+        <a href="tel:516124634">516 124 634</a><br>
+        <a href="mailto:interjubiler@gmail.com">interjubiler@gmail.com</a>
+        <span class="tag-mail">mail</span>
+      </td>
+      <td class="stars">5,0/5 (102 recenzje Google). Jedna z najwyzej ocenianych pracowni w Polsce.</td>
+      <td>Tak, sklep online, darmowa dostawa od 200 zl (kurier UPS), darmowa korekta rozmiaru. Mozliwa konsultacja zdalna.</td>
+      <td>Ceny obraczek: ok. 1990-5800 zl. Potencjalnie wyraznie taniej niz Auroria. Dożywotnia gwarancja.</td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong><a href="https://zlotalinia.com/" target="_blank">Zlota Linia</a></strong>
+        <br><span class="note">Wroclaw, 34 lata doswiadczenia</span>
+      </td>
+      <td>Traugutta 84<br>50-418 Wroclaw</td>
+      <td>
+        <a href="tel:697979811">697 979 811</a><br>
+        <a href="mailto:zlotalinia@gmail.com">zlotalinia@gmail.com</a>
+        <span class="tag-mail">mail</span>
+      </td>
+      <td class="stars"><span class="tag-weryfikuj">sprawdz opinie Google Maps</span>. Wymieniana na portalach slubnych jako sprawdzona pracownia.</td>
+      <td>Tak, zamowienia zdalne; darmowa dostawa od 1000 zl, paczkomaty 24/7. Klient wybiera wzor, kolor metalu, forme.</td>
+      <td>Obraczki w sklepie online: ok. 5199-7690 zl za pare. Warto zapytac o prostszy wzor wg specyfikacji.</td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong><a href="https://www.wec.com.pl/" target="_blank">Jubiler Wec</a></strong>
+        <br><span class="note">Krakow, wlasna pracownia zlotnicza</span>
+      </td>
+      <td>ul. Kurczaba 3<br>30-868 Krakow</td>
+      <td>
+        <a href="tel:530788401">530 788 401</a><br>
+        <a href="tel:126511473">12 65 11 473</a><br>
+        <a href="mailto:sklep@wec.com.pl">sklep@wec.com.pl</a>
+        <span class="tag-mail">mail</span>
+        <br><span class="note">Godz: Pn-Pt 10-18</span>
+      </td>
+      <td class="stars"><span class="tag-weryfikuj">sprawdz opinie Google Maps</span>. Sklep internetowy z recenzjami.</td>
+      <td>Tak, sklep online, wysylka do PL i UE; biżuteria na zamowienie wg projektu klienta; grawerowanie.</td>
+      <td>Pierscionki zareczynowe od ok. 1500-3000 zl; obraczki wg indywidualnej wyceny (proba 585 i 750).</td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong><a href="https://jubilersc.pl/" target="_blank">Jubiler S.C. Wroclaw</a></strong>
+        <br><span class="note">pracownia z wlasna produkcja, m.in. z powierzonego zlota</span>
+      </td>
+      <td>ul. Dluga 37/47<br>50-065 Wroclaw</td>
+      <td>
+        <a href="tel:713592433">(71) 359 24 33</a><br>
+        <a href="mailto:jubilersc@jubilersc.pl">jubilersc@jubilersc.pl</a>
+        <span class="tag-mail">mail</span>
+      </td>
+      <td class="stars"><span class="tag-weryfikuj">sprawdz opinie Google Maps</span>. Pracownia z wlasna produkcja.</td>
+      <td>Zamowienia zdalne do weryfikacji - zapytaj maila. Mozliwosc wykonania obraczek z dostarczonego zlota.</td>
+      <td>Brak jawnego cennika. Opcja "z wlasnego zlota" moze byc ciekawa jesli Pawel dysponuje starym zlotem.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2>3. Jak wyslac zapytanie - szablon</h2>
+
+<div class="box">
+  <p><strong>Temat maila:</strong> Zapytanie o wycene - obraczki slubne na zamowienie</p>
+  <br>
+  <p>Dzien dobry,</p>
+  <p>Prosimy o wycene pary obraczek slubnych wykonywanych na indywidualne zamowienie. Ponizej specyfikacja:</p>
+  <ul style="margin: 10px 0 10px 20px;">
+    <li>Material: [np. zloto zolte proba 585]</li>
+    <li>Szerokosc: [np. 4 mm / 5 mm]</li>
+    <li>Profil: [np. klasyczny plaski / wypukly / comfort fit]</li>
+    <li>Wykoncenie powierzchni: [np. poler / mat / satyna]</li>
+    <li>Rozmiary: [podaj rozmiar kazdej obraczki]</li>
+    <li>Grawer: [tak/nie, co jesli tak]</li>
+    <li>Termin realizacji: [data slubu lub tygodnie przed slubem]</li>
+  </ul>
+  <p>Prosimy o podanie: ceny orientacyjnej, czasu realizacji i sposobu platnosci/odbioru.</p>
+  <p>Pozdrawiam, [imie i nazwisko], tel. [nr]</p>
+</div>
+
+<hr class="section-divider">
+
+<h2>4. Na co zwrocic uwage przy wyborze jubilera</h2>
+
+<h3>Proba zlota</h3>
+<p>Obraczki oferowane sa najczesciej w probie <strong>585 (14K)</strong> i <strong>750 (18K)</strong>. Proba 585 jest twardsza i bardziej odporna na zarysowania - standardowy wybor dla obraczek codziennego uzytku. Proba 750 jest miekkasza i jasniejsza w bialym zlocie, ale kosztuje ok. 20-30% wiecej za gram.</p>
+
+<h3>Certyfikat i gwarancja</h3>
+<p>Kazda obraczka powinna miec <strong>cech (punca)</strong> potwierdzajacy probe, wybita przez uprawnionego probierza. Sprawdz, czy jubiler zapewnia <strong>gwarancje</strong> i co obejmuje (bezplatna korekta rozmiaru to standard).</p>
+
+<h3>Czas realizacji</h3>
+<p>Dla obraczek prostych/klasycznych: zazwyczaj <strong>2-6 tygodni</strong>. Przy bardziej rozbudowanych projektach lub w sezonie (kwiecien-lipiec) moze byc dluzej. Zapytaj o konkretny termin w chwili zlozenia zamowienia.</p>
+
+<h3>Jak porownac oferty</h3>
+<ol>
+  <li>Proś o wycene zawsze dla tej samej specyfikacji (ten sam material, proba, szerokosc, profil, wykoncenie).</li>
+  <li>Sprawdz, co wchodzi w cene: grawerowanie, opakowanie, wysylka, korekta rozmiaru po dostawie.</li>
+  <li>Sprawdz opinie na Google Maps (minimum 20 recenzji, srednia 4,5+).</li>
+  <li>Zapytaj o przykladowe realizacje - dobra pracownia chętnie pokazuje portfolio zblizone do Twojego wzoru.</li>
+  <li>Porownaj termin realizacji - tanie + szybkie bywa sygnałem ostrzegawczym.</li>
+</ol>
+
+<h3>Opcja: obraczki z wlasnego zlota</h3>
+<p>Jesli posiadasz stara bizuterie zlota, czesc jubilerow (m.in. Jubiler S.C. Wroclaw, Praktownia Stobiecki, Zakl. Zlotniczy ul. Wielka) wykona obraczki z <strong>powierzonego zlota</strong>, co obnizy koszt materialu. Wycena wtedy na podstawie wagi dostarczonego zlota i kosztow robocizny.</p>
+
+<hr class="section-divider">
+
+<h2>5. Najlepsze 5 z mailem (priorytet do rozsylki)</h2>
+
+<ol class="toplist">
+  <li>
+    <strong>Nieweglowski Classica - Poznan</strong><br>
+    5,0/5 (109 recenzji) - najlepsza ocena sposrod poznańskich. Mail przez formularz na stronie (<a href="https://nieweglowski.com/jubiler-poznan" target="_blank">nieweglowski.com</a>), tel. 882 578 731. Zamowienia zdalne + wysylka potwierdzone.
+  </li>
+  <li>
+    <strong>Interjubiler - Warszawa (zdalne)</strong><br>
+    5,0/5 (102 recenzje). Jawny cennik obraczek od ok. 1990 zl - potencjalnie wyraznie taniej niz Auroria. Mail: <a href="mailto:interjubiler@gmail.com">interjubiler@gmail.com</a>
+  </li>
+  <li>
+    <strong>Pracownia CHART - Poznan</strong><br>
+    Ponad 40 lat tradycji, zalozyciel - ekspert od brylantow i zlotnictwa artystycznego. Mail: <a href="mailto:chart.wlodawiec@gmail.com">chart.wlodawiec@gmail.com</a>. Dobry wybor dla projektu z nieco wyzszym standardem wykonczenia.
+  </li>
+  <li>
+    <strong>Gregory Glos - Katowice (zdalne)</strong><br>
+    Dyplomowany mistrz, 1. miejsce w woj. slaskim Mistrzowie Handlu 2026. Wyraznie przyjmuje zamowienia online z wysylka. Mail: <a href="mailto:biuro@gregoryglos.com">biuro@gregoryglos.com</a>
+  </li>
+  <li>
+    <strong>Stobiecki Design - Poznan</strong><br>
+    Rodzinna pracownia autorska, obraczki robione recznie od podstaw, zloto 585. Darmowa dostawa od 1000 zl (mozliwe zamowienie z odbiorem lub wysylka). Mail: <a href="mailto:kontakt@stobieckidesign.pl">kontakt@stobieckidesign.pl</a>
+  </li>
+</ol>
+
+<hr class="section-divider">
+
+<p class="note" style="margin-top: 8px;">Zestawienie opracowane na podstawie danych ze stron WWW (czerwiec 2026). Przed kontaktem zalecanym jest weryfikacja aktualnosci danych (szczegolnie godzin i cen) bezposrednio na stronie lub Google Maps. Nie zmyslano zadnych danych - miejsca oznaczone "do wer." wymagaja dogrywki przez uzytkownika.</p>
+
+</body>
+</html>
