@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miejsca na przyjęcie ślubne — podobne do Werandy Home</title>
+<style>
+  :root{
+    --ink:#23301f; --muted:#5c6b54; --line:#dfe3d4; --bg:#f7f8f2;
+    --card:#ffffff; --accent:#4a6741; --accent2:#7a8c52; --gold:#b08a3e;
+    --chip:#eef1e4; --warn:#9a5b2a; --shadow:0 2px 14px rgba(40,60,30,.07);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI",-apple-system,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;}
+  .wrap{max-width:1060px;margin:0 auto;padding:38px 22px 70px;}
+  header.top{border-bottom:3px solid var(--accent);padding-bottom:22px;margin-bottom:30px;}
+  .eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--accent2);font-weight:700;}
+  h1{font-size:32px;line-height:1.2;margin:8px 0 6px;font-weight:800;color:var(--ink);}
+  .sub{color:var(--muted);font-size:15px;}
+  .meta{margin-top:14px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 18px;}
+  .meta b{color:var(--ink);font-weight:600;}
+  h2{font-size:22px;margin:42px 0 4px;color:var(--accent);font-weight:800;border-left:5px solid var(--accent2);padding-left:12px;}
+  h2 .note{font-size:13px;font-weight:500;color:var(--muted);}
+  h3{font-size:15px;margin:0 0 2px;}
+  p{margin:8px 0;}
+  .lead{background:#eef3e6;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:14px 0 0;font-size:14.5px;}
+  /* Weranda benchmark */
+  .bench{background:linear-gradient(180deg,#fbfcf7,#f1f4ea);border:1px solid var(--line);border-left:5px solid var(--gold);
+    border-radius:14px;padding:20px 24px;box-shadow:var(--shadow);margin-top:14px;}
+  .bench h2{border:0;padding:0;margin:0 0 6px;color:var(--gold);}
+  .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 26px;margin-top:12px;}
+  .kv div{font-size:13.5px;}
+  .kv b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent2);}
+  /* cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;margin-top:16px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;}
+  .card .rank{font-size:11px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;padding:2px 10px;display:inline-block;}
+  .card .rank.b{background:var(--accent2);}
+  .card .rank.c{background:#9aa777;}
+  .card .rank.d{background:#9b8d6a;}
+  .card h3{font-size:17px;margin:10px 0 2px;color:var(--ink);}
+  .loc{font-size:12.5px;color:var(--muted);margin-bottom:8px;}
+  .desc{font-size:13.5px;color:#33402b;margin:4px 0 10px;}
+  .facts{font-size:12.5px;border-top:1px dashed var(--line);padding-top:9px;margin-top:auto;}
+  .facts span{display:inline-block;background:var(--chip);border-radius:6px;padding:2px 8px;margin:2px 4px 2px 0;}
+  .vs{font-size:12.5px;color:var(--accent);margin-top:8px;font-style:italic;}
+  .contact{font-size:12.5px;margin-top:9px;color:var(--muted);}
+  .contact a{color:var(--accent);text-decoration:none;font-weight:600;}
+  .q{color:var(--warn);font-weight:600;}
+  /* table */
+  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:12.5px;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+  th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);}
+  th{background:var(--accent);color:#fff;font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;}
+  tr:nth-child(even) td{background:#fafbf6;}
+  td.c{text-align:center;}
+  .star{color:var(--gold);font-weight:700;}
+  .foot{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;}
+  .callout{background:#fcf6 ;background:#fdf6ec;border:1px solid #ecd9b6;border-left:5px solid var(--warn);border-radius:12px;padding:14px 18px;margin-top:18px;font-size:13.5px;}
+  ul.tight{margin:6px 0;padding-left:20px;}
+  ul.tight li{margin:3px 0;font-size:13.5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Research ślubny &middot; przygotował Rocky</div>
+  <h1>Miejsca na przyjęcie ślubne podobne do&nbsp;Werandy&nbsp;Home</h1>
+  <div class="sub">Obiekty weselne w regionie Poznania w klimacie leśno-jeziornego resortu z plenerową ceremonią i&nbsp;noclegiem na miejscu.</div>
+  <div class="meta">
+    <span><b>Data:</b> 24.06.2026</span>
+    <span><b>Zasięg:</b> głównie do ~70 km od Poznania</span>
+    <span><b>Zbadano:</b> 16 obiektów w zasięgu + 3 dalsze</span>
+    <span><b>Metoda:</b> 5 równoległych researchów, źródła polskie (strony obiektów, weselezklasa.pl, saleweselne.com, opinie Google)</span>
+  </div>
+</header>
+
+<div class="lead">
+  <b>Jak czytać ten dokument.</b> Najpierw profil <b>Werandy Home</b> — to wzorzec, do którego wszystko porównuję. Potem obiekty w czterech grupach (od najbliższych klimatem), tabela porównawcza i&nbsp;na końcu uwagi praktyczne. Ceny w&nbsp;tej branży są niemal zawsze <b>indywidualne po zapytaniu</b> — podane liczby to rząd wielkości, nie oferta. Dane oznaczone <span class="q">?</span> wymagają potwierdzenia telefonicznego.
+</div>
+
+<!-- ===================== WERANDA BENCHMARK ===================== -->
+<div class="bench">
+  <div class="eyebrow" style="color:var(--gold)">Wzorzec</div>
+  <h2>Weranda Home — czym jest i co definiuje „podobne”</h2>
+  <p class="desc">Leśna rezydencja hotelowa z funkcją ekskluzywnego obiektu weselnego w&nbsp;<b>Sławicy</b> (gmina Skoki), w&nbsp;sercu Parku Krajobrazowego Puszczy Zielonki, bezpośrednio przy dwóch jeziorach (Książę i&nbsp;Borowe), ~35&nbsp;km od Poznania. Styl: klasyczny dworek + boho + natura. Celowo kameralna skala i&nbsp;wysoki standard kuchni. Ocena ~4,6/5 (Google, 500+ opinii).</p>
+  <div class="kv">
+    <div><b>Pojemność</b>do 120 gości (3 sale)</div>
+    <div><b>Noclegi</b>86 miejsc (12 apartamentów + willa + 5 domków foREST)</div>
+    <div><b>Ceremonia plenerowa</b>tak — dok nad jeziorem, ogród, las</div>
+    <div><b>Cena menu</b>ok. 380–530 zł/os. (orientacyjnie)</div>
+    <div><b>Noclegi (cena)</b>590–1 980 zł/noc</div>
+    <div><b>Catering</b>własny, slow food, kuchnia francusko-wielkopolska</div>
+    <div><b>Wedding planner</b>tak (zespół We Create Weddings)</div>
+    <div><b>Kontakt</b>tel. <a href="tel:+48506791282">506 791 282</a> &middot; <a href="https://www.werandahome.com" target="_blank" rel="noopener">werandahome.com</a></div>
+  </div>
+  <p class="desc" style="margin-top:14px"><b>Atuty:</b> unikalna lokalizacja (jeziora + las), opcja wyłączności, kuchnia premium, kompleksowość pod jednym dachem. <b>Ograniczenia:</b> brak komunikacji publicznej (własny dojazd/busy), twardy limit 120 osób, segment premium (jeden z droższych w regionie), jedna powtarzana skarga z 2021 o&nbsp;dopuszczenie obcych gości hotelowych w&nbsp;trakcie wesela — warto przy innych obiektach pytać o&nbsp;<b>jasną politykę wyłączności</b>.</p>
+  <p class="desc" style="margin-top:10px"><b>Profil „podobne”, którego szukałem:</b> sceneria natury (jezioro/las/park) &middot; możliwość ceremonii w&nbsp;plenerze &middot; noclegi na miejscu &middot; kameralno-średnia skala &middot; klimat premium / klimatyczny &middot; w&nbsp;zasięgu dojazdu z Poznania.</p>
+</div>
+
+<!-- ===================== GROUP A ===================== -->
+<h2>Grupa A — najbliżej klimatu Werandy <span class="note">(jezioro + las + plener, kameralno-premium)</span></h2>
+<div class="grid">
+
+  <div class="card">
+    <span class="rank">Top dopasowanie</span>
+    <h3>Mięta Kobylec</h3>
+    <div class="loc">Kobylec k. Wągrowca &middot; ~60 km od Poznania</div>
+    <div class="desc">Najbliżej <i>filozofii</i> Werandy: kameralny obiekt „slow wedding” bezpośrednio nad Jeziorem Kobyleckim, 1,5&nbsp;ha prywatnego terenu, leśna ścieżka, pomost, sauna, ognisko. Sala dębowa + zadaszona weranda. Kuchnia sezonowa (wege/vegan/GF).</div>
+    <div class="facts">
+      <span>do 70 gości</span><span>~35–40 miejsc nocl.</span><span>plener nad jeziorem</span><span>wyłączność</span>
+    </div>
+    <div class="vs">vs Weranda: niemal identyczny duch i&nbsp;jezioro, ale mniejsza skala (max 70 os.).</div>
+    <div class="contact">tel. <a href="tel:+48603758752">603 758 752</a> &middot; <a href="https://mieta.com.pl" target="_blank" rel="noopener">mieta.com.pl</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank">Top dopasowanie</span>
+    <h3>ArtFolwark Wojnowo</h3>
+    <div class="loc">Wojnowo k. Murowanej Gośliny &middot; ~30 km (ten sam rejon — Puszcza Zielonka)</div>
+    <div class="desc">Postindustrialna stodoła-galeria bezpośrednio nad Jeziorem Wojnowskim, z prywatną plażą i&nbsp;pomostem. Designerskie, przeszklone wnętrza na jezioro, instalacje sztuki, kajaki/SUP. Najbliżej Poznania z całej grupy.</div>
+    <div class="facts">
+      <span>pojemność <span class="q">~70–150?</span></span><span>~18–20 miejsc nocl.</span><span>plener nad jeziorem</span>
+    </div>
+    <div class="vs">vs Weranda: ta sama okolica i&nbsp;jezioro, mocniejszy charakter „design”; mała baza noclegowa (goście śpią poza obiektem).</div>
+    <div class="contact">tel. <a href="tel:+48665999988">665 999 988</a> &middot; <a href="https://artfolwark.eu" target="_blank" rel="noopener">artfolwark.eu</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank">Top dopasowanie</span>
+    <h3>Szczypta Natury</h3>
+    <div class="loc">Skoki &middot; ~42 km &middot; <b>ta sama gmina co Weranda</b></div>
+    <div class="desc">Kompleks restauracyjno-wypoczynkowy nad Jeziorem Rościńskim, w&nbsp;otulinie Puszczy Zielonki — prywatny pomost, plaża, altana ogrodowa, trzy sale z panoramą na wodę. Kuchnia na lokalnych składnikach. Ocena 5,0/5.</div>
+    <div class="facts">
+      <span>do 130 gości</span><span>12 pokoi</span><span>plener — altana nad jeziorem</span>
+    </div>
+    <div class="vs">vs Weranda: bardzo zbliżona lokalizacja i&nbsp;sceneria, podobna skala; mniejsza baza noclegowa.</div>
+    <div class="contact">tel. <a href="tel:+48534414414">534 414 414</a> &middot; <a href="https://www.szczyptanatury.com.pl" target="_blank" rel="noopener">szczyptanatury.com.pl</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank">Top dopasowanie</span>
+    <h3>Ranczo w Dolinie</h3>
+    <div class="loc">Dąbrówka Kościelna, gm. Kiszkowo &middot; ~40 km (Puszcza Zielonka)</div>
+    <div class="desc">Stylowy folwark w&nbsp;sercu Puszczy Zielonki, las i&nbsp;stawy, trzy sale o&nbsp;różnym charakterze, nagradzana kuchnia regionalna z&nbsp;własnych produktów, mnóstwo atrakcji (łucznictwo, zipline). Solidna baza noclegowa jak na obiekt leśny.</div>
+    <div class="facts">
+      <span>do 160 gości</span><span>~55–90 miejsc nocl.</span><span>plener — sad/ogród <span class="q">?</span></span>
+    </div>
+    <div class="vs">vs Weranda: ten sam las (Puszcza Zielonka), większa pojemność i&nbsp;nocleg; stawy zamiast jeziora. <b>Uwaga:</b> bardzo popularne — wolne soboty znikają wcześnie.</div>
+    <div class="contact">tel. <a href="tel:+48603964094">603 964 094</a> &middot; <a href="https://www.ranczowdolinie.pl" target="_blank" rel="noopener">ranczowdolinie.pl</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank">Top dopasowanie</span>
+    <h3>Stary Kamionek</h3>
+    <div class="loc">Kamionek, gm. Kiszkowo &middot; ~45 km (Park Krajobrazowy Lednicy)</div>
+    <div class="desc">Ponad 100-letnia ceglano-drewniana stodoła z&nbsp;żyrandolami, otoczona trzema jeziorami (Kamionek, Bakorce, Linie). Klimat boho-rustykalny, kuchnia staropolska. Ocena 5,0/5.</div>
+    <div class="facts">
+      <span>do 140 gości</span><span>~62 miejsca nocl. <span class="q">?</span></span><span>plener — ogród; jeziora w pobliżu</span>
+    </div>
+    <div class="vs">vs Weranda: piękna naturalna sceneria i&nbsp;jeziora w&nbsp;okolicy, choć obiekt nie stoi bezpośrednio nad wodą.</div>
+    <div class="contact">tel. <a href="tel:+48691600222">691 600 222</a> &middot; <a href="https://starykamionek.pl" target="_blank" rel="noopener">starykamionek.pl</a></div>
+  </div>
+
+</div>
+
+<!-- ===================== GROUP B ===================== -->
+<h2>Grupa B — pałace, dwory i zamki z plenerem <span class="note">(premium, historyczna oprawa, park)</span></h2>
+<div class="grid">
+
+  <div class="card">
+    <span class="rank b">Pałac / zamek</span>
+    <h3>Zamek von Treskov</h3>
+    <div class="loc">Strykowo &middot; ~20 km od Poznania &middot; nad Jeziorem Strykowskim</div>
+    <div class="desc">Zamek z&nbsp;1900&nbsp;r. (gotyk + secesja), 10&nbsp;ha parku nad jeziorem, Szklany Pawilon z&nbsp;widokiem na wodę. Arystokratyczny klimat, blisko Poznania.</div>
+    <div class="facts">
+      <span>do 90 (wnętrza) / 200 (pawilon)</span><span>42 pokoje</span><span>plener — park nad jeziorem</span>
+    </div>
+    <div class="vs">vs Weranda: jezioro + bardzo blisko Poznania; oprawa zamkowa zamiast leśnego dworku.</div>
+    <div class="contact">tel. <a href="tel:+48666846601">666 846 601</a> &middot; <a href="https://www.treskov.pl" target="_blank" rel="noopener">treskov.pl</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank b">Pałac / zamek</span>
+    <h3>Pałac Wąsowo</h3>
+    <div class="loc">Wąsowo, gm. Kuślin &middot; ~45 km</div>
+    <div class="desc">Neogotycki pałac w&nbsp;300-letnim angielskim parku, kaplica ślubna na terenie + altana przy stawie, Wellness (basen, sauny). Kompletny resort, wyłączność jeden ślub dziennie, 20+ lat doświadczenia.</div>
+    <div class="facts">
+      <span>do 150–250 gości</span><span>125 pokoi</span><span>plener — kaplica, altana, park</span>
+    </div>
+    <div class="vs">vs Weranda: pełniejszy resort (SPA, kaplica, dużo noclegów), ale mniej „kameralny leśny dworek”, więcej „grand estate”.</div>
+    <div class="contact">tel. <a href="tel:+48697060684">697 060 684</a> &middot; <a href="https://wasowo.pl" target="_blank" rel="noopener">wasowo.pl</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank b">Pałac / zamek</span>
+    <h3>Pałac Szczepowice</h3>
+    <div class="loc">Szczepowice, ~38 km (10 km od węzła S5 Stęszew)</div>
+    <div class="desc">Neobarokowy pałac (nagroda konserwatorska) w&nbsp;6-ha parku z&nbsp;wiekowymi drzewami, gazebo i&nbsp;huśtawkami. Kameralny — jeden ślub na datę, elastyczne menu.</div>
+    <div class="facts">
+      <span>do 90 / 150 (namiot)</span><span>45 miejsc nocl.</span><span>plener — park, altana</span>
+    </div>
+    <div class="vs">vs Weranda: kameralność i&nbsp;wyłączność podobne; brak jeziora, mniejszy nocleg.</div>
+    <div class="contact"><a href="https://www.weselezklasa.pl/ogloszenia-weselne/palac-szczepowice,25339/" target="_blank" rel="noopener">weselezklasa.pl → Pałac Szczepowice</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank b">Pałac / zamek</span>
+    <h3>Dwór Cieszkowskiego, Wierzenica</h3>
+    <div class="loc">Wierzenica &middot; ~12 km od Poznania &middot; <b>skraj Puszczy Zielonki</b></div>
+    <div class="desc">Autentyczny XIX-wieczny dwór (1842) w&nbsp;3,5-ha parku — sad, staw, las, historyczne wnętrza. Najbliższy „mikroklimat” Werandy tuż pod Poznaniem. Kameralny, niższa półka cenowa.</div>
+    <div class="facts">
+      <span>do 135 gości (stodoła)</span><span>~16 miejsc nocl.</span><span>plener — sad/staw/las</span><span>~200–300 zł/os. <span class="q">orient.</span></span>
+    </div>
+    <div class="vs">vs Weranda: ten sam klimat Puszczy Zielonki blisko miasta i&nbsp;taniej; wada — bardzo mało noclegów na miejscu.</div>
+    <div class="contact">tel. <a href="tel:+48503503034">503 503 034</a> &middot; <a href="https://www.dwor-wierzenica.pl" target="_blank" rel="noopener">dwor-wierzenica.pl</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank b">Pałac / zamek</span>
+    <h3>Kasztanowy Pałac, Swadzim</h3>
+    <div class="loc">Swadzim &middot; ~12 km od Poznania (3 min od S5)</div>
+    <div class="desc">Neoklasycystyczny pałac z&nbsp;XIX&nbsp;w. w&nbsp;7-ha parku krajobrazowym ze stawem. Bardzo blisko miasta i&nbsp;lotniska, klasyczna elegancja.</div>
+    <div class="facts">
+      <span>pojemność <span class="q">?</span></span><span>noclegi <span class="q">?</span></span><span>park 7 ha, staw</span>
+    </div>
+    <div class="vs">vs Weranda: świetny dojazd; mniej „natura/jezioro”, bardziej podmiejski pałac. Dane pojemności/noclegów do potwierdzenia.</div>
+    <div class="contact">tel. <a href="tel:+48665490590">665 490 590</a> &middot; <a href="https://kasztanowypalac.pl" target="_blank" rel="noopener">kasztanowypalac.pl</a></div>
+  </div>
+
+</div>
+
+<!-- ===================== GROUP C ===================== -->
+<h2>Grupa C — folwarki i stodoły z dużym noclegiem <span class="note">(rustykalna elegancja, eko)</span></h2>
+<div class="grid">
+
+  <div class="card">
+    <span class="rank c">Folwark / stodoła</span>
+    <h3>Folwark Wąsowo</h3>
+    <div class="loc">Wąsowo, gm. Kuślin &middot; ~50 km (przy A2)</div>
+    <div class="desc">Zrewitalizowany XIX-wieczny folwark (stodoła, stajnia, gorzelnia, kuźnia), ogrody i&nbsp;staw, kaplica obok. Kuchnia eko z&nbsp;własnego ogrodu (wege/vegan). Duża baza noclegowa.</div>
+    <div class="facts">
+      <span>70–250 gości</span><span>~93 miejsca nocl.</span><span>plener — staw/ogród/dziedziniec</span><span>~340–455 zł/os. <span class="q">orient.</span></span>
+    </div>
+    <div class="vs">vs Weranda: zbliżona filozofia natury i&nbsp;eko-kuchni, dużo więcej miejsc i&nbsp;noclegów; staw zamiast jeziora, własny catering obowiązkowy.</div>
+    <div class="contact">tel. <a href="tel:+48614472924">61 447 29 24</a> &middot; <a href="https://folwarkwasowo.pl" target="_blank" rel="noopener">folwarkwasowo.pl</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank c">Folwark / stodoła</span>
+    <h3>Spichlerz Wąsowo</h3>
+    <div class="loc">Wąsowo, gm. Kuślin &middot; ~45 km (sąsiedztwo Pałacu Wąsowo)</div>
+    <div class="desc">Klimatyczny spichlerz/folwark — naturalne drewno, ciepły rustykalny nastrój, kuchnia regionalna z&nbsp;własnych ekoupraw, zewnętrzna strefa SPA. Atrakcje dla dzieci (konie, rowery).</div>
+    <div class="facts">
+      <span>do 150–250 gości</span><span>~130 miejsc nocl.</span><span>plener — ogród</span>
+    </div>
+    <div class="vs">vs Weranda: bardzo duży nocleg, sielski klimat; brak jeziora, bardziej rustykalny niż premium-resort.</div>
+    <div class="contact">tel. <a href="tel:+48576838480">576 838 480</a> &middot; <a href="https://spichlerzwasowo.pl" target="_blank" rel="noopener">spichlerzwasowo.pl</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank c">Folwark / stodoła</span>
+    <h3>Przyborowo 11</h3>
+    <div class="loc">Przyborowo &middot; ~30 km od Poznania</div>
+    <div class="desc">Leśna willa z&nbsp;ceremonią plenerową pod 100-letnią lipą — kameralny, naturalny klimat, noclegi na miejscu.</div>
+    <div class="facts">
+      <span>do ~63 gości</span><span>~60 miejsc nocl.</span><span>plener — pod lipą</span>
+    </div>
+    <div class="vs">vs Weranda: bardzo kameralny i&nbsp;leśny, dobra proporcja nocleg/goście; brak jeziora.</div>
+    <div class="contact"><a href="https://www.weselezklasa.pl" target="_blank" rel="noopener">weselezklasa.pl → Przyborowo 11</a></div>
+  </div>
+
+</div>
+
+<!-- ===================== GROUP D ===================== -->
+<h2>Grupa D — większe resorty hotelowe nad jeziorem <span class="note">(dalej / większa skala)</span></h2>
+<div class="grid">
+
+  <div class="card">
+    <span class="rank d">Resort hotelowy</span>
+    <h3>Hotel Pietrak</h3>
+    <div class="loc">Wągrowiec &middot; ~60–65 km &middot; nad Jeziorem Durowskim</div>
+    <div class="desc">Hotel 4* bezpośrednio nad jeziorem, trzy sale z&nbsp;widokiem na wodę, duże zaplecze. Dla większych wesel z&nbsp;pełnym noclegiem.</div>
+    <div class="facts">
+      <span>do 250 gości</span><span>~120 miejsc nocl.</span><span>plener — taras/park nad jeziorem <span class="q">?</span></span>
+    </div>
+    <div class="vs">vs Weranda: jezioro + duży nocleg, ale styl „hotel” zamiast kameralnego resortu. <b>Uwaga:</b> portal sygnalizował brak odpowiedzi na zapytania — zweryfikować aktualność.</div>
+    <div class="contact"><a href="https://hotel-pietrak.pl" target="_blank" rel="noopener">hotel-pietrak.pl</a> <span class="q">(zweryfikować)</span></div>
+  </div>
+
+  <div class="card">
+    <span class="rank d">Resort hotelowy</span>
+    <h3>Olandia Resort</h3>
+    <div class="loc">Prusim k. Kwilcza &middot; ~70 km &middot; nad Jeziorem Kuchennym</div>
+    <div class="desc">XVIII-wieczny dwór olenderski w&nbsp;Sierakowskim Parku Krajobrazowym, SPA, winiarniana restauracja, plaża nad jeziorem. Kompletny resort z&nbsp;dużym noclegiem.</div>
+    <div class="facts">
+      <span>do 200 gości</span><span>174 miejsca nocl.</span><span>plener — brzeg jeziora</span><span>nocleg 115–745 zł/os.</span>
+    </div>
+    <div class="vs">vs Weranda: jezioro + puszcza + SPA i&nbsp;duży nocleg; styl dworsko-historyczny, dalej od Poznania.</div>
+    <div class="contact">tel. <a href="tel:+48612915379">61 29 15 379</a> &middot; <a href="https://www.olandia.pl" target="_blank" rel="noopener">olandia.pl</a></div>
+  </div>
+
+  <div class="card">
+    <span class="rank d">Resort hotelowy</span>
+    <h3>Hotel Navigator</h3>
+    <div class="loc">Zbąszyń &middot; ~70 km (przy A2) &middot; nad Jeziorem Błędno</div>
+    <div class="desc">Hotel 3* z&nbsp;SPA w&nbsp;obszarze Natura 2000, ceremonia możliwa przy brzegu jeziora. Bardzo łatwy dojazd autostradą.</div>
+    <div class="facts">
+      <span>do 100 gości</span><span>noclegi <span class="q">~30–50?</span></span><span>plener — brzeg jeziora</span>
+    </div>
+    <div class="vs">vs Weranda: jezioro + łatwy dojazd; styl bardziej „hotel” niż premium-resort, mniej danych online.</div>
+    <div class="contact">tel. <a href="tel:+48683846088">68 38 46 088</a> &middot; <a href="https://www.navigatorhotel.pl" target="_blank" rel="noopener">navigatorhotel.pl</a></div>
+  </div>
+
+</div>
+
+<!-- ===================== TABELA ===================== -->
+<h2>Tabela porównawcza <span class="note">(szybka orientacja — szczegóły w kartach wyżej)</span></h2>
+<table>
+  <thead>
+    <tr><th>Obiekt</th><th class="c">km od Poz.</th><th class="c">Woda</th><th class="c">Max gości</th><th class="c">Noclegi</th><th class="c">Plener</th><th>Charakter</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="star">Weranda Home (wzorzec)</td><td class="c">~35</td><td class="c">2 jeziora</td><td class="c">120</td><td class="c">86</td><td class="c">tak</td><td>leśny dworek premium</td></tr>
+    <tr><td>Mięta Kobylec</td><td class="c">~60</td><td class="c">jezioro</td><td class="c">70</td><td class="c">~35–40</td><td class="c">tak</td><td>slow wedding nad jeziorem</td></tr>
+    <tr><td>ArtFolwark Wojnowo</td><td class="c">~30</td><td class="c">jezioro</td><td class="c">~70–150?</td><td class="c">~18–20</td><td class="c">tak</td><td>design / postindustrial</td></tr>
+    <tr><td>Szczypta Natury</td><td class="c">~42</td><td class="c">jezioro</td><td class="c">130</td><td class="c">12 pok.</td><td class="c">tak</td><td>resort nad jeziorem (gm. Skoki)</td></tr>
+    <tr><td>Ranczo w Dolinie</td><td class="c">~40</td><td class="c">stawy/las</td><td class="c">160</td><td class="c">~55–90</td><td class="c">tak ?</td><td>folwark w Puszczy Zielonce</td></tr>
+    <tr><td>Stary Kamionek</td><td class="c">~45</td><td class="c">3 jeziora w pobliżu</td><td class="c">140</td><td class="c">~62 ?</td><td class="c">tak</td><td>zabytkowa stodoła boho</td></tr>
+    <tr><td>Zamek von Treskov</td><td class="c">~20</td><td class="c">jezioro</td><td class="c">90 / 200</td><td class="c">42 pok.</td><td class="c">tak</td><td>zamek gotyk-secesja</td></tr>
+    <tr><td>Pałac Wąsowo</td><td class="c">~45</td><td class="c">staw/park</td><td class="c">150–250</td><td class="c">125 pok.</td><td class="c">tak</td><td>pałac-resort + SPA + kaplica</td></tr>
+    <tr><td>Pałac Szczepowice</td><td class="c">~38</td><td class="c">—</td><td class="c">90 / 150</td><td class="c">45</td><td class="c">tak</td><td>neobarok, kameralny</td></tr>
+    <tr><td>Dwór Wierzenica</td><td class="c">~12</td><td class="c">staw/las</td><td class="c">135</td><td class="c">~16</td><td class="c">tak</td><td>XIX-w. dwór, Puszcza Zielonka</td></tr>
+    <tr><td>Kasztanowy Pałac Swadzim</td><td class="c">~12</td><td class="c">staw</td><td class="c">?</td><td class="c">?</td><td class="c">tak ?</td><td>podmiejski pałac</td></tr>
+    <tr><td>Folwark Wąsowo</td><td class="c">~50</td><td class="c">staw</td><td class="c">70–250</td><td class="c">~93</td><td class="c">tak</td><td>folwark eko</td></tr>
+    <tr><td>Spichlerz Wąsowo</td><td class="c">~45</td><td class="c">ogród</td><td class="c">150–250</td><td class="c">~130</td><td class="c">tak</td><td>spichlerz rustykalny</td></tr>
+    <tr><td>Przyborowo 11</td><td class="c">~30</td><td class="c">las</td><td class="c">~63</td><td class="c">~60</td><td class="c">tak</td><td>leśna willa, kameralna</td></tr>
+    <tr><td>Hotel Pietrak</td><td class="c">~60</td><td class="c">jezioro</td><td class="c">250</td><td class="c">~120</td><td class="c">tak ?</td><td>hotel 4* nad jeziorem</td></tr>
+    <tr><td>Olandia Resort</td><td class="c">~70</td><td class="c">jezioro</td><td class="c">200</td><td class="c">174</td><td class="c">tak</td><td>dwór olenderski + SPA</td></tr>
+    <tr><td>Hotel Navigator</td><td class="c">~70</td><td class="c">jezioro</td><td class="c">100</td><td class="c">~30–50?</td><td class="c">tak</td><td>hotel 3* + SPA</td></tr>
+  </tbody>
+</table>
+
+<!-- ===================== REKOMENDACJA ===================== -->
+<h2>Rekomendacja — od czego zacząć</h2>
+<div class="lead" style="background:#eef3e6">
+  <ul class="tight">
+    <li><b>Jeśli liczy się dokładnie ten klimat (jezioro + las + kameralnie + slow):</b> <b>Mięta Kobylec</b> i&nbsp;<b>Szczypta Natury</b> (ta sama gmina co Weranda!) to najbliższe trafienia. <b>ArtFolwark Wojnowo</b> — gdy chcesz blisko Poznania i&nbsp;mocnego charakteru.</li>
+    <li><b>Jeśli potrzeba więcej miejsc i&nbsp;noclegów dla gości:</b> <b>Ranczo w Dolinie</b> (Puszcza Zielonka, dużo atrakcji) lub <b>Pałac/Folwark Wąsowo</b> (pełen resort z&nbsp;SPA i&nbsp;dużym noclegiem).</li>
+    <li><b>Jeśli kluczowy jest krótki dojazd + jezioro:</b> <b>Zamek von Treskov</b> (~20 km) — efektowna oprawa, jezioro pod obiektem.</li>
+    <li><b>Najtaniej w&nbsp;klimacie Puszczy Zielonki, tuż pod Poznaniem:</b> <b>Dwór Wierzenica</b> (~12 km) — ale mało noclegów na miejscu.</li>
+  </ul>
+</div>
+
+<div class="callout">
+  <b>Zanim zadzwonisz — o co pytać (i&nbsp;czego nie da się sprawdzić online):</b>
+  <ul class="tight">
+    <li><b>Wolny termin</b> — przyjęcie planujemy na <b>październik 2026</b> (data ślubu cywilnego wciąż otwarta). Soboty schodzą najszybciej, dzwonić z konkretną datą.</li>
+    <li><b>Ceremonia cywilna w&nbsp;plenerze</b> — czy obiekt ma doświadczenie ze ślubem cywilnym poza USC i&nbsp;czy zdejmuje formalności z&nbsp;głowy (jak Weranda, gdzie właściwy jest USC Skoki).</li>
+    <li><b>Wyłączność</b> — czy w&nbsp;dniu wesela na pewno nie ma innych gości/eventów (to słaby punkt samej Werandy z&nbsp;2021 r.).</li>
+    <li><b>Cena</b> — niemal nigdzie nie ma cenników online; podaj liczbę gości i&nbsp;datę, by dostać realną wycenę.</li>
+    <li><b>Liczba gości</b> — wiele z&nbsp;tych obiektów jest kameralnych (70–140); jeśli lista gości urośnie, część odpada (zostają Pałac/Folwark Wąsowo, Pietrak, Olandia).</li>
+  </ul>
+</div>
+
+<div class="foot">
+  <p><b>Dalej / poza zasięgiem ~70 km, ale w&nbsp;klimacie</b> (gdyby warto rozszerzyć): Herbarium Hotel &amp; SPA (Chomiąża Szlachecka, ~105 km — 54 pokoje, sale do 150 os., pomost nad jeziorem), Trzy Jeziora (Wieleń Zaobrzański, ~85 km — 400 miejsc noclegowych), Stodoła Dyrkowo (Słupca, ~90 km — glamping, ocena 4,98/5).</p>
+  <p><b>Metodologia i&nbsp;zastrzeżenia.</b> Dane zebrane 24.06.2026 z&nbsp;polskich źródeł (strony obiektów, weselezklasa.pl, saleweselne.com, gdziewesele.pl, opinie Google) przez 5 równoległych researchów. Pojemności i&nbsp;liczby noclegów zweryfikowane wieloźródłowo tam, gdzie to możliwe; pola z&nbsp;<span class="q">?</span> oraz ceny „orientacyjnie” wymagają potwierdzenia przy zapytaniu. Ceny weselne w&nbsp;tej branży są ustalane indywidualnie — traktuj liczby jako rząd wielkości, nie ofertę.</p>
+</div>
+
+</div>
+</body>
+</html>
